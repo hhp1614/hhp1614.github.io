@@ -9,9 +9,8 @@ categories:
   - 环境
 date: 2019-05-18 02:17:46
 ---
-
-
-# CentOS 7 下 yum 安装 MySQL 5.7
+ 
+在 CentOS 下配置 MySQL 环境并开启远程连接
 
 <!-- more -->
 
