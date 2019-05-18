@@ -87,7 +87,8 @@ footer:
     icp:
 
   # Any custom text can be defined here.
-  #custom_text: Hosted by <a href="https://pages.coding.me" class="theme-link" rel="noopener" target="_blank">Coding Pages</a>
+  # custom_text: Hosted by <a href="https://pages.coding.me" class="theme-link" rel="noopener" target="_blank">Hello world</a>
+  custom_text: 托管于 <a href="https://github.com/" target="_blank" rel="nofollow">GitHub</a>. <a href="https://www.cloudflare.com/" target="_blank" rel="nofollow">Cloudflare</a> 提供 CDN 服务. <a href="https://www.cloudxns.net/" target="_blank" rel="nofollow">CloudXNS</a> 提供 DNS 解析服务. <a href="http://www.google.com/analytics/" target="_blank" rel="nofollow">Google Analytics</a> 提供网站统计服务.
 
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/share-your-work/licensing-types-examples
@@ -756,7 +757,7 @@ needmoreshare2:
 #growingio_analytics: #your projectId
 
 # Google Analytics
-#google_analytics:
+google_analytics: UA-140381390-1
 #  tracking_id:
 #  localhost_ignored: true
 
