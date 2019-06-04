@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://hhp1614.com
+url: https://hhp1614.com
 root: /
 permalink: :title/
 permalink_defaults:
@@ -43,7 +43,7 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -61,7 +61,7 @@ archive_generator:
 
 tag_generator:
   per_page: 0
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
