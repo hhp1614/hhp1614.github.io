@@ -6,7 +6,7 @@ tags:
   - JavaScript
 ---
 
-在进行窗口的 resize、scroll，输入框内容校验等操作时，如果事件处理函数调用的频率无限制，会加重浏览器的负担，导致用户体验非常糟糕。此时我们可以采用两个常用的高阶函数：throttle（节流）和 debounce（防抖）。它们经常用来防止函数被高频调用，同时又不影响实际效果。
+在进行窗口的 resize、scroll，输入框内容校验等操作时，如果事件处理函数调用的频率无限制，会加重浏览器的负担，导致用户体验非常糟糕。此时我们可以采用两个常用的高阶函数：`throttle`（节流）和 `debounce`（防抖）。它们经常用来防止函数被高频调用，同时又不影响实际效果。
 
 ### throttle 节流
 
@@ -16,13 +16,13 @@ tags:
 <div style="width: 300px; height: 300px; border: 1px solid #999;"></div>
 
 <script>
-  const throttle = (func, threshold = 160) => {
-    let timeout
+  const throttle = (func, delay = 160) => {
+    let timeout = null
     let start = +new Date()
     return (...args) => {
       const curr = +new Date()
       clearTimeout(timeout)
-      if (curr - start >= threshold) {
+      if (curr - start >= delay) {
         // 让方法在一定时间段内只执行一次
         func.apply(this, args)
         start = curr
@@ -30,7 +30,7 @@ tags:
         // 让方法在脱离时间后也执行一次
         timeout = setTimeout(() => {
           func.apply(this, args)
-        }, threshold)
+        }, delay)
       }
     }
   }
@@ -49,13 +49,13 @@ tags:
 <input type="text" />
 
 <script>
-  const debounce = (func, delay = 160) => {
-    let timeout
+  const debounce = (func, wait = 160) => {
+    let timeout = null
     return (...args) => {
       clearTimeout(timeout)
       timeout = setTimeout(() => {
         func.apply(this, args)
-      }, delay)
+      }, wait)
     }
   }
   // 例子

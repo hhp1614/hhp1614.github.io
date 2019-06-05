@@ -93,10 +93,13 @@ btnBgColor = #99999980
     &-item:hover
       .nav-item-bg-1
         background #ff572280
+        animation-duration 1s
       .nav-item-bg-2
         background #ff572280
+        animation-duration 1s
       .nav-item-bg-3
         background #ff572280
+        animation-duration 1s
 @keyframes rotateMain1
   from
     transform rotateZ(0deg)
