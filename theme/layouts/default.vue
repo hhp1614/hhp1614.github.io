@@ -92,6 +92,6 @@ export default {
 .main
   max-width 1200px
   p
-    margin 0
+    margin 0 0 1rem 0
 </style>
 
