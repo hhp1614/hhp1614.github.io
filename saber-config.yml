@@ -1,0 +1,27 @@
+theme: ./theme
+
+siteConfig:
+  title: hhp1614
+  description: hhp1614 blog
+  url: https://hhp1614.com
+  author: hhp1614
+  email: hhp1614@gmail.com
+  tags:
+    - CentOS
+    - MySQL
+
+themeConfig:
+  title: hhp1614 的博客
+  subTitle: hello world
+  copyRight: © hhp1614
+  sideBar:
+    - text: 主页
+      link: /
+    - text: 标签
+      link: /tags.html
+    - text: 关于
+      link: /about.html
+
+plugins:
+  - resolve: saber-plugin-query-posts
+  - resolve: saber-plugin-prismjs
