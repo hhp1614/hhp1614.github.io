@@ -7,6 +7,7 @@ siteConfig:
   author: hhp1614
   email: hhp1614@gmail.com
   tags:
+    - JavaScript
     - CentOS
     - MySQL
 
@@ -25,3 +26,4 @@ themeConfig:
 plugins:
   - resolve: saber-plugin-query-posts
   - resolve: saber-plugin-prismjs
+  - resolve: saber-plugin-netlify-redirect
