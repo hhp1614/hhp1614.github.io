@@ -7,7 +7,9 @@
         <ul>
           <li v-for="post in page.posts" :key="post.permalink">
             <h4>
-              {{ formatDate(post.attributes.createdAt) }} -
+              <span class="date">
+                {{ formatDate(post.attributes.createdAt) }} -
+              </span>
               <saber-link :to="post.attributes.permalink">
                 {{ post.attributes.title }}
               </saber-link>
@@ -55,4 +57,7 @@ export default {
   margin 0
   padding-left 0
   list-style none
+@media (max-width 768px)
+  .recent-posts ul .date
+    display none
 </style>

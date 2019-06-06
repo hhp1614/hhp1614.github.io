@@ -12,7 +12,7 @@ siteConfig:
     - MySQL
 
 themeConfig:
-  title: hhp1614 的博客
+  title: hello, hhp1614
   subTitle: hello world
   copyRight: © hhp1614
   sideBar:
@@ -27,3 +27,6 @@ plugins:
   - resolve: saber-plugin-query-posts
   - resolve: saber-plugin-prismjs
   - resolve: saber-plugin-netlify-redirect
+  - resolve: saber-plugin-google-analytics
+    options:
+      trackId: UA-140381390-1
