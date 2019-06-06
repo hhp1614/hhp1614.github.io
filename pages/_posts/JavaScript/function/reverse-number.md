@@ -27,7 +27,7 @@ console.log(reverseNum(123)) // 321
 console.log(reverseNum(-123)) // -321
 ```
 
-然鹅，今天在刷 LeetCode 的时候突然看到一个别人的思路，发现翻转整数不需要转换成字符也行：
+然鹅，今天在刷 LeetCode 的时候突然看到一个别人的思路，发现翻转整数不需要转换成字符也行，可以提高代码的性能：
 
 ```js {highlightLines:['1-14']}
 const reverseNum = x => {
