@@ -30,6 +30,7 @@ export default {
 <style lang="stylus">
 headerHeight = 10vmin
 btnBgColor = #99999980
+color = rgb(255,87,34)
 
 body
   padding-top headerHeight
@@ -55,6 +56,7 @@ body
   box-shadow 0 1px 15px #adadad
   h1
     line-height headerHeight
+    color color
   .nav
     flex 1
     display flex
