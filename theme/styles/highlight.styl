@@ -1,0 +1,108 @@
+@import './fonts.styl'
+
+pre
+  overflow-x auto
+  font-family: Source Code Variable, consolas, Courier New, monospace
+code
+  font-size: 1rem;
+  tab-size: 4;
+  color: #bd10e0;
+  font-family: Source Code Variable, consolas, Courier New, monospace
+code::before, code::after
+  content '`'
+pre code
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+pre code::before, pre code:after
+  content ''
+
+
+.saber-highlight
+  margin 10px 0 20px
+  background-color var(--bg-color)
+  .saber-highlight-code
+    background-color initial
+    border 1px solid var(--btn-bg-color)
+    border-radius 4px
+  .saber-highlight-code code, .saber-highlight-mask
+    font-size 1rem
+
+.saber-highlight:before
+  color: #b1b1b1
+
+
+
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+.token.punctuation {
+  color: #999;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #a67f59;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a;
+}
+
+.token.function,
+.token.class-name {
+  color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e90;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}

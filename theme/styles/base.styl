@@ -1,0 +1,77 @@
+// global variable
+:root
+  --color #586e75
+  --a-color #b58900
+  --a-hover-color #ff69b4
+  // --bg-color #faf9de
+  --bg-color #fdf6e3
+  --btn-bg-color #99999980
+  --btn-bg-color-bg #ff572280
+
+body, h1, ul
+  margin 0
+ul
+  list-style none
+  padding 0
+a
+  color var(--a-color)
+  text-decoration none
+a:hover
+  color var(--a-hover-color)
+
+// 滚动条
+::-webkit-scrollbar
+    width 6px
+    height 6px
+    background-color #F5F5F5
+::-webkit-scrollbar-track
+    -webkit-box-shadow 0 0 3px rgba(0,0,0,0.3) inset
+    background-color #F5F5F5
+::-webkit-scrollbar-thumb
+    border-radius 3px
+    -webkit-box-shadow 0 0 3px rgba(0,0,0,0.3) inset
+    background-color #999
+::-webkit-scrollbar-thumb:hover
+    background-color #777
+::-webkit-scrollbar-thumb:active
+    background-color #555
+
+*
+  box-sizing border-box
+
+html
+  font-size 18px
+  line-height 1.8
+
+body
+  margin 0
+  background var(--bg-color)
+  color var(--color)
+  font-family PingFang SC, Lantinghei SC, -apple-system, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans
+
+h1, h2, h3, h4, h5, h6
+  margin 0
+  color var(--a-color)
+  font-weight 300
+h2
+  font-size 2.2rem
+h3
+  font-size 1.8rem
+h4
+  font-size 1.4rem
+h5
+  font-size 1rem
+h6
+  font-size 0.6rem
+
+@media (max-width 768px)
+  h2
+    font-size 1.4rem
+  h3
+    font-size 1.2rem
+  h4
+    font-size 1rem
+  h5
+    font-size 0.8rem
+  h6
+    font-size 0.6rem
