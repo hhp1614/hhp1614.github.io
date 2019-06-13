@@ -1,21 +1,44 @@
 <template>
-  <div>
+  <div class="layout">
     <Header />
-    <div class="main">
+    <div class="main index">
       <slot name="default" />
-      <div class="recent-posts" v-if="page.posts">
-        <ul>
-          <li v-for="post in page.posts" :key="post.permalink">
-            <h4>
-              <span class="date">
-                {{ formatDate(post.attributes.createdAt) }} -
-              </span>
-              <saber-link :to="post.attributes.permalink">
-                {{ post.attributes.title }}
-              </saber-link>
-            </h4>
-          </li>
-        </ul>
+      <div class="posts" v-if="posts">
+        <template v-for="(post, index) in posts">
+          <saber-link
+            class="posts-item"
+            v-if="post.attributes"
+            :key="post.permalink"
+            :to="post.attributes.permalink"
+          >
+            <span class="posts-item-title">{{ post.attributes.title }}</span>
+            <span class="posts-item-date">
+              {{ formatDate(post.attributes.createdAt) }}
+            </span>
+          </saber-link>
+          <div v-else :key="index" style="flex: 1;"></div>
+        </template>
+      </div>
+      <div class="pagination">
+        <saber-link
+          class="prev"
+          title="上一页"
+          v-if="page.pagination.hasNext"
+          :to="page.pagination.nextLink"
+        >
+          &lt; 上一页
+        </saber-link>
+        <span class="current">
+          {{ page.pagination.current }} / {{ page.pagination.total }}
+        </span>
+        <saber-link
+          class="next"
+          title="下一页"
+          v-if="page.pagination.hasPrev"
+          :to="page.pagination.prevLink"
+        >
+          下一页 &gt;
+        </saber-link>
       </div>
     </div>
     <Footer />
@@ -40,24 +63,69 @@ export default {
         : this.$siteConfig.title
     }
   },
+  computed: {
+    posts() {
+      if (this.page.posts.length < 10) {
+        // this.page.posts.length = 10
+        for (let i = 0; i < 10; i++) {
+          if (!this.page.posts[i]) {
+            this.page.posts[i] = {}
+          }
+        }
+      }
+      return this.page.posts
+    }
+  },
   methods: {
     formatDate(v) {
       const date = new Date(v)
       return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
     }
-  },
-  created() {
-    // console.log(this)
   }
 }
 </script>
 
 <style lang="stylus">
-.recent-posts ul
-  margin 0
-  padding-left 0
-  list-style none
+.index
+  .posts
+    flex 1
+    display flex
+    flex-direction column
+    &-item
+      flex 1
+      align-items center
+      display flex
+      height 100%
+      padding 0 20px
+      transition var(--transition-default)
+      &-title
+        flex 1
+        font-size 1.8rem
+        overflow hidden
+        white-space nowrap
+        text-overflow ellipsis
+      &-date
+        color var(--light-color)
+    &-item:hover
+      box-shadow 0 0 15px var(--box-shadow-color)
+  .pagination
+    position relative
+    text-align center
+    // .current
+    //   width 100%
+    .prev
+      position absolute
+      top 0
+      left 20px
+    .next
+      position absolute
+      top 0
+      right 20px
+
 @media (max-width 768px)
-  .recent-posts ul .date
-    display none
+  .index
+    .posts
+      &-item
+        &-title
+          font-size 1rem
 </style>

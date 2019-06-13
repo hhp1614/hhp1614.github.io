@@ -25,6 +25,8 @@ themeConfig:
 
 plugins:
   - resolve: saber-plugin-query-posts
+    options:
+      perPage: 10
   - resolve: saber-plugin-prismjs
   - resolve: saber-plugin-netlify-redirect
   - resolve: saber-plugin-pwa

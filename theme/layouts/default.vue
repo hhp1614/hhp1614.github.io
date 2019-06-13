@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout">
     <Header />
     <div class="main">
       <div class="page-content">
@@ -89,9 +89,9 @@ export default {
 </script>
 
 <style lang="stylus">
-.main
-  max-width 1200px
-  p
-    margin 0 0 1rem 0
+// .main
+//   max-width 1200px
+//   p
+//     margin 0 0 1rem 0
 </style>
 

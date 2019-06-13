@@ -17,18 +17,14 @@ export default {
 </script>
 
 <style lang="stylus">
-body
-  padding-bottom 1.8rem
 .footer
   width 100%
   height 1.8rem
-  position fixed
-  left 0
-  bottom 0
-  padding 0 4vmin
+  position relative
+  z-index 1
+  padding 0 var(--side-padding)
   background var(--bg-color)
-  z-index 9999
-  box-shadow 1px 0 15px #adadad
+  box-shadow 1px 0 15px var(--box-shadow-color)
 .sp-copyright
   text-align center
 </style>

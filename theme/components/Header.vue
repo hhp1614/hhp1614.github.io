@@ -32,9 +32,6 @@ headerHeight = 10vmin
 btnBgColor = #99999980
 color = rgb(255,87,34)
 
-body
-  padding-top headerHeight
-
 .nav-item-bg
   position absolute
   width 60%
@@ -47,13 +44,11 @@ body
   display flex
   width 100%
   height: headerHeight
-  position fixed
-  top 0
-  left 0
-  padding 0 4vmin
+  position relative
+  z-index 1
+  padding 0 var(--side-padding)
   background var(--bg-color)
-  z-index 9999
-  box-shadow 0 1px 15px #adadad
+  box-shadow 0 1px 15px var(--box-shadow-color)
   h1
     line-height headerHeight
     color color
@@ -104,6 +99,7 @@ body
         animation-duration 1s
       a
         color var(--bg-color)
+
 @keyframes rotateMain1
   from
     transform rotateZ(0deg)
@@ -122,6 +118,4 @@ body
 @media (max-width 768px)
   .header
     font-size 0.8rem
-    h1
-      display none
 </style>
