@@ -18,6 +18,7 @@
     "saber-plugin-google-analytics": "^0.0.6",
     "saber-plugin-netlify-redirect": "^0.0.6",
     "saber-plugin-prismjs": "^0.2.1",
+    "saber-plugin-pwa": "^0.3.3",
     "saber-plugin-query-posts": "^0.3.2"
   },
   "devDependencies": {
