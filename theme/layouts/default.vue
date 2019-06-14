@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <Header />
-    <div class="main">
+    <div class="main default">
       <div class="page-content">
         <div class="page-tags" v-if="tags">
           <saber-link
@@ -16,31 +16,29 @@
         <div class="page-header">
           <h1 class="page-title">{{ page.attributes.title }}</h1>
           <h2 class="page-subtitle">{{ page.attributes.subTitle }}</h2>
+          <div class="page-time">
+            {{ formatDate(page.attributes.updatedAt) }}
+          </div>
         </div>
         <div class="page-body">
           <div class="markdown-body">
             <slot name="default"></slot>
           </div>
         </div>
-        <div class="page-footer">
-          <time class="page-time">
-            {{ formatDate(page.attributes.updatedAt) }}
-          </time>
-        </div>
         <div class="prev-next" v-if="page.prevPost || page.nextPost">
-          <router-link
-            v-if="page.prevPost"
-            :to="page.prevPost.permalink"
-            class="prev"
-          >
-            ← {{ page.prevPost.title }}
-          </router-link>
           <router-link
             v-if="page.nextPost"
             :to="page.nextPost.permalink"
+            class="prev"
+          >
+            ← {{ page.nextPost.title }}
+          </router-link>
+          <router-link
+            v-if="page.prevPost"
+            :to="page.prevPost.permalink"
             class="next"
           >
-            {{ page.nextPost.title }} →
+            {{ page.prevPost.title }} →
           </router-link>
         </div>
       </div>
@@ -50,6 +48,7 @@
 </template>
 
 <script>
+import { timeFormatPass } from 'hhp-utils'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 
@@ -61,9 +60,7 @@ export default {
       // Strip HTML tags
       summary = summary.replace(/<(?:.|\n)*?>/gm, '')
     }
-    return {
-      title
-    }
+    return { title }
   },
   props: ['page'],
   components: {
@@ -73,25 +70,27 @@ export default {
   computed: {
     tags() {
       return this.page.attributes.tags && this.page.attributes.tags.sort()
-      // return []
     }
   },
   methods: {
     formatDate(v) {
-      const date = new Date(v)
-      return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`
+      return timeFormatPass(v)
     }
-  },
-  created() {
-    // console.log(this)
   }
 }
 </script>
 
 <style lang="stylus">
-// .main
-//   max-width 1200px
-//   p
-//     margin 0 0 1rem 0
+.default
+  padding 20px
+  overflow auto
+  .prev-next
+    overflow hidden
+    .prev
+      float left
+    .next
+      float right
+  .page-time
+    color var(--light-color)
 </style>
 

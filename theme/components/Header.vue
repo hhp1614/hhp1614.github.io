@@ -20,15 +20,11 @@
 </template>
 
 <script>
-export default {
-  created() {
-    // console.log(this)
-  }
-}
+export default {}
 </script>
 
 <style lang="stylus">
-headerHeight = 10vmin
+headerHeight = 8vmax
 btnBgColor = #99999980
 color = rgb(255,87,34)
 

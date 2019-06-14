@@ -111,8 +111,6 @@ export default {
   .pagination
     position relative
     text-align center
-    // .current
-    //   width 100%
     .prev
       position absolute
       top 0
