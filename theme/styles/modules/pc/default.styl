@@ -29,9 +29,13 @@
   .tags
     .tag
       color #0094f0
+      margin-right 1vmin
 
       &::after
         background-color @color
+
+      &:last-child
+        margin-right 0
 
   .default-header
     line-height $lineHeight

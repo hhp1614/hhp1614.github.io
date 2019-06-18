@@ -7,11 +7,11 @@
           <div class="tags" v-if="tags">
             <saber-link
               class="tag"
-              :to="`/tags/${tag}`"
               v-for="tag in tags"
               :key="tag"
+              :to="`/tags/${tag}`"
             >
-              #{{ tag }}
+              <span style="color: #00b368;">#</span>{{ tag }}
             </saber-link>
           </div>
           <div class="default-header">
