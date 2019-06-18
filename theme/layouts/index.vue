@@ -1,40 +1,48 @@
 <template>
   <div class="layout">
-    <Header />
-    <div class="main index">
+    <Header @changeRoute="changeRoute" :headOut="headOut" />
+    <div class="main index" :class="{ 'page-out': pageOut }">
       <div class="list" v-if="posts">
         <Scrollbar>
           <div class="item" v-for="post in posts" :key="post.permalink">
-            <saber-link :to="post.attributes.permalink">
+            <a @click="changeRoute(post.attributes.permalink)">
               <span class="title">{{ post.attributes.title }}</span>
               <span class="date">
                 {{ formatDate(post.attributes.createdAt) }}
               </span>
-            </saber-link>
+            </a>
+          </div>
+          <div class="item" v-for="item in 3" :key="item">
+            <a href="javascript:;">
+              <span class="title">test-{{ item }}</span>
+              <span class="date">
+                2019-6-18
+              </span>
+            </a>
           </div>
         </Scrollbar>
       </div>
-      <div class="pagination">
-        <saber-link
-          class="prev"
-          title="上一页"
-          v-if="page.pagination.hasNext"
-          :to="page.pagination.nextLink"
-        >
-          &lt; 上一页
-        </saber-link>
-        <span class="current">
-          {{ page.pagination.current }} / {{ page.pagination.total }}
-        </span>
-        <saber-link
-          class="next"
-          title="下一页"
-          v-if="page.pagination.hasPrev"
-          :to="page.pagination.prevLink"
-        >
-          下一页 &gt;
-        </saber-link>
-      </div>
+    </div>
+    <div class="pagination" :class="{ 'foot-out': footOut }">
+      <saber-link
+        class="prev"
+        title="上一页"
+        v-if="page.pagination.hasNext"
+        :to="page.pagination.nextLink"
+      >
+        &lt; 上一页
+      </saber-link>
+      <span class="current">
+        {{ page.pagination.current }} / {{ page.pagination.total }}
+      </span>
+      <saber-link
+        class="next"
+        title="下一页"
+        v-if="page.pagination.hasPrev"
+        :to="page.pagination.prevLink"
+      >
+        下一页 &gt;
+      </saber-link>
     </div>
   </div>
 </template>
@@ -57,6 +65,13 @@ export default {
         : this.$siteConfig.title
     }
   },
+  data() {
+    return {
+      pageOut: false,
+      headOut: false,
+      footOut: false
+    }
+  },
   computed: {
     posts() {
       return this.page.posts
@@ -66,6 +81,17 @@ export default {
     formatDate(v) {
       const date = new Date(v)
       return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+    },
+    changeRoute(path) {
+      this.pageOut = true
+      this.headOut = true
+      this.footOut = true
+      setTimeout(() => {
+        this.pageOut = false
+        this.headOut = false
+        this.footOut = false
+        typeof path === 'string' && this.$router.push({ path })
+      }, 300)
     }
   }
 }

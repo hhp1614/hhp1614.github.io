@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
-    <Header />
-    <div class="main default">
+    <Header @changeRoute="changeRoute" :headOut="headOut" />
+    <div class="main default" :class="{ 'page-out': pageOut }">
       <Scrollbar>
         <div class="default-content">
           <div class="tags" v-if="tags">
@@ -68,6 +68,12 @@ export default {
     Header,
     Scrollbar
   },
+  data() {
+    return {
+      pageOut: false,
+      headOut: false
+    }
+  },
   computed: {
     tags() {
       return this.page.attributes.tags && this.page.attributes.tags.sort()
@@ -76,6 +82,15 @@ export default {
   methods: {
     formatDate(v) {
       return timeFormatPass(v)
+    },
+    changeRoute() {
+      this.pageOut = true
+      this.headOut = true
+      setTimeout(() => {
+        this.pageOut = false
+        this.headOut = false
+        typeof path === 'string' && this.$router.push({ path })
+      }, 300)
     }
   }
 }
