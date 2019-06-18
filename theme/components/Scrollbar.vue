@@ -25,7 +25,9 @@ export default {
     }
   },
   created() {
-    this.isPC = navigator ? !isMobile() : true
+    if (window) {
+      this.isPC = window.navigator ? !isMobile() : true
+    }
   },
   mounted() {
     this.init()
