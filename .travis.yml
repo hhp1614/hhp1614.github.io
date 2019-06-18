@@ -3,12 +3,7 @@ language: node_js # 设置语言
 node_js: 'lts/*' # 设置相应的版本
 
 install:
-  - yarn # 安装 hexo 及插件
-
-# before_script:
-#   - cd themes/sagiri
-#   - yarn
-#   - cd ../..
+  - yarn # 安装依赖
 
 script:
   - yarn build
