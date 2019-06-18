@@ -12,14 +12,6 @@
               </span>
             </a>
           </div>
-          <div class="item" v-for="item in 3" :key="item">
-            <a href="javascript:;">
-              <span class="title">test-{{ item }}</span>
-              <span class="date">
-                2019-6-18
-              </span>
-            </a>
-          </div>
         </Scrollbar>
       </div>
     </div>
