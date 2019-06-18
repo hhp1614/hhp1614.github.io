@@ -1,6 +1,6 @@
 <template>
   <div class="scrollbar">
-    <div ref="content" class="scrollbar-content">
+    <div v-if="isPC" ref="content" class="scrollbar-content">
       <div ref="wrap" class="scrollbar-wrap">
         <slot></slot>
       </div>
@@ -8,17 +8,28 @@
         <div ref="thumb" class="scrollbar-thumb"></div>
       </div>
     </div>
+    <slot v-else></slot>
   </div>
 </template>
 
 <script>
+import { isMobile } from 'hhp-utils'
 let cursorDown = false // 是否按下滚动条
 let clickThumbAxis = 0 // 鼠标点击滚动条的位置
 
 export default {
+  data() {
+    return {
+      isPC: !isMobile(),
+      hasEvent: false
+    }
+  },
   mounted() {
     this.init()
-    this.event()
+    window.addEventListener('resize', () => {
+      this.isPC = !isMobile()
+      this.$nextTick(() => this.init())
+    })
   },
   updated() {
     this.init()
@@ -26,6 +37,7 @@ export default {
   methods: {
     // 初始化
     init() {
+      if (!this.isPC) return
       const wrap = this.$refs.wrap
       const content = this.$refs.content
       const gutter = this.getScrollWidth()
@@ -37,9 +49,11 @@ export default {
         content.style.marginRight = '0'
       }
       this.updateThumb()
+      !this.hasEvent && this.event()
     },
     // 绑定事件
     event() {
+      this.hasEvent = true
       const wrap = this.$refs.wrap
       const thumb = this.$refs.thumb
       const bar = this.$refs.bar
@@ -51,7 +65,6 @@ export default {
           e.currentTarget.offsetHeight -
           (e.clientY - e.currentTarget.getBoundingClientRect().top)
       })
-      window.addEventListener('resize', () => this.init())
     },
     // 计算滚动条宽度
     getScrollWidth() {
