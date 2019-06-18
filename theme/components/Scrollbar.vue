@@ -25,9 +25,10 @@ export default {
     }
   },
   created() {
-    if (window) {
-      this.isPC = window.navigator ? !isMobile() : true
-    }
+    // fix saber build error: can not find navigator
+    try {
+      this.isPC = !isMobile()
+    } catch (err) {}
   },
   mounted() {
     this.init()
