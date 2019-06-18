@@ -2,55 +2,56 @@
   <div class="layout">
     <Header />
     <div class="main default">
-      <div class="page-content">
-        <div class="page-tags" v-if="tags">
-          <saber-link
-            class="tag"
-            :to="`/tags/${tag}`"
-            v-for="tag in tags"
-            :key="tag"
-          >
-            #{{ tag }}
-          </saber-link>
-        </div>
-        <div class="page-header">
-          <h1 class="page-title">{{ page.attributes.title }}</h1>
-          <h2 class="page-subtitle">{{ page.attributes.subTitle }}</h2>
-          <div class="page-time">
-            {{ formatDate(page.attributes.updatedAt) }}
+      <Scrollbar>
+        <div class="default-content">
+          <div class="tags" v-if="tags">
+            <saber-link
+              class="tag"
+              :to="`/tags/${tag}`"
+              v-for="tag in tags"
+              :key="tag"
+            >
+              #{{ tag }}
+            </saber-link>
+          </div>
+          <div class="default-header">
+            <h1 class="title">{{ page.attributes.title }}</h1>
+            <h2 class="subtitle">{{ page.attributes.subTitle }}</h2>
+            <div class="time">
+              {{ formatDate(page.attributes.updatedAt) }}
+            </div>
+          </div>
+          <div class="default-body">
+            <div class="markdown-body">
+              <slot name="default"></slot>
+            </div>
+          </div>
+          <div class="prev-next" v-if="page.prevPost || page.nextPost">
+            <router-link
+              v-if="page.nextPost"
+              :to="page.nextPost.permalink"
+              class="prev"
+            >
+              ← {{ page.nextPost.title }}
+            </router-link>
+            <router-link
+              v-if="page.prevPost"
+              :to="page.prevPost.permalink"
+              class="next"
+            >
+              {{ page.prevPost.title }} →
+            </router-link>
           </div>
         </div>
-        <div class="page-body">
-          <div class="markdown-body">
-            <slot name="default"></slot>
-          </div>
-        </div>
-        <div class="prev-next" v-if="page.prevPost || page.nextPost">
-          <router-link
-            v-if="page.nextPost"
-            :to="page.nextPost.permalink"
-            class="prev"
-          >
-            ← {{ page.nextPost.title }}
-          </router-link>
-          <router-link
-            v-if="page.prevPost"
-            :to="page.prevPost.permalink"
-            class="next"
-          >
-            {{ page.prevPost.title }} →
-          </router-link>
-        </div>
-      </div>
+      </Scrollbar>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
 import { timeFormatPass } from 'hhp-utils'
 import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
+import Scrollbar from '../components/Scrollbar.vue'
 
 export default {
   head() {
@@ -65,7 +66,7 @@ export default {
   props: ['page'],
   components: {
     Header,
-    Footer
+    Scrollbar
   },
   computed: {
     tags() {
@@ -79,18 +80,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-.default
-  padding 20px
-  overflow auto
-  .prev-next
-    overflow hidden
-    .prev
-      float left
-    .next
-      float right
-  .page-time
-    color var(--light-color)
-</style>
-

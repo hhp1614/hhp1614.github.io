@@ -1,0 +1,40 @@
+.default
+  overflow auto
+
+  .tags
+    .tag
+      color #0094f0
+
+      &::after
+        background-color @color
+
+  .default-header
+    line-height $lineHeight
+
+    .title
+      font-size 2em
+      color #a88c00
+
+    .time
+      font-size 12px
+      color $obviousColor
+
+  .default-body
+    color $textColor
+    line-height $lineHeight
+
+  .prev-next
+    overflow hidden
+    font-size 12px
+
+    .prev
+      float left
+
+    .next
+      float right
+
+    .prev, .next
+      color #ff5792
+
+      &::after
+        background-color @color

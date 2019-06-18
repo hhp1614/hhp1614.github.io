@@ -2,22 +2,17 @@
   <div class="layout">
     <Header />
     <div class="main index">
-      <slot name="default" />
-      <div class="posts" v-if="posts">
-        <template v-for="(post, index) in posts">
-          <saber-link
-            class="posts-item"
-            v-if="post.attributes"
-            :key="post.permalink"
-            :to="post.attributes.permalink"
-          >
-            <span class="posts-item-title">{{ post.attributes.title }}</span>
-            <span class="posts-item-date">
-              {{ formatDate(post.attributes.createdAt) }}
-            </span>
-          </saber-link>
-          <div v-else :key="index" style="flex: 1;"></div>
-        </template>
+      <div class="list" v-if="posts">
+        <Scrollbar>
+          <div class="item" v-for="post in posts" :key="post.permalink">
+            <saber-link :to="post.attributes.permalink">
+              <span class="title">{{ post.attributes.title }}</span>
+              <span class="date">
+                {{ formatDate(post.attributes.createdAt) }}
+              </span>
+            </saber-link>
+          </div>
+        </Scrollbar>
       </div>
       <div class="pagination">
         <saber-link
@@ -41,18 +36,17 @@
         </saber-link>
       </div>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
 import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
+import Scrollbar from '../components/Scrollbar'
 
 export default {
   components: {
     Header,
-    Footer
+    Scrollbar
   },
   props: ['page'],
   head() {
@@ -65,14 +59,6 @@ export default {
   },
   computed: {
     posts() {
-      if (this.page.posts.length < 10) {
-        // this.page.posts.length = 10
-        for (let i = 0; i < 10; i++) {
-          if (!this.page.posts[i]) {
-            this.page.posts[i] = {}
-          }
-        }
-      }
       return this.page.posts
     }
   },
@@ -85,45 +71,4 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-.index
-  .posts
-    flex 1
-    display flex
-    flex-direction column
-    &-item
-      flex 1
-      align-items center
-      display flex
-      height 100%
-      padding 0 20px
-      transition var(--transition-default)
-      &-title
-        flex 1
-        font-size 1.8rem
-        overflow hidden
-        white-space nowrap
-        text-overflow ellipsis
-      &-date
-        color var(--light-color)
-    &-item:hover
-      box-shadow 0 0 15px var(--box-shadow-color)
-  .pagination
-    position relative
-    text-align center
-    .prev
-      position absolute
-      top 0
-      left 20px
-    .next
-      position absolute
-      top 0
-      right 20px
-
-@media (max-width 768px)
-  .index
-    .posts
-      &-item
-        &-title
-          font-size 1rem
-</style>
+<style lang="stylus" scoped></style>

@@ -1,10 +1,6 @@
 <template>
   <div class="notfound">
     <h1>Page Not Found :(</h1>
-    <span v-if="isDemo"
-      >maybe it's moved to
-      <a :href="demoURL" target="_blank">{{ demoURL }}</a></span
-    >
     <div class="backhome">
       <saber-link to="/">← Back to HomePage</saber-link>
     </div>

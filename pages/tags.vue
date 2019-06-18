@@ -36,34 +36,35 @@ export default {
       return frequency
     }
   }
-  // created() {
-  //   console.log(this.$siteConfig.tags)
-  // }
 }
 </script>
 
 <style lang="stylus">
 .tag-cloud-tags
-  font-size: 16px;
+  font-size 16px
+
   @media screen and (max-width: 760px)
-    font-size: 12px;
+    font-size 12px
+
 .tag-cloud-tag
-  display: inline-block;
-  margin: 0.625em;
+  display inline-block
+  margin 0.625em
+
   a
-    display: inline-block;
-    line-height: 1.6em;
-    transition: all 0.3s ease;
-    border-bottom: dashed rgba(158, 122, 122, 0.5) 1px;
-    &:hover
-      border-bottom: dashed rgba(158, 122, 122, 1) 1px;
+    display inline-block
+    line-height 1.6em
+    transition all 0.3s ease
+    color #0094f0
+
+    &::after
+      background-color @color
+
   .small
-    font-size: 1.2em;
-    color: rgba(158, 122, 122, 0.6);
+    font-size 1.2em
+
   .medium
-    font-size: 1.6em;
-    color: rgba(158, 122, 122, 0.8);
+    font-size 1.6em
+
   .large
-    font-size: 2em;
-    color: rgba(158, 122, 122, 1);
+    font-size 2em
 </style>

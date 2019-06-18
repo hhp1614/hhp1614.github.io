@@ -1,31 +1,25 @@
-@import './base.styl'
-@import './highlight.styl'
-
-#_saber
-  width 100%
-  height 100%
-  overflow hidden
-  position relative
-
-.layout
-  @extend #_saber
-  display flex
-  flex-direction column
-  .main
-    flex 1
-    display flex
-    flex-direction column
-
-
-.page-header
-  h1
-    font-size 2.6rem
-  h2
-    font-size 0.83rem
-
-@media (max-width 768px)
-  .page-header
-    h1
-      font-size 1.8rem
-    h2
-      font-size 0.83rem
+/*
+ * Keyframes
+ */
+@import './keyframes/keyframes'
+/*
+ * Variable
+ */
+@import './variable'
+/*
+ * Global
+ */
+@import './global/main'
+/*
+ * Modules
+ */
+/* PC */
+@import './modules/pc/main'
+@import './modules/pc/header'
+@import './modules/pc/index'
+@import './modules/pc/default'
+/* SP */
+@import './modules/sp/main'
+@import './modules/sp/header'
+@import './modules/sp/index'
+@import './modules/sp/default'
