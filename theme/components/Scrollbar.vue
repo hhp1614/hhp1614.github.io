@@ -20,11 +20,15 @@ let clickThumbAxis = 0 // 鼠标点击滚动条的位置
 export default {
   data() {
     return {
-      isPC: !isMobile(),
+      isPC: true,
       hasEvent: false
     }
   },
+  created() {
+    this.isPC = !isMobile()
+  },
   mounted() {
+    console.log(navigator)
     this.init()
     window.addEventListener('resize', () => {
       this.isPC = !isMobile()
