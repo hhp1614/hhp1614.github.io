@@ -47,6 +47,7 @@ export default {
       const wrap = this.$refs.wrap
       const content = this.$refs.content
       const gutter = this.getScrollWidth()
+      if (!wrap) return
       if (gutter) {
         wrap.style.marginRight = `-${gutter}px`
         content.style.marginRight = `${gutter}px`
