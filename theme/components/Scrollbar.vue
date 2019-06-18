@@ -25,13 +25,12 @@ export default {
     }
   },
   created() {
-    this.isPC = !isMobile()
+    this.isPC = navigator ? !isMobile() : true
   },
   mounted() {
-    console.log(navigator)
     this.init()
     window.addEventListener('resize', () => {
-      this.isPC = !isMobile()
+      this.isPC = navigator ? !isMobile() : true
       this.$nextTick(() => this.init())
     })
   },
@@ -108,6 +107,7 @@ export default {
     handleScroll() {
       const wrap = this.$refs.wrap
       const thumb = this.$refs.thumb
+      if (!wrap) return
       const moveY = (wrap.scrollTop * 100) / wrap.clientHeight
       thumb.style.transform = `translateY(${moveY}%)`
     },
