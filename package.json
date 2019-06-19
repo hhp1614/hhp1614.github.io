@@ -2,7 +2,7 @@
   "name": "hhp1614-blog",
   "version": "1.0.0",
   "description": "blog",
-  "main": "index.js",
+  "main": "n/a",
   "author": "hhp1614",
   "license": "MIT",
   "private": true,
@@ -13,7 +13,7 @@
   "dependencies": {
     "hhp-utils": "^2.0.14",
     "prismjs": "^1.16.0",
-    "saber": "^0.6.4",
+    "saber": "^0.6.8",
     "saber-highlight-css": "^0.0.5",
     "saber-plugin-google-analytics": "^0.0.6",
     "saber-plugin-netlify-redirect": "^0.0.6",
@@ -24,5 +24,6 @@
   "devDependencies": {
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2"
-  }
+  },
+  "repository": "https://github.com/hhp1614/hhp1614.github.io.git"
 }
