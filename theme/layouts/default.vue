@@ -5,12 +5,7 @@
       <Scrollbar>
         <div class="default-content">
           <div class="tags" v-if="tags">
-            <saber-link
-              class="tag"
-              v-for="tag in tags"
-              :key="tag"
-              :to="`/tags/${tag}`"
-            >
+            <saber-link class="tag" v-for="tag in tags" :key="tag" :to="`/tags/${tag}`">
               <span style="color: #00b368;">#</span>{{ tag }}
             </saber-link>
           </div>
@@ -27,18 +22,10 @@
             </div>
           </div>
           <div class="prev-next" v-if="page.prevPost || page.nextPost">
-            <router-link
-              v-if="page.nextPost"
-              :to="page.nextPost.permalink"
-              class="prev"
-            >
+            <router-link v-if="page.nextPost" :to="page.nextPost.permalink" class="prev">
               ← {{ page.nextPost.title }}
             </router-link>
-            <router-link
-              v-if="page.prevPost"
-              :to="page.prevPost.permalink"
-              class="next"
-            >
+            <router-link v-if="page.prevPost" :to="page.prevPost.permalink" class="next">
               {{ page.prevPost.title }} →
             </router-link>
           </div>

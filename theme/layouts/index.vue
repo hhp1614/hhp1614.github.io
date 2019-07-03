@@ -16,23 +16,11 @@
       </div>
     </div>
     <div class="pagination" :class="{ 'foot-out': footOut }">
-      <saber-link
-        class="prev"
-        title="上一页"
-        v-if="page.pagination.hasNext"
-        :to="page.pagination.nextLink"
-      >
+      <saber-link class="prev" title="上一页" v-if="page.pagination.hasNext" :to="page.pagination.nextLink">
         &lt; 上一页
       </saber-link>
-      <span class="current">
-        {{ page.pagination.current }} / {{ page.pagination.total }}
-      </span>
-      <saber-link
-        class="next"
-        title="下一页"
-        v-if="page.pagination.hasPrev"
-        :to="page.pagination.prevLink"
-      >
+      <span class="current"> {{ page.pagination.current }} / {{ page.pagination.total }} </span>
+      <saber-link class="next" title="下一页" v-if="page.pagination.hasPrev" :to="page.pagination.prevLink">
         下一页 &gt;
       </saber-link>
     </div>
@@ -52,9 +40,7 @@ export default {
   head() {
     const pageTitle = this.page.attributes.title
     return {
-      title: pageTitle
-        ? `${pageTitle} - ${this.$siteConfig.title}`
-        : this.$siteConfig.title
+      title: pageTitle ? `${pageTitle} - ${this.$siteConfig.title}` : this.$siteConfig.title
     }
   },
   data() {

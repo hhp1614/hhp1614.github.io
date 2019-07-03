@@ -28,7 +28,9 @@ export default {
     // fix saber build error: can not find navigator
     try {
       this.isPC = !isMobile()
-    } catch (err) {}
+    } catch (err) {
+      console.log(err)
+    }
   },
   mounted() {
     this.init()
@@ -44,8 +46,7 @@ export default {
     // 初始化
     init() {
       if (!this.isPC) return
-      const wrap = this.$refs.wrap
-      const content = this.$refs.content
+      const { wrap, content } = this.$refs
       const gutter = this.getScrollWidth()
       if (!wrap) return
       if (gutter) {
@@ -61,16 +62,12 @@ export default {
     // 绑定事件
     event() {
       this.hasEvent = true
-      const wrap = this.$refs.wrap
-      const thumb = this.$refs.thumb
-      const bar = this.$refs.bar
+      const { wrap, thumb, bar } = this.$refs
       wrap.addEventListener('scroll', this.handleScroll)
       bar.addEventListener('click', this.clickTrackHandle)
       thumb.addEventListener('mousedown', e => {
         this.startDrag(e)
-        clickThumbAxis =
-          e.currentTarget.offsetHeight -
-          (e.clientY - e.currentTarget.getBoundingClientRect().top)
+        clickThumbAxis = e.currentTarget.offsetHeight - (e.clientY - e.currentTarget.getBoundingClientRect().top)
       })
     },
     // 计算滚动条宽度
@@ -97,8 +94,7 @@ export default {
     },
     // 更新滚动块长度
     updateThumb() {
-      const wrap = this.$refs.wrap
-      const thumb = this.$refs.thumb
+      const { wrap, thumb } = this.$refs
       const heightPercentage = (wrap.clientHeight * 100) / wrap.scrollHeight
       thumb.style.height = `${heightPercentage}%`
       if (heightPercentage === 100) {
@@ -109,23 +105,20 @@ export default {
     },
     // 鼠标滚轮事件
     handleScroll() {
-      const wrap = this.$refs.wrap
-      const thumb = this.$refs.thumb
-      if (!wrap) return
+      const { wrap, thumb } = this.$refs
+      if (!wrap || !thumb) return
       const moveY = (wrap.scrollTop * 100) / wrap.clientHeight
       thumb.style.transform = `translateY(${moveY}%)`
     },
     // 点击滚动框
     clickTrackHandle(e) {
-      const wrap = this.$refs.wrap
-      const thumb = this.$refs.thumb
+      const { wrap, thumb } = this.$refs
       // 获得点击位置与滚动条顶部之间的距离
       const offset = Math.abs(e.target.getBoundingClientRect().top - e.clientY)
       // 让点击位置处于滚动条的中间
       const thumbHalf = thumb.offsetHeight / 2
       // 计算出滚动条在滚动框的百分比位置
-      const thumbPositionPercentage =
-        ((offset - thumbHalf) * 100) / wrap.offsetHeight
+      const thumbPositionPercentage = ((offset - thumbHalf) * 100) / wrap.offsetHeight
       // 通过改变 scrollTop 来操作，所有操作滚动条的最后一步都是通过 handleScroll 来实现
       wrap.scrollTop = (thumbPositionPercentage * wrap.scrollHeight) / 100
     },
@@ -143,16 +136,13 @@ export default {
       if (!cursorDown) return
       const prevPage = clickThumbAxis
       if (!prevPage) return
-      const thumb = this.$refs.thumb
-      const wrap = this.$refs.wrap
-      const bar = this.$refs.bar
+      const { thumb, wrap, bar } = this.$refs
       // 获得点击位置与滚动框顶部之间的距离
       const offset = (bar.getBoundingClientRect().top - e.clientY) * -1
       // 获得点击位置与滚动条顶部之间的距离
       const thumbClickPosition = thumb.offsetHeight - prevPage
       // 获得滚动条所处的百分比位置
-      const thumbPositionPercentage =
-        ((offset - thumbClickPosition) * 100) / bar.offsetHeight
+      const thumbPositionPercentage = ((offset - thumbClickPosition) * 100) / bar.offsetHeight
       // 计算出滚动条应该在滚动框中所处的位置，scrollTop
       wrap.scrollTop = (thumbPositionPercentage * wrap.scrollHeight) / 100
     },
