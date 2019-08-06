@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import { isMobile } from 'hhp-utils';
+  import { isMobile } from 'hhp-utils';
 
-let cursorDown = false; // 是否按下滚动条
+  let cursorDown = false; // 是否按下滚动条
 let clickThumbAxis = 0; // 鼠标点击滚动条的位置
 
 export default {
@@ -90,8 +90,7 @@ export default {
 
       const widthWidthScroll = inner.offsetWidth;
       outer.parentNode.removeChild(outer);
-      const scrollBarWidth = widthNoScroll - widthWidthScroll;
-      return scrollBarWidth;
+      return widthNoScroll - widthWidthScroll;
     },
     // 更新滚动块长度
     updateThumb() {
@@ -148,7 +147,7 @@ export default {
       wrap.scrollTop = (thumbPositionPercentage * wrap.scrollHeight) / 100;
     },
     // 松开鼠标事件
-    mouseUpDocumentHandler(e) {
+    mouseUpDocumentHandler() {
       cursorDown = false;
       clickThumbAxis = 0;
       document.removeEventListener('mousemove', this.mouseMoveDocumentHandler);
