@@ -8,7 +8,7 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style scoped>
@@ -17,10 +17,12 @@ h1 {
   font-weight: 300;
   font-size: 3rem;
 }
+
 .notfound {
   max-width: 500px;
   margin: 0 40px;
 }
+
 .backhome {
   margin: 20px 0;
 }

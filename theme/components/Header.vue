@@ -18,10 +18,10 @@ export default {
   },
   methods: {
     jump(link) {
-      if (link === this.$saber.$route.fullPath) return
-      this.$emit('changeRoute')
-      setTimeout(() => this.$router.push({ path: link }), 300)
+      if (link === this.$saber.$route.fullPath) return;
+      this.$emit('changeRoute');
+      setTimeout(() => this.$router.push({ path: link }), 300);
     }
   }
-}
+};
 </script>

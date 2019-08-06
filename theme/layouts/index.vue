@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import Header from '../components/Header.vue'
-import Scrollbar from '../components/Scrollbar'
+import Header from '../components/Header.vue';
+import Scrollbar from '../components/Scrollbar';
 
 export default {
   components: {
@@ -38,41 +38,39 @@ export default {
   },
   props: ['page'],
   head() {
-    const pageTitle = this.page.attributes.title
+    const pageTitle = this.page.attributes.title;
     return {
       title: pageTitle ? `${pageTitle} - ${this.$siteConfig.title}` : this.$siteConfig.title
-    }
+    };
   },
   data() {
     return {
       pageOut: false,
       headOut: false,
       footOut: false
-    }
+    };
   },
   computed: {
     posts() {
-      return this.page.posts
+      return this.page.posts;
     }
   },
   methods: {
     formatDate(v) {
-      const date = new Date(v)
-      return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+      const date = new Date(v);
+      return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
     },
     changeRoute(path) {
-      this.pageOut = true
-      this.headOut = true
-      this.footOut = true
+      this.pageOut = true;
+      this.headOut = true;
+      this.footOut = true;
       setTimeout(() => {
-        this.pageOut = false
-        this.headOut = false
-        this.footOut = false
-        typeof path === 'string' && this.$router.push({ path })
-      }, 300)
+        this.pageOut = false;
+        this.headOut = false;
+        this.footOut = false;
+        typeof path === 'string' && this.$router.push({ path });
+      }, 300);
     }
   }
-}
+};
 </script>
-
-<style lang="stylus" scoped></style>

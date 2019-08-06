@@ -28,24 +28,24 @@ tags:
   // 方法接受一个 file 对象
   const getImgUrl = file => {
     // 创建 FileReader 对象
-    const reader = new FileReader()
+    const reader = new FileReader();
     // 将文件转成 base64 编码的 URL
-    reader.readAsDataURL(file)
+    reader.readAsDataURL(file);
     // 加载完文件后的回调函数
     reader.onload = e => {
-      console.log(e.target.result) // => data:image/jpeg;base64,/9j/4A...
+      console.log(e.target.result); // => data:image/jpeg;base64,/9j/4A...
 
-      const url = e.target.result
+      const url = e.target.result;
       // 创建图片
-      const $img = document.createElement('img')
-      $img.src = url
-      document.querySelector('.output').appendChild($img)
-    }
-  }
+      const $img = document.createElement('img');
+      $img.src = url;
+      document.querySelector('.output').appendChild($img);
+    };
+  };
   document.querySelector('input').addEventListener('change', function() {
-    const file = this.files[0]
-    getImgUrl(file)
-  })
+    const file = this.files[0];
+    getImgUrl(file);
+  });
 </script>
 ```
 
@@ -53,42 +53,42 @@ tags:
 
 ```js
 const getImgUrl = (file, callback) => {
-  const reader = new FileReader()
-  reader.readAsDataURL(file)
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
   reader.onload = e => {
-    callback(e.target.result)
-  }
-}
+    callback(e.target.result);
+  };
+};
 document.querySelector('input').addEventListener('change', function() {
-  const file = this.files[0]
+  const file = this.files[0];
   getImgUrl(file, url => {
     // 创建图片
-    const $img = document.createElement('img')
-    $img.src = url
-    document.querySelector('.output').appendChild($img)
-  })
-})
+    const $img = document.createElement('img');
+    $img.src = url;
+    document.querySelector('.output').appendChild($img);
+  });
+});
 ```
 
 ```js
 const getImgUrl = file => {
   return new Promise(resolve => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
     reader.onload = e => {
-      resolve(e.target.result)
-    }
-  })
-}
+      resolve(e.target.result);
+    };
+  });
+};
 document.querySelector('input').addEventListener('change', function() {
-  const file = this.files[0]
+  const file = this.files[0];
   getImgUrl(file).then(url => {
     // 创建图片
-    const $img = document.createElement('img')
-    $img.src = url
-    document.querySelector('.output').appendChild($img)
-  })
-})
+    const $img = document.createElement('img');
+    $img.src = url;
+    document.querySelector('.output').appendChild($img);
+  });
+});
 ```
 
 ### `URL.createObjectURL()`
@@ -98,16 +98,16 @@ document.querySelector('input').addEventListener('change', function() {
 <div class="output"></div>
 <script>
   document.querySelector('input').addEventListener('change', function() {
-    const file = this.files[0]
+    const file = this.files[0];
     // 创建 URL，参数可为 File 对象、Blob 对象或者 MediaSource 对象，返回 DOMString
-    const src = URL.createObjectURL(file)
+    const src = URL.createObjectURL(file);
     // 创建图片
-    const $img = document.createElement('img')
-    $img.src = src
+    const $img = document.createElement('img');
+    $img.src = src;
     // 使用完 URL 对象后需要使用 URL.revokeObjectURL() 手动释放
-    $img.onload = () => URL.revokeObjectURL(src)
-    document.querySelector('.output').appendChild($img)
-  })
+    $img.onload = () => URL.revokeObjectURL(src);
+    document.querySelector('.output').appendChild($img);
+  });
 </script>
 ```
 

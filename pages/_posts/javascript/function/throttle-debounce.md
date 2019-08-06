@@ -17,28 +17,28 @@ tags:
 
 <script>
   const throttle = (func, delay = 160) => {
-    let timeout = null
-    let start = +new Date()
+    let timeout = null;
+    let start = +new Date();
     return (...args) => {
-      const curr = +new Date()
-      clearTimeout(timeout)
+      const curr = +new Date();
+      clearTimeout(timeout);
       if (curr - start >= delay) {
         // 让方法在一定时间段内只执行一次
-        func.apply(this, args)
-        start = curr
+        func.apply(this, args);
+        start = curr;
       } else {
         // 让方法在脱离时间后也执行一次
         timeout = setTimeout(() => {
-          func.apply(this, args)
-        }, delay)
+          func.apply(this, args);
+        }, delay);
       }
-    }
-  }
-  const mouseMove = e => console.log('pageX:', e.pageX, 'pageY:', e.pageY)
+    };
+  };
+  const mouseMove = e => console.log('pageX:', e.pageX, 'pageY:', e.pageY);
   // 例子
   document
     .querySelector('div')
-    .addEventListener('mousemove', throttle(mouseMove, 500))
+    .addEventListener('mousemove', throttle(mouseMove, 500));
 </script>
 ```
 
@@ -51,19 +51,19 @@ tags:
 
 <script>
   const debounce = (func, wait = 160) => {
-    let timeout = null
+    let timeout = null;
     return (...args) => {
-      clearTimeout(timeout)
+      clearTimeout(timeout);
       timeout = setTimeout(() => {
-        func.apply(this, args)
-      }, wait)
-    }
-  }
+        func.apply(this, args);
+      }, wait);
+    };
+  };
   // 例子
-  const input = e => console.log('change', e.target.value)
+  const input = e => console.log('change', e.target.value);
   document
     .querySelector('input')
-    .addEventListener('input', debounce(input, 500))
+    .addEventListener('input', debounce(input, 500));
 </script>
 ```
 

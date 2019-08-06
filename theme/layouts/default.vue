@@ -36,19 +36,19 @@
 </template>
 
 <script>
-import { timeFormatPass } from 'hhp-utils'
-import Header from '../components/Header.vue'
-import Scrollbar from '../components/Scrollbar.vue'
+import { timeFormatPass } from 'hhp-utils';
+import Header from '../components/Header.vue';
+import Scrollbar from '../components/Scrollbar.vue';
 
 export default {
   head() {
-    const title = this.page.attributes.title
-    let summary = this.page.attributes.subtitle || this.page.excerpt
+    const title = this.page.attributes.title;
+    let summary = this.page.attributes.subtitle || this.page.excerpt;
     if (summary) {
       // Strip HTML tags
-      summary = summary.replace(/<(?:.|\n)*?>/gm, '')
+      summary = summary.replace(/<(?:.|\n)*?>/gm, '');
     }
-    return { title }
+    return { title };
   },
   props: ['page'],
   components: {
@@ -59,26 +59,26 @@ export default {
     return {
       pageOut: false,
       headOut: false
-    }
+    };
   },
   computed: {
     tags() {
-      return this.page.attributes.tags && this.page.attributes.tags.sort()
+      return this.page.attributes.tags && this.page.attributes.tags.sort();
     }
   },
   methods: {
     formatDate(v) {
-      return timeFormatPass(v)
+      return timeFormatPass(v);
     },
     changeRoute() {
-      this.pageOut = true
-      this.headOut = true
+      this.pageOut = true;
+      this.headOut = true;
       setTimeout(() => {
-        this.pageOut = false
-        this.headOut = false
-        typeof path === 'string' && this.$router.push({ path })
-      }, 300)
+        this.pageOut = false;
+        this.headOut = false;
+        typeof path === 'string' && this.$router.push({ path });
+      }, 300);
     }
   }
-}
+};
 </script>

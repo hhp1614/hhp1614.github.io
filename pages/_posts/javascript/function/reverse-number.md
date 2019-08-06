@@ -13,38 +13,38 @@ tags:
 ```js {highlightLines:['1-11']}
 const reverseNum = x => {
   // Math.sing() 取正负 值为 1 或 -1
-  const sign = Math.sign(x)
+  const sign = Math.sign(x);
   // Math.abs() 取绝对值
   const y = Math.abs(x)
     .toString()
     .split('')
     .reverse()
-    .join('')
-  return sign * y
-}
+    .join('');
+  return sign * y;
+};
 
-console.log(reverseNum(123)) // 321
-console.log(reverseNum(-123)) // -321
+console.log(reverseNum(123)); // 321
+console.log(reverseNum(-123)); // -321
 ```
 
 然鹅，今天在刷 LeetCode 的时候突然看到一个别人的思路，发现翻转整数不需要转换成字符也行，可以提高代码的性能：
 
 ```js {highlightLines:['1-14']}
 const reverseNum = x => {
-  const sign = Math.sign(x)
-  let y = Math.abs(x)
-  let n = 0
-  while (y != 0) {
+  const sign = Math.sign(x);
+  let y = Math.abs(x);
+  let n = 0;
+  while (y !== 0) {
     // 取 y 最后一位数字
-    const pop = y % 10
+    const pop = y % 10;
     // 将 y 最后一位数删掉
-    y = parseInt(y / 10)
+    y = parseInt(y / 10);
     // 将 y 最后一位数字加入到 n，成为 n 的最后一位数字
-    n = n * 10 + pop
+    n = n * 10 + pop;
   }
-  return sign * n
-}
+  return sign * n;
+};
 
-console.log(reverseNum(123)) // 321
-console.log(reverseNum(-123)) // -321
+console.log(reverseNum(123)); // 321
+console.log(reverseNum(-123)); // -321
 ```

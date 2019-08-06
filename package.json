@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "build": "saber build",
-    "dev": "saber"
+    "dev": "saber",
+    "format": "prettier --write theme/**/*.js theme/**/*.vue"
   },
   "dependencies": {
     "hhp-utils": "^2.0.14",
@@ -22,8 +23,9 @@
     "saber-plugin-query-posts": "^0.3.2"
   },
   "devDependencies": {
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "prettier": "^1.18.2",
+    "sass": "^1.22.9",
+    "sass-loader": "^7.1.0"
   },
   "repository": "https://github.com/hhp1614/hhp1614.github.io.git"
 }
