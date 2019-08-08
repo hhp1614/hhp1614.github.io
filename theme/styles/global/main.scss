@@ -3,7 +3,8 @@
 @import "./highlight";
 
 ::selection {
-  background-color: #d7edec;
+  //background-color: #d7edec;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 // Safari 顶栏彩虹效果

@@ -40,6 +40,8 @@
 </script>
 
 <style lang="scss">
+  $tagColor: #0094f0;
+
   .tag-cloud-tags {
     font-size: 16px;
 
@@ -56,10 +58,10 @@
       display: inline-block;
       line-height: 1.6em;
       transition: all 0.3s ease;
-      $color: #0094f0;
+      color: $tagColor;
 
       &::after {
-        background-color: $color;
+        background-color: $tagColor;
       }
     }
 

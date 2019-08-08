@@ -13,9 +13,9 @@
 </template>
 
 <script>
-  import { isMobile } from 'hhp-utils';
+import { isMobile } from 'hhp-utils';
 
-  let cursorDown = false; // 是否按下滚动条
+let cursorDown = false; // 是否按下滚动条
 let clickThumbAxis = 0; // 鼠标点击滚动条的位置
 
 export default {
@@ -74,7 +74,6 @@ export default {
     // 计算滚动条宽度
     getScrollWidth() {
       const outer = document.createElement('div');
-      // outer.className = 'el-scrollbar__wrap'
       outer.style.width = '100px';
       outer.style.visibility = 'hidden';
       outer.style.position = 'absolute';
@@ -90,7 +89,7 @@ export default {
 
       const widthWidthScroll = inner.offsetWidth;
       outer.parentNode.removeChild(outer);
-      return widthNoScroll - widthWidthScroll;
+      return widthNoScroll - widthWidthScroll + 1;
     },
     // 更新滚动块长度
     updateThumb() {
@@ -158,22 +157,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-ul{
-  list-style: none;
-  background-color: #ddd;
-}
-
-.scrollbar{
+.scrollbar {
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 
-.scrollbar-content{
+.scrollbar-content {
   height: 100%;
   overflow: hidden;
 }
 
-.scrollbar-bar{
+.scrollbar-bar {
   position: absolute;
   right: 2px;
   bottom: 2px;
@@ -185,7 +180,7 @@ ul{
   transition: opacity 120ms ease-out;
 }
 
-.scrollbar-thumb{
+.scrollbar-thumb {
   position: relative;
   display: block;
   width: 100%;
@@ -196,12 +191,12 @@ ul{
   cursor: pointer;
 }
 
-.scrollbar:hover .scrollbar-bar{
+.scrollbar:hover .scrollbar-bar {
   opacity: 1;
   transition: opacity 340ms ease-out;
 }
 
-.scrollbar-wrap{
+.scrollbar-wrap {
   height: 100%;
   overflow: auto;
 }

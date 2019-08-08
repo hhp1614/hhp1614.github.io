@@ -1,6 +1,8 @@
+@import "../../variable";
+
 .header {
   display: flex;
-  background-color: #ebe4d1;
+  background-color: $bgColor;
   box-shadow: 0 1px 10px #999999;
 
   .nav {
@@ -13,6 +15,10 @@
       height: 5vmin;
       justify-content: center;
       align-items: center;
+
+      a {
+        color: $primaryColor;
+      }
     }
   }
 }

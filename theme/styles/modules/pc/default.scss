@@ -3,6 +3,10 @@
 .default {
   overflow: auto;
 
+  .default-content {
+    padding: 5px 1px 5px 0;
+  }
+
   h1 {
     font-size: 2rem;
     color: #f49725;
@@ -35,11 +39,11 @@
 
   .tags {
     .tag {
-      $color: #0094f0;
+      color: $tagColor;
       margin-right: 1vmin;
 
       &::after {
-        background-color: $color;
+        background-color: $tagColor;
       }
 
       &:last-child {
@@ -63,6 +67,7 @@
   }
 
   .prev-next {
+    margin-bottom: 5px;
     overflow: hidden;
     font-size: 12px;
 
@@ -75,10 +80,10 @@
     }
 
     .prev, .next {
-      $color: #ff5792;
+      color: $obviousColor;
 
       &::after {
-        background-color: $color;
+        background-color: $obviousColor;
       }
     }
   }
