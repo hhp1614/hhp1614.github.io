@@ -1,31 +1,21 @@
 {
-  "name": "hhp1614-blog",
-  "version": "1.0.0",
-  "description": "blog",
-  "main": "n/a",
-  "author": "hhp1614",
-  "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "saber build",
     "dev": "saber",
-    "format": "prettier --write theme/**/*.js theme/**/*.vue"
-  },
-  "dependencies": {
-    "hhp-utils": "^2.0.20",
-    "prismjs": "^1.16.0",
-    "saber": "^0.7.0",
-    "saber-highlight-css": "^0.0.5",
-    "saber-plugin-google-analytics": "^0.0.6",
-    "saber-plugin-netlify-redirect": "^0.0.6",
-    "saber-plugin-prismjs": "^0.2.1",
-    "saber-plugin-pwa": "^0.3.3",
-    "saber-plugin-query-posts": "^0.3.2"
+    "build": "saber build"
   },
   "devDependencies": {
-    "prettier": "^1.18.2",
-    "sass": "^1.22.9",
-    "sass-loader": "^7.1.0"
-  },
-  "repository": "https://github.com/hhp1614/hhp1614.github.io.git"
+    "hhp-utils": "latest",
+    "prismjs": "latest",
+    "saber": "latest",
+    "saber-highlight-css": "latest",
+    "saber-plugin-google-analytics": "latest",
+    "saber-plugin-netlify-redirect": "latest",
+    "saber-plugin-prismjs": "latest",
+    "saber-plugin-pwa": "latest",
+    "saber-plugin-query-posts": "latest",
+    "prettier": "latest",
+    "sass": "latest",
+    "sass-loader": "latest"
+  }
 }

@@ -1,3 +1,11 @@
-# hhp1614's blog
+# my-saber-blog
 
-[![Build Status](https://travis-ci.org/hhp1614/hhp1614.github.io.svg?branch=blog)](https://travis-ci.org/hhp1614/hhp1614.github.io)
+## Scripts
+
+### `npm run dev`
+
+Run dev server at `http://localhost:3000`
+
+### `npm run build`
+
+Build your website to `public` folder which you can deploy to GitHub Pages, Netlify or wherever you want.
