@@ -138,6 +138,18 @@ export default {
   },
   mounted() {
     this.$refs.keyword.focus();
+    try {
+      window.document.body.style.height = '100vh';
+      window.document.body.style.overflow = 'hidden';
+    } catch (e) {
+    }
+  },
+  destroyed() {
+    try {
+      window.document.body.style.height = '';
+      window.document.body.style.overflow = '';
+    } catch (e) {
+    }
   },
   methods: {
     // 全局点击事件
