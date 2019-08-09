@@ -127,6 +127,7 @@ export default {
     try {
       this.updateTime();
       this.selectedOption = localStorage.SO_OPTION ? JSON.parse(localStorage.SO_OPTION) : this.optionsList[0];
+      console.log(this.images);
     } catch (e) {
     }
   },
