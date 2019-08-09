@@ -95,7 +95,10 @@ export default {
     // 搜索
     search() {
       console.log(this.selectedOption);
-      window.location.href = this.selectedOption.url.replace(placeholder, this.keyword);
+      try {
+        window.location.href = this.selectedOption.url.replace(placeholder, this.keyword);
+      } catch (e) {
+      }
     },
     // 清除输入内容
     clear() {
