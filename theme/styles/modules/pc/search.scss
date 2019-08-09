@@ -89,7 +89,7 @@ $borderColorFocus: #9e9e9e; // 选中后边框颜色
   }
 
   &-logo {
-    width: 30vmin;
+    height: 10vmin;
     margin-bottom: 30px;
   }
 
@@ -137,6 +137,13 @@ $borderColorFocus: #9e9e9e; // 选中后边框颜色
               color: #ffffff;
             }
           }
+        }
+
+        // 箭头
+        &-allow {
+          position: absolute;
+          bottom: -32%;
+          margin: auto;
 
           &::before {
             content: "";

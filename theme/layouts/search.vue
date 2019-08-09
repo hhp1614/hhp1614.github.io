@@ -1,13 +1,14 @@
 <template>
   <div class="so" @click="globalClick">
     <saber-link class="gotoBlog" to="/">Blog</saber-link>
-    <img class="so-logo" :src="selectedOption.img" :alt="selectedOption.img"/>
+    <img class="so-logo" :src="images[selectedOption.key]" :alt="selectedOption.img"/>
     <div class="so-container">
       <div class="so-search">
         <div class="so-search-options">
           <button class="so-search-options-btn" @click="optionsListVisible = !optionsListVisible">
             {{ selectedOption.name }}
           </button>
+          <i v-show="optionsListVisible" class="so-search-options-allow"></i>
           <ul v-show="optionsListVisible" class="so-search-options-list">
             <Scrollbar>
               <li v-for="(item, index) in optionsList" :key="index" @click="changeOption(item)">{{ item.name }}</li>
@@ -33,6 +34,24 @@
 import { timeFormat } from 'hhp-utils';
 import Scrollbar from '../components/Scrollbar';
 
+// 引入logo图片
+import logoGoogle from '../img/search/google.png';
+import logoDuckDuckGo from '../img/search/duckduckgo.png';
+import logoBiliBili from '../img/search/bilibili.png';
+import logoGitHub from '../img/search/github.png';
+import logoJueJin from '../img/search/juejin.png';
+import logoZhiHu from '../img/search/zhihu.png';
+import logoV2EX from '../img/search/v2ex.png';
+import logoStackOverflow from '../img/search/stack-overflow.png';
+import logoNPM from '../img/search/npm.png';
+import logoCNPM from '../img/search/cnpm.png';
+import logoYarn from '../img/search/yarn.png';
+import logoBing from '../img/search/bing.png';
+import logoJD from '../img/search/jd.png';
+import logoTMall from '../img/search/tmall.png';
+import logoBaiDu from '../img/search/baidu.png';
+import logoGoogleTranslate from '../img/search/google-translate.png';
+
 // 占位符
 const placeholder = '%KEYWORD%';
 
@@ -40,6 +59,26 @@ const placeholder = '%KEYWORD%';
 function getWeek() {
   return ['一', '二', '三', '四', '五', '六', '日'][new Date().getDay() - 1];
 }
+
+// 图片
+const images = {
+  Google: logoGoogle,
+  DuckDuckGo: logoDuckDuckGo,
+  BiliBili: logoBiliBili,
+  GitHub: logoGitHub,
+  JueJin: logoJueJin,
+  ZhiHu: logoZhiHu,
+  V2EX: logoV2EX,
+  StackOverflow: logoStackOverflow,
+  NPM: logoNPM,
+  CNPM: logoCNPM,
+  Yarn: logoYarn,
+  Bing: logoBing,
+  JD: logoJD,
+  TMall: logoTMall,
+  BaiDu: logoBaiDu,
+  GoogleTranslate: logoGoogleTranslate
+};
 
 export default {
   head() {
@@ -55,33 +94,26 @@ export default {
   components: { Scrollbar },
   data() {
     return {
+      images,
       optionsListVisible: false,
       keyword: '',
       optionsList: [
-        { name: 'Google', url: `https://www.google.com/search?q=${placeholder}`, img: '/img/so/google.png' },
-        { name: 'DuckDuckGo', url: `https://duckduckgo.com/?q=${placeholder}`, img: '/img/so/duckduckgo.png' },
-        { name: 'bilibili', url: `http://search.bilibili.com/all?keyword=${placeholder}`, img: '/img/so/bilibili.png' },
-        { name: 'GitHub', url: `https://github.com/search?q=${placeholder}`, img: '/img/so/github.png' },
-        { name: '掘金', url: `https://juejin.im/search?query=${placeholder}`, img: '/img/so/juejin.png' },
-        { name: '知乎', url: `https://www.zhihu.com/search?type=content&q=${placeholder}`, img: '/img/so/zhihu.png' },
-        { name: 'V2EX', url: `https://www.sov2ex.com/?q=${placeholder}`, img: '/img/so/v2ex.png' },
-        {
-          name: 'StackOverflow',
-          url: `https://stackoverflow.com/search?q=${placeholder}`,
-          img: '/img/so/stack-overflow.png'
-        },
-        { name: 'NPM', url: `https://www.npmjs.com/search?q=${placeholder}`, img: '/img/so/npm.png' },
-        { name: 'CNPM', url: `http://npm.taobao.org/package/${placeholder}`, img: '/img/so/cnpm.png' },
-        { name: 'Yarn', url: `https://www.yarnpkg.com/zh-Hans/packages?q=${placeholder}`, img: '/img/so/yarn.png' },
-        { name: 'Bing', url: `https://cn.bing.com/search?q=${placeholder}`, img: '/img/so/bing.png' },
-        { name: '京东', url: `https://search.jd.com/Search?keyword=${placeholder}&enc=utf-8`, img: '/img/so/jd.png' },
-        { name: '天猫', url: `https://list.tmall.com/search_product.htm?q=${placeholder}`, img: '/img/so/tmall.png' },
-        { name: '百度', url: `https://www.baidu.com/s?wd=${placeholder}`, img: '/img/so/baidu.png' },
-        {
-          name: 'Google 翻译',
-          url: `https://translate.google.com/?#auto|auto|${placeholder}`,
-          img: 'google-translate.png'
-        }
+        { key: 'Google', name: 'Google', url: `https://www.google.com/search?q=${placeholder}` },
+        { key: 'DuckDuckGo', name: 'DuckDuckGo', url: `https://duckduckgo.com/?q=${placeholder}` },
+        { key: 'BiliBili', name: 'bilibili', url: `http://search.bilibili.com/all?keyword=${placeholder}` },
+        { key: 'GitHub', name: 'GitHub', url: `https://github.com/search?q=${placeholder}` },
+        { key: 'JueJin', name: '掘金', url: `https://juejin.im/search?query=${placeholder}` },
+        { key: 'ZhiHu', name: '知乎', url: `https://www.zhihu.com/search?type=content&q=${placeholder}` },
+        { key: 'V2EX', name: 'V2EX', url: `https://www.sov2ex.com/?q=${placeholder}` },
+        { key: 'StackOverflow', name: 'StackOverflow', url: `https://stackoverflow.com/search?q=${placeholder}` },
+        { key: 'NPM', name: 'NPM', url: `https://www.npmjs.com/search?q=${placeholder}` },
+        { key: 'CNPM', name: 'CNPM', url: `http://npm.taobao.org/package/${placeholder}` },
+        { key: 'Yarn', name: 'Yarn', url: `https://www.yarnpkg.com/zh-Hans/packages?q=${placeholder}` },
+        { key: 'Bing', name: 'Bing', url: `https://cn.bing.com/search?q=${placeholder}` },
+        { key: 'JD', name: '京东', url: `https://search.jd.com/Search?keyword=${placeholder}&enc=utf-8` },
+        { key: 'TMall', name: '天猫', url: `https://list.tmall.com/search_product.htm?q=${placeholder}` },
+        { key: 'BaiDu', name: '百度', url: `https://www.baidu.com/s?wd=${placeholder}` },
+        { key: 'GoogleTranslate', name: 'Google 翻译', url: `https://translate.google.com/?#auto|auto|${placeholder}` }
       ],
       selectedOption: '',
       selectedUrl: '',
@@ -104,10 +136,9 @@ export default {
   methods: {
     // 全局点击事件
     globalClick(e) {
-      if (e.target.classList.value === 'so-search-options-btn') {
-        return;
+      if (e.target.classList.value !== 'so-search-options-btn') {
+        this.optionsListVisible = false;
       }
-      this.optionsListVisible = false;
     },
     // 改变搜索选项
     changeOption(item) {
