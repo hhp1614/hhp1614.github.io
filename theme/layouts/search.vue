@@ -138,7 +138,6 @@ export default {
   },
   mounted() {
     this.$refs.keyword.focus();
-    console.log('test');
   },
   methods: {
     // 全局点击事件
