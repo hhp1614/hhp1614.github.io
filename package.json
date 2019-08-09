@@ -14,7 +14,7 @@
   "dependencies": {
     "hhp-utils": "^2.0.20",
     "prismjs": "^1.16.0",
-    "saber": "^0.6.8",
+    "saber": "^0.7.0",
     "saber-highlight-css": "^0.0.5",
     "saber-plugin-google-analytics": "^0.0.6",
     "saber-plugin-netlify-redirect": "^0.0.6",
