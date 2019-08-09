@@ -30,7 +30,7 @@ plugins:
     # options:
     #   perPage: 10
   - resolve: saber-plugin-prismjs
-  - resolve: saber-plugin-netlify-redirect
+#  - resolve: saber-plugin-netlify-redirect
 #  - resolve: saber-plugin-pwa
   - resolve: saber-plugin-google-analytics
     options:
