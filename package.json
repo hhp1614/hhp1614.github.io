@@ -1,19 +1,31 @@
 {
-  "name": "hexo-site",
-  "version": "0.0.0",
+  "name": "hhp1614-blog",
+  "version": "1.0.0",
+  "description": "blog",
+  "main": "n/a",
+  "author": "hhp1614",
+  "license": "MIT",
   "private": true,
-  "hexo": {
-    "version": "3.8.0"
+  "scripts": {
+    "build": "saber build",
+    "dev": "saber",
+    "format": "prettier --write theme/**/*.js theme/**/*.vue"
   },
   "dependencies": {
-    "hexo": "^3.8.0",
-    "hexo-generator-archive": "^0.1.5",
-    "hexo-generator-category": "^0.1.3",
-    "hexo-generator-index": "^0.2.1",
-    "hexo-generator-tag": "^0.2.0",
-    "hexo-renderer-ejs": "^0.3.1",
-    "hexo-renderer-stylus": "^0.3.3",
-    "hexo-renderer-marked": "^0.3.2",
-    "hexo-server": "^0.3.3"
-  }
+    "hhp-utils": "^2.0.20",
+    "prismjs": "^1.16.0",
+    "saber": "^0.6.8",
+    "saber-highlight-css": "^0.0.5",
+    "saber-plugin-google-analytics": "^0.0.6",
+    "saber-plugin-netlify-redirect": "^0.0.6",
+    "saber-plugin-prismjs": "^0.2.1",
+    "saber-plugin-pwa": "^0.3.3",
+    "saber-plugin-query-posts": "^0.3.2"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "sass": "^1.22.9",
+    "sass-loader": "^7.1.0"
+  },
+  "repository": "https://github.com/hhp1614/hhp1614.github.io.git"
 }

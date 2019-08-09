@@ -1,0 +1,66 @@
+@import "../../variable";
+
+.index {
+  display: flex;
+  flex-direction: column;
+
+  .list {
+    flex: 1;
+    height: 100%;
+    padding: 5px 0;
+    overflow: hidden;
+
+    .item {
+      overflow: hidden;
+
+      .title {
+        font-size: 20px;
+        //color: #00bdd6;
+        color: #9876aa;
+      }
+
+      .date {
+        font-size: 12px;
+        color: $obviousColor;
+      }
+    }
+  }
+}
+
+.pagination {
+  position: relative;
+  line-height: $lineHeight;
+  text-align: center;
+  font-size: 12px;
+  color: $obviousColor;
+  box-shadow: 0 1px 10px #999999;
+
+  .prev {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .next {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .prev, .next {
+    $color: #ff5792;
+
+    &::after {
+      background-color: $color;
+    }
+  }
+}
+
+/* Animations */
+.pagination {
+  animation: foot-in 0.6s ease forwards;
+}
+
+.foot-out {
+  animation: foot-out 0.3s ease forwards;
+}
