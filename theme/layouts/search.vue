@@ -1,7 +1,13 @@
 <template>
   <div class="so" @click="globalClick">
     <saber-link class="gotoBlog" to="/">Blog</saber-link>
-    <img class="so-logo" :src="images[selectedOption.key]" :alt="selectedOption.img"/>
+    <img
+      class="so-logo"
+      v-show="selectedOption.key === item.key"
+      v-for="(item, index) in optionsList"
+      :key="index" :src="images[item.key]"
+      :alt="selectedOption.name"
+    >
     <div class="so-container">
       <div class="so-search">
         <div class="so-search-options">
@@ -35,22 +41,22 @@ import { timeFormat } from 'hhp-utils';
 import Scrollbar from '../components/Scrollbar';
 
 // 引入logo图片
-const logoGoogle = require('../img/search/google.png');
-const logoDuckDuckGo = require('../img/search/duckduckgo.png');
-const logoBiliBili = require('../img/search/bilibili.png');
-const logoGitHub = require('../img/search/github.png');
-const logoJueJin = require('../img/search/juejin.png');
-const logoZhiHu = require('../img/search/zhihu.png');
-const logoV2EX = require('../img/search/v2ex.png');
-const logoStackOverflow = require('../img/search/stack-overflow.png');
-const logoNPM = require('../img/search/npm.png');
-const logoCNPM = require('../img/search/cnpm.png');
-const logoYarn = require('../img/search/yarn.png');
-const logoBing = require('../img/search/bing.png');
-const logoJD = require('../img/search/jd.png');
-const logoTMall = require('../img/search/tmall.png');
-const logoBaiDu = require('../img/search/baidu.png');
-const logoGoogleTranslate = require('../img/search/google-translate.png');
+import logoGoogle from '../img/search/google.png';
+import logoDuckDuckGo from '../img/search/duckduckgo.png';
+import logoBiliBili from '../img/search/bilibili.png';
+import logoGitHub from '../img/search/github.png';
+import logoJueJin from '../img/search/juejin.png';
+import logoZhiHu from '../img/search/zhihu.png';
+import logoV2EX from '../img/search/v2ex.png';
+import logoStackOverflow from '../img/search/stack-overflow.png';
+import logoNPM from '../img/search/npm.png';
+import logoCNPM from '../img/search/cnpm.png';
+import logoYarn from '../img/search/yarn.png';
+import logoBing from '../img/search/bing.png';
+import logoJD from '../img/search/jd.png';
+import logoTMall from '../img/search/tmall.png';
+import logoBaiDu from '../img/search/baidu.png';
+import logoGoogleTranslate from '../img/search/google-translate.png';
 
 // 占位符
 const placeholder = '%KEYWORD%';
@@ -115,7 +121,7 @@ export default {
         { key: 'BaiDu', name: '百度', url: `https://www.baidu.com/s?wd=${placeholder}` },
         { key: 'GoogleTranslate', name: 'Google 翻译', url: `https://translate.google.com/?#auto|auto|${placeholder}` }
       ],
-      selectedOption: '',
+      selectedOption: {},
       selectedUrl: '',
       date: timeFormat().split(' ')[0],
       time: timeFormat().split(' ')[1],
@@ -127,7 +133,6 @@ export default {
     try {
       this.updateTime();
       this.selectedOption = localStorage.SO_OPTION ? JSON.parse(localStorage.SO_OPTION) : this.optionsList[0];
-      console.log(this.images);
     } catch (e) {
     }
   },
@@ -148,7 +153,6 @@ export default {
     },
     // 搜索
     search() {
-      console.log(this.selectedOption);
       try {
         window.location.href = this.selectedOption.url.replace(placeholder, this.keyword);
       } catch (e) {
