@@ -43,7 +43,7 @@ import Scrollbar from '../components/Scrollbar.vue';
 export default {
   head() {
     const title = this.page.attributes.title;
-    let summary = this.page.attributes.subtitle || this.page.excerpt;
+    let summary = this.page.attributes.subtitle || this.page.excerpt || '';
     if (summary) {
       // Strip HTML tags
       try {
