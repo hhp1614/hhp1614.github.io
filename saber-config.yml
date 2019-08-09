@@ -22,8 +22,8 @@ themeConfig:
       link: /tags.html
     - text: 关于
       link: /about.html
-#    - text: 搜索
-#      link: /so.html
+    - text: 搜索
+      link: /so.html
 
 plugins:
   - resolve: saber-plugin-query-posts
