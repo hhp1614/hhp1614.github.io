@@ -2,10 +2,12 @@
   "private": true,
   "scripts": {
     "dev": "saber",
-    "build": "saber build"
+    "build": "saber build",
+    "format": "prettier --write theme/**/*.js theme/**/*.vue"
   },
   "devDependencies": {
     "hhp-utils": "latest",
+    "prettier": "^1.18.2",
     "prismjs": "latest",
     "saber": "latest",
     "saber-highlight-css": "latest",
@@ -14,7 +16,6 @@
     "saber-plugin-prismjs": "latest",
     "saber-plugin-pwa": "latest",
     "saber-plugin-query-posts": "latest",
-    "prettier": "latest",
     "sass": "latest",
     "sass-loader": "latest"
   }
