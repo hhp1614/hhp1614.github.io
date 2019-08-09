@@ -1,25 +1,29 @@
-/*
- * Keyframes
- */
+/* ********** Keyframes ********** */
 @import "./keyframes/keyframes";
-/*
- * Variable
- */
+/* ********** Variable ********** */
 @import "./variable";
-/*
- * Global
- */
+/* ********** Global ********** */
 @import "./global/main";
-/*
- * Modules
- */
-/* PC */
+/* ********** Modules ********** */
+/* ========== PC ========== */
+// 主容器
 @import "./modules/pc/main";
+// 头部
 @import "./modules/pc/header";
+// 首页
 @import "./modules/pc/index";
+// 文章详情
 @import "./modules/pc/default";
-/* SP */
+// 搜索
+@import "./modules/pc/search";
+/*  ========== SP ==========  */
+// 主容器
 @import "./modules/sp/main";
+// 头部
 @import "./modules/sp/header";
+// 首页
 @import "./modules/sp/index";
+// 文章详情
 @import "./modules/sp/default";
+// 搜索
+@import "./modules/sp/search";

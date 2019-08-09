@@ -1,0 +1,34 @@
+@media (max-width: 768px) {
+  .so {
+    height: 75vh;
+    padding-top: 10vh;
+
+    button, input {
+      font-size: 14px;
+    }
+
+    .so-search {
+      &-options {
+        &-btn {
+          padding: 0 10px;
+        }
+      }
+
+      &-input {
+        padding: 0 10px;
+      }
+
+      &-btn {
+        padding: 0 10px;
+      }
+    }
+
+    &-time {
+      font-size: 80px;
+    }
+
+    &-date-week {
+      font-size: 22px;
+    }
+  }
+}

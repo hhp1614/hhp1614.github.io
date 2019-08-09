@@ -1,5 +1,6 @@
 <template>
   <div class="so" @click="globalClick">
+    <saber-link class="gotoBlog" to="/">Blog</saber-link>
     <img class="so-logo" :src="`/img/so/${selectedOption.img}`" :alt="selectedOption.img" />
     <div class="so-container">
       <div class="so-search">
@@ -85,6 +86,7 @@ export default {
     };
   },
   created() {
+    // 阻止编译报错
     try {
       this.updateTime();
       this.selectedOption = localStorage.SO_OPTION ? JSON.parse(localStorage.SO_OPTION) : this.optionsList[0];
@@ -129,7 +131,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import '../styles/modules/pc/search';
-</style>
