@@ -23,7 +23,7 @@ themeConfig:
     - text: 关于
       link: /about.html
     - text: 搜索
-      link: /so.html
+      link: /search.html
 
 plugins:
   - resolve: saber-plugin-query-posts

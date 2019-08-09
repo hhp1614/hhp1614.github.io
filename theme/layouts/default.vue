@@ -46,10 +46,7 @@ export default {
     let summary = this.page.attributes.subtitle || this.page.excerpt || '';
     if (summary) {
       // Strip HTML tags
-      try {
-        summary = summary.replace(/<(?:.|\n)*?>/gm, '');
-      } catch (e) {
-      }
+      summary = summary.replace(/<(?:.|\n)*?>/gm, '');
     }
     return { title };
   },

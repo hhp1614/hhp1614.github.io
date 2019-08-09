@@ -1,0 +1,247 @@
+// 变量
+$lineHeight: 46px; // 行高
+$borderColor: #6b6e70; // 边框颜色
+$borderColorFocus: #9e9e9e; // 选中后边框颜色
+$bgColor: #2b2b2b; // 背景颜色
+
+.icon-search {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  border: 2px solid currentcolor;
+  position: relative;
+  vertical-align: middle;
+
+  &::after {
+    content: "";
+    transform: rotate(45deg);
+    width: 8px;
+    height: 2px;
+    position: absolute;
+    top: 14px;
+    left: 12px;
+    background-color: currentcolor;
+  }
+}
+
+.so {
+  color: #A9B7C6;
+  width: 100%;
+  height: 100%;
+  //overflow: hidden;
+  padding-top: 15vmin;
+  text-align: center;
+
+  // 全局样式
+  * {
+    box-sizing: border-box;
+  }
+
+  button {
+    padding: 0 20px;
+    border: 1px solid $borderColor;
+    background: transparent;
+    color: #A9B7C6;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  input {
+    padding: 0 20px;
+    border: 1px solid $borderColor;
+    outline: none;
+    background: transparent;
+    caret-color: #ffffff;
+    color: #eeeeee;
+    font-size: 18px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: rgba(200, 200, 200, 0.2);
+    }
+
+    &:focus {
+      background: rgba(200, 200, 200, 0.1);
+      border-color: $borderColorFocus;
+    }
+  }
+
+  &-logo {
+    width: 30vmin;
+    margin-bottom: 30px;
+  }
+
+  .so-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    .so-search {
+      width: 80vmin;
+      display: flex;
+      position: relative;
+
+      // 左侧选项
+      &-options {
+        position: relative;
+
+        // 左侧选项按钮
+        button {
+          height: $lineHeight;
+          border-radius: 6px 0 0 6px;
+          margin-right: -1px;
+        }
+
+        // 左侧选项列表
+        &-list {
+          position: absolute;
+          left: 0;
+          top: 130%;
+          min-width: 100%;
+          height: 300px;
+          overflow-y: auto;
+          background: $bgColor;
+          border: 1px solid $borderColor;
+          border-radius: 6px;
+          // 左侧选项列表选项
+         li {
+            padding: 0 20px;
+            text-align: center;
+            line-height: $lineHeight;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+              color: #ffffff;
+            }
+          }
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -10px;
+            left: 40%;
+            margin-left: -10px;
+            z-index: 1;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid $borderColor;
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -9px;
+            left: 40%;
+            margin-left: -9px;
+            z-index: 1;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-bottom: 9px solid $bgColor;
+          }
+        }
+      }
+
+      // 输入框
+      &-input {
+        flex: 1;
+        width: 100%;
+        height: $lineHeight;
+        margin-right: -1px;
+        position: relative;
+      }
+
+      // 清除按钮
+      &-clear {
+        $width: 20px;
+        width: $width;
+        height: $width;
+        margin-top: ($lineHeight - $width) / 2;
+        margin-left: -$width - 10;
+        margin-right: 10px;
+        position: relative;
+        cursor: pointer;
+
+        &::before {
+          content: "";
+          width: 2px;
+          height: $width;
+          position: absolute;
+          top: 0;
+          left: $width / 2;
+          background: $borderColor;
+          transform: rotateZ(45deg);
+        }
+
+        &::after {
+          content: "";
+          width: 2px;
+          height: $width;
+          position: absolute;
+          top: 0;
+          left: $width / 2;
+          background: $borderColor;
+          transform: rotateZ(-45deg);
+        }
+      }
+
+      // 搜索按钮
+      &-btn {
+        height: $lineHeight;
+        border-radius: 0 6px 6px 0;
+      }
+    }
+  }
+  &-time {
+    margin-top: 100px;
+    font-size: 120px;
+  }
+  &-date-week {
+    margin-top: 20px;
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .so {
+    height: 75vh;
+    padding-top: 10vh;
+
+    button, input {
+      font-size: 14px;
+    }
+    .so-search {
+      &-options {
+        &-btn {
+          padding: 0 10px;
+        }
+      }
+      &-input {
+        padding: 0 10px;
+      }
+      &-btn {
+        padding: 0 10px;
+      }
+    }
+
+    &-time {
+      font-size: 80px;
+    }
+    &-date-week {
+      font-size: 22px;
+    }
+  }
+}
