@@ -2543,10 +2543,10 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-hhp-utils@^2.0.15:
-  version "2.0.15"
-  resolved "https://registry.npm.taobao.org/hhp-utils/download/hhp-utils-2.0.15.tgz#5d0cbc9d025ebbcd7caf708bd229e48ee41e554e"
-  integrity sha1-XQy8nQJeu818r3CL0inkjuQeVU4=
+hhp-utils@^2.0.18:
+  version "2.0.18"
+  resolved "https://registry.npm.taobao.org/hhp-utils/download/hhp-utils-2.0.18.tgz?cache=0&sync_timestamp=1565332783804&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhhp-utils%2Fdownload%2Fhhp-utils-2.0.18.tgz#60fbe11cc7aa4be5ec628fefc2d6739a83ea7356"
+  integrity sha1-YPvhHMeqS+XsYo/vwtZzmoPqc1Y=
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
