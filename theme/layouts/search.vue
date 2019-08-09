@@ -1,7 +1,7 @@
 <template>
   <div class="so" @click="globalClick">
     <saber-link class="gotoBlog" to="/">Blog</saber-link>
-    <img class="so-logo" :src="`/img/so/${selectedOption.img}`" :alt="selectedOption.img" />
+    <img class="so-logo" :src="selectedOption.img" :alt="selectedOption.img"/>
     <div class="so-container">
       <div class="so-search">
         <div class="so-search-options">
@@ -14,7 +14,7 @@
             </Scrollbar>
           </ul>
         </div>
-        <input ref="keyword" class="so-search-input" v-model="keyword" @keyup.enter="search" />
+        <input ref="keyword" class="so-search-input" v-model="keyword" @keyup.enter="search"/>
         <i v-show="keyword" class="so-search-clear" @click="clear"></i>
         <button class="so-search-btn" @click="search">
           <i class="icon-search"></i>
@@ -35,6 +35,7 @@ import Scrollbar from '../components/Scrollbar';
 
 // 占位符
 const placeholder = '%KEYWORD%';
+
 // 获取当前星期几
 function getWeek() {
   return ['一', '二', '三', '四', '五', '六', '日'][new Date().getDay() - 1];
@@ -57,21 +58,25 @@ export default {
       optionsListVisible: false,
       keyword: '',
       optionsList: [
-        { name: 'Google', url: `https://www.google.com/search?q=${placeholder}`, img: 'google.png' },
-        { name: 'DuckDuckGo', url: `https://duckduckgo.com/?q=${placeholder}`, img: 'duckduckgo.png' },
-        { name: 'bilibili', url: `http://search.bilibili.com/all?keyword=${placeholder}`, img: 'bilibili.png' },
-        { name: 'GitHub', url: `https://github.com/search?q=${placeholder}`, img: 'github.png' },
-        { name: '掘金', url: `https://juejin.im/search?query=${placeholder}`, img: 'juejin.png' },
-        { name: '知乎', url: `https://www.zhihu.com/search?type=content&q=${placeholder}`, img: 'zhihu.png' },
-        { name: 'V2EX', url: `https://www.sov2ex.com/?q=${placeholder}`, img: 'v2ex.png' },
-        { name: 'StackOverflow', url: `https://stackoverflow.com/search?q=${placeholder}`, img: 'stack-overflow.png' },
-        { name: 'NPM', url: `https://www.npmjs.com/search?q=${placeholder}`, img: 'npm.png' },
-        { name: 'CNPM', url: `http://npm.taobao.org/package/${placeholder}`, img: 'cnpm.png' },
-        { name: 'Yarn', url: `https://www.yarnpkg.com/zh-Hans/packages?q=${placeholder}`, img: 'yarn.png' },
-        { name: 'Bing', url: `https://cn.bing.com/search?q=${placeholder}`, img: 'bing.png' },
-        { name: '京东', url: `https://search.jd.com/Search?keyword=${placeholder}&enc=utf-8`, img: 'jd.png' },
-        { name: '天猫', url: `https://list.tmall.com/search_product.htm?q=${placeholder}`, img: 'tmall.png' },
-        { name: '百度', url: `https://www.baidu.com/s?wd=${placeholder}`, img: 'baidu.png' },
+        { name: 'Google', url: `https://www.google.com/search?q=${placeholder}`, img: '/img/so/google.png' },
+        { name: 'DuckDuckGo', url: `https://duckduckgo.com/?q=${placeholder}`, img: '/img/so/duckduckgo.png' },
+        { name: 'bilibili', url: `http://search.bilibili.com/all?keyword=${placeholder}`, img: '/img/so/bilibili.png' },
+        { name: 'GitHub', url: `https://github.com/search?q=${placeholder}`, img: '/img/so/github.png' },
+        { name: '掘金', url: `https://juejin.im/search?query=${placeholder}`, img: '/img/so/juejin.png' },
+        { name: '知乎', url: `https://www.zhihu.com/search?type=content&q=${placeholder}`, img: '/img/so/zhihu.png' },
+        { name: 'V2EX', url: `https://www.sov2ex.com/?q=${placeholder}`, img: '/img/so/v2ex.png' },
+        {
+          name: 'StackOverflow',
+          url: `https://stackoverflow.com/search?q=${placeholder}`,
+          img: '/img/so/stack-overflow.png'
+        },
+        { name: 'NPM', url: `https://www.npmjs.com/search?q=${placeholder}`, img: '/img/so/npm.png' },
+        { name: 'CNPM', url: `http://npm.taobao.org/package/${placeholder}`, img: '/img/so/cnpm.png' },
+        { name: 'Yarn', url: `https://www.yarnpkg.com/zh-Hans/packages?q=${placeholder}`, img: '/img/so/yarn.png' },
+        { name: 'Bing', url: `https://cn.bing.com/search?q=${placeholder}`, img: '/img/so/bing.png' },
+        { name: '京东', url: `https://search.jd.com/Search?keyword=${placeholder}&enc=utf-8`, img: '/img/so/jd.png' },
+        { name: '天猫', url: `https://list.tmall.com/search_product.htm?q=${placeholder}`, img: '/img/so/tmall.png' },
+        { name: '百度', url: `https://www.baidu.com/s?wd=${placeholder}`, img: '/img/so/baidu.png' },
         {
           name: 'Google 翻译',
           url: `https://translate.google.com/?#auto|auto|${placeholder}`,
@@ -90,8 +95,8 @@ export default {
     try {
       this.updateTime();
       this.selectedOption = localStorage.SO_OPTION ? JSON.parse(localStorage.SO_OPTION) : this.optionsList[0];
-      console.log(this.selectedOption);
-    } catch (e) {}
+    } catch (e) {
+    }
   },
   mounted() {
     this.$refs.keyword.focus();
@@ -114,7 +119,8 @@ export default {
       console.log(this.selectedOption);
       try {
         window.location.href = this.selectedOption.url.replace(placeholder, this.keyword);
-      } catch (e) {}
+      } catch (e) {
+      }
     },
     // 清除输入内容
     clear() {
