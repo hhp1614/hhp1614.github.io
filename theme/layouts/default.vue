@@ -46,7 +46,10 @@ export default {
     let summary = this.page.attributes.subtitle || this.page.excerpt;
     if (summary) {
       // Strip HTML tags
-      summary = summary.replace(/<(?:.|\n)*?>/gm, '');
+      try {
+        summary = summary.replace(/<(?:.|\n)*?>/gm, '');
+      } catch (e) {
+      }
     }
     return { title };
   },
