@@ -142,9 +142,7 @@ export default {
       document.body.style.height = '100vh';
       document.body.style.overflow = 'hidden';
       console.log('test');
-      document.body.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
+      document.addEventListener('touchmove', e => e.preventDefault(), false);
     } catch (e) {
     }
   },
