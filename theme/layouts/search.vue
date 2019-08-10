@@ -138,22 +138,6 @@ export default {
   },
   mounted() {
     this.$refs.keyword.focus();
-    try {
-      document.body.style.height = '100vh';
-      document.body.style.overflow = 'hidden';
-      console.log('test1');
-      document.body.addEventListener('touchmove', e => {
-        e.preventDefault();
-      });
-    } catch (e) {
-    }
-  },
-  destroyed() {
-    try {
-      document.body.style.height = '';
-      document.body.style.overflow = '';
-    } catch (e) {
-    }
   },
   methods: {
     // 全局点击事件

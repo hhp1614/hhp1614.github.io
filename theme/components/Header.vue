@@ -3,25 +3,38 @@
     <!-- <h1>{{ $themeConfig.title }}</h1> -->
     <div class="nav">
       <div class="item" v-for="(item, index) in $themeConfig.sideBar" :key="index">
-        <a @click="jump(item.link)">{{ item.text }}</a>
+        <a v-if="!isMobile || item.link !== '/search.html'" @click="jump(item.link)">{{ item.text }}</a>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import { isMobile } from 'hhp-utils';
+
 export default {
   props: {
     headOut: {
       type: Boolean
     }
   },
+  data() {
+    return {
+      isMobile: isMobile()
+    };
+  },
   methods: {
     jump(link) {
       if (link === this.$saber.$route.fullPath) return;
       this.$emit('changeRoute');
       setTimeout(() => this.$router.push({ path: link }), 300);
-    }
+    },
+    // show(item) {
+    //   if (!this.isMobile) {
+    //     return true;
+    //   }
+    //   return item.link !== '/search.html'
+    // }
   }
 };
 </script>
