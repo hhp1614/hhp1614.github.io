@@ -3,7 +3,7 @@
     <!-- <h1>{{ $themeConfig.title }}</h1> -->
     <div class="nav">
       <div class="item" v-for="(item, index) in $themeConfig.sideBar" :key="index">
-        <a v-if="show(item)" @click="jump(item.link)">{{ item.text }}</a>
+        <a v-show="show(item)" @click="jump(item.link)">{{ item.text }}</a>
       </div>
     </div>
   </header>
