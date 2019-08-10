@@ -9,7 +9,7 @@
 
 // Safari 顶栏彩虹效果
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  body:before {
+  body::before {
     right: 0;
     top: 0;
     left: 0;
@@ -37,6 +37,9 @@
     );
     animation: rainbow 15s ease infinite;
     background-size: 1000% 1000%;
+  }
+  body.disable-rainbow::before {
+    display: none !important;
   }
 }
 
