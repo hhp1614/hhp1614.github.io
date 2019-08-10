@@ -3,7 +3,7 @@
     <!-- <h1>{{ $themeConfig.title }}</h1> -->
     <div class="nav">
       <div class="item" v-for="(item, index) in $themeConfig.sideBar" :key="index">
-        <a v-if="!isMobile || item.link !== '/search.html'" @click="jump(item.link)">{{ item.text }}</a>
+        <a v-if="show(item)" @click="jump(item.link)">{{ item.text }}</a>
       </div>
     </div>
   </header>
@@ -29,12 +29,12 @@ export default {
       this.$emit('changeRoute');
       setTimeout(() => this.$router.push({ path: link }), 300);
     },
-    // show(item) {
-    //   if (!this.isMobile) {
-    //     return true;
-    //   }
-    //   return item.link !== '/search.html'
-    // }
+    show(item) {
+      if (!this.isMobile) {
+        return true;
+      }
+      return item.link !== '/search.html'
+    }
   }
 };
 </script>
