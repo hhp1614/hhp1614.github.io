@@ -139,15 +139,18 @@ export default {
   mounted() {
     this.$refs.keyword.focus();
     try {
-      window.document.body.style.height = '100vh';
-      window.document.body.style.overflow = 'hidden';
+      document.body.style.height = '100vh';
+      document.body.style.overflow = 'hidden';
+      document.body.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
     } catch (e) {
     }
   },
   destroyed() {
     try {
-      window.document.body.style.height = '';
-      window.document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.body.style.overflow = '';
     } catch (e) {
     }
   },
