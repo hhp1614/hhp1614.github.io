@@ -141,7 +141,6 @@ export default {
     try {
       window.document.body.style.height = '100vh';
       window.document.body.style.overflow = 'hidden';
-      window.document.body.classList.add('disable-rainbow');
     } catch (e) {
     }
   },
@@ -149,7 +148,6 @@ export default {
     try {
       window.document.body.style.height = '';
       window.document.body.style.overflow = '';
-      window.document.body.classList.remove('disable-rainbow');
     } catch (e) {
     }
   },
