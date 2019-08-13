@@ -1,5 +1,5 @@
 ---
-title: 数据结构-02-队列
+title: 数据结构-03-队列
 date: 2019-08-13
 layout: post
 tags:
@@ -51,7 +51,6 @@ class Queue {
 
   // 清除队列中的所有元素
   clear() {
-    delete this.dataStore;
     this.dataStore = [];
   }
 

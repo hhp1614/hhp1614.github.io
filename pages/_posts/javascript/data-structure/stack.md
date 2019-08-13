@@ -1,5 +1,5 @@
 ---
-title: 数据结构-01-栈
+title: 数据结构-02-栈
 date: 2019-08-13
 layout: post
 tags:
@@ -48,7 +48,6 @@ class Stack {
 
   // 清空
   clear() {
-    delete this.dataStore;
     this.dataStore = [];
     this.top = -1;
   }
