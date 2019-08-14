@@ -64,13 +64,13 @@ class Queue {
 ### 使用
 
 ```js
-const q = new Queue('hello', 'world');
-console.log(q.toString()); // hello,world
-console.log(q.length()); // 2
-q.enqueue('hhp');
-console.log(q.toString()); // hello,world,hhp
-console.log(q.dequeue()); // hello
-console.log(q.peek()); // world
-q.clear();
-console.log(q.toString()); // ''
+const queue = new Queue('hello', 'world');
+console.log(queue.toString()); // hello,world
+console.log(queue.length()); // 2
+queue.enqueue('hhp');
+console.log(queue.toString()); // hello,world,hhp
+console.log(queue.dequeue()); // hello
+console.log(queue.peek()); // world
+queue.clear();
+console.log(queue.toString()); // ''
 ```

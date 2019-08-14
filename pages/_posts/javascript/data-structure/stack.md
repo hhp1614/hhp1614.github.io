@@ -1,6 +1,6 @@
 ---
 title: 数据结构-02-栈
-date: 2019-08-13
+date: 2019-08-12
 layout: post
 tags:
   - JavaScript
@@ -57,16 +57,16 @@ class Stack {
 ### 使用
 
 ```js
-let s = new Stack();
-s.push('hello');
-s.push('world');
+let stack = new Stack();
+stack.push('hello');
+stack.push('world');
 
-console.log(s); // Stack { dataStore: [ 'hello', 'world' ], top: 1 }
-console.log('length:', s.length()); // length: 2
-console.log('peek:', s.peek()); // peek: world
-console.log('pop:', s.pop()); // pop: world
-console.log('length:', s.length()); // length: 1
-s.clear();
-console.log('length:', s.length()); // length: 0
-console.log(s); // Stack { top: -1, dataStore: [] }
+console.log(stack); // Stack { dataStore: [ 'hello', 'world' ], top: 1 }
+console.log('length:', stack.length()); // length: 2
+console.log('peek:', stack.peek()); // peek: world
+console.log('pop:', stack.pop()); // pop: world
+console.log('length:', stack.length()); // length: 1
+stack.clear();
+console.log('length:', stack.length()); // length: 0
+console.log(stack); // Stack { top: -1, dataStore: [] }
 ```

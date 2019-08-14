@@ -1,6 +1,6 @@
 ---
 title: 数据结构-01-列表
-date: 2019-08-13
+date: 2019-08-11
 layout: post
 tags:
   - JavaScript
@@ -152,44 +152,44 @@ class List {
 ### 使用
 
 ```js
-const l = new List(1, 2, 3);
+const list = new List(1, 2, 3);
 // 以字符串形式输出列表元素
-console.log(l.toString()); // 1,2,3
+console.log(list.toString()); // 1,2,3
 
 // 在列表末尾添加一个元素
-l.append(5);
+list.append(5);
 // 以字符串形式输出列表元素
-console.log(l.toString()); // 1,2,3,5
+console.log(list.toString()); // 1,2,3,5
 
 // 删除列表一个元素
-l.remove(1);
+list.remove(1);
 // 以字符串形式输出列表元素
-console.log(l.toString()); // 2,3,5
+console.log(list.toString()); // 2,3,5
 
 // 向列表插入元素
-l.insert(1, 0);
-l.insert(4, 3);
+list.insert(1, 0);
+list.insert(4, 3);
 // 以字符串形式输出列表元素
-console.log(l.toString()); // 1,2,3,4,5
+console.log(list.toString()); // 1,2,3,4,5
 
 // 判断列表是否包含指定的元素
-console.log(l.contains(6)); // false
+console.log(list.contains(6)); // false
 
 // 向列表末尾追加元素
-l.append(6);
-l.append(7);
+list.append(6);
+list.append(7);
 
 // 判断列表是否包含指定的元素
-console.log(l.contains(6)); // true
+console.log(list.contains(6)); // true
 // 输出列表元素个数
-console.log(l.length()); // 7
+console.log(list.length()); // 7
 
-l.moveTo(2);
-console.log(l.getElement()); // 3
+list.moveTo(2);
+console.log(list.getElement()); // 3
 
 // 遍历列表
-for (l.front(); l.currentPosition() < l.length(); l.next()) {
-  console.log(l.getElement());
+for (list.front(); list.currentPosition() < list.length(); list.next()) {
+  console.log(list.getElement());
 }
 /* console
 1
