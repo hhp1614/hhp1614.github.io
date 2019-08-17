@@ -1,6 +1,2 @@
-node_modules
-*.log
-.saber
-public
+node_modules/
 .idea
-test

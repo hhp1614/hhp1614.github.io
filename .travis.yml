@@ -15,11 +15,11 @@ after_script:
   - git config user.email "hhp1614@gmail.com" # 修改 email
   - git add .
   - git commit -m "update"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master # GH_TOKEN是在Travis中配置token的名称
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master # GH_TOKEN 是在 Travis 中配置 token 的名称
 
 branches:
   only:
-    - blog # 只监测 blog 分支，blog 是我的分支的名称，可根据自己情况设置
+    - blog # 只监测 blog 分支
 env:
   global:
     - GH_REF: github.com/hhp1614/hhp1614.github.io.git # 设置 GH_REF，注意更改 yourname
