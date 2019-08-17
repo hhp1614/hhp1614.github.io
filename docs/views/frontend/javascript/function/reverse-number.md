@@ -3,7 +3,7 @@ title: 优雅的翻转整数
 date: 2019-06-06
 tags:
  - JavaScript
- - Function
+ - JS Function
 categories:
  - JavaScript
 ---

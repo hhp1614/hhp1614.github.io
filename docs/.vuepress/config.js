@@ -2,6 +2,7 @@ module.exports = {
   title: 'hhp1614のBlog',
   description: 'Welcome to my blog.',
   dest: 'public',
+  port: 8088,
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],

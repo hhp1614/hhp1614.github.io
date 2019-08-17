@@ -3,7 +3,7 @@ title: JS 中的节流和防抖
 date: 2019-06-05
 tags:
  - JavaScript
- - Function
+ - JS Function
 categories:
  - JavaScript
 ---
