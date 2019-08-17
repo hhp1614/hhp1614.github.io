@@ -24,7 +24,7 @@ module.exports = {
         text: '找到我',
         icon: 'reco-message',
         items: [
-          { text: 'NPM', link: 'https://www.npmjs.com/hhp1614', icon: 'reco-npm' },
+          { text: 'NPM', link: 'https://www.npmjs.com/~hhp1614', icon: 'reco-npm' },
           { text: 'GitHub', link: 'https://github.com/hhp1614', icon: 'reco-github' }
         ]
       }
@@ -47,7 +47,7 @@ module.exports = {
     // 自动形成侧边导航
     sidebar: 'auto',
     // 最后更新时间
-    lastUpdated: 'Last Updated',
+    lastUpdated: '最后更新',
     // 作者
     author: 'hhp1614',
     // 备案号
@@ -70,6 +70,7 @@ module.exports = {
     valineConfig: {
       appId: 'uAwhQTpA2HMowRdJQakJOzsh-gzGzoHsz',// your appId
       appKey: 'o6xH2e2VyVP7cOw1WIy8gtyy', // your appKey
+      avatar: 'hide',
       notify: true,
       placeholder: '来说点什么吧~[]~(￣▽￣)~*'
     }
