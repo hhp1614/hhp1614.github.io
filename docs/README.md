@@ -14,4 +14,6 @@ features:
   details: 提供 CDN 服务，DNS 解析服务
 - title: Google Analytics
   details: 提供网站统计服务
+- title: Valine
+  details: 提供评论服务
 ---

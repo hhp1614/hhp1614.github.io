@@ -13,6 +13,7 @@ sidebar: false
 1. 这是一个 vuepress 搭建，使用 VuePress-theme-reco 主题的博客；<br>
 2. 博客源代码托管于 GitHub，使用 Travis 自动化构建成静态页面；<br>
 3. 由 Netlify 提供 CDN 和 DNS 解析服务，Google Analytics 提供网站统计服务。
+4. 由 Valine 提供评论服务。
 :::
 
 本博客用于：

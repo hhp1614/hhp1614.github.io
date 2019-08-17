@@ -68,8 +68,8 @@ module.exports = {
      * valine 设置 (if you need valine comment )
      */
     valineConfig: {
-      appId: 'dYGoDLbuKhIfqSHxMIXJrEtu-gzGzoHsz',// your appId
-      appKey: 'C9FwwmINwaS29A1HiwcCAbmn', // your appKey
+      appId: 'uAwhQTpA2HMowRdJQakJOzsh-gzGzoHsz',// your appId
+      appKey: 'o6xH2e2VyVP7cOw1WIy8gtyy', // your appKey
       notify: true,
       placeholder: '来说点什么吧~[]~(￣▽￣)~*'
     }
