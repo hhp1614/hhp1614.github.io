@@ -155,8 +155,7 @@ function isFish(pet: Fish | Bird): pet is Fish {
 ```typescript
 if (isFish(pet)) {
   pet.swim();
-}
-else {
+} else {
   pet.fly();
 }
 ```
