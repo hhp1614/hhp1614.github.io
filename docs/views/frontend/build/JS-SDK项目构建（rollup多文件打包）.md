@@ -8,8 +8,6 @@ categories:
  - Build
 ---
 
-# JS-SDK项目构建（rollup多文件打包）
-
 ## 初始化文件目录
 
 ```
