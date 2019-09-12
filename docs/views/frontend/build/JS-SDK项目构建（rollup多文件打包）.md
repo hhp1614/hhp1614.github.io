@@ -28,7 +28,7 @@ ProjectName
 
 ## 安装依赖
 
-```js
+```sh
 npm i -D rollup // rollup基础模块
 npm i -D rollup-plugin-babel // 转换代码
 npm i -D @babel/core @babel/preset-env @babel/plugin-transform-classes // babel核心、自动辨别加载相应babel模块、class转换
@@ -42,7 +42,7 @@ npm i -D rollup-plugin-commonjs // 将node_modules中的cmd规范的模块转换
 
 一键安装
 
-```js
+```sh
 npm i -D rollup rollup-plugin-babel @babel/core @babel/preset-env @babel/plugin-transform-classes rollup-plugin-node-resolve rollup-plugin-commonjs
 ```
 
@@ -111,7 +111,7 @@ module.exports = [
 
 先安装用于开发环境的rollup插件
 
-```js
+```sh
 npm i -D rollup-plugin-serve // 用于启动本地server
 npm i -D rollup-plugin-livereload // 配合rollup-plugin-serve 监听开发文件自动刷新浏览器
 ```
@@ -154,7 +154,7 @@ module.exports = configList;
 
 先安装用于生产环境的rollup插件
 
-```js
+```sh
 // npm i -D rollup-plugin-uglify // 混淆代码专用
 // TIPS：上述插件不支持es模块打包，所以想输出uglify的es模块需要使用下边的插件
 npm i -D rollup-plugin-uglify-es
