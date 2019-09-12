@@ -1,5 +1,5 @@
 ---
-title: JS-数据结构-01-列表
+title: JS-SDK项目构建（rollup多文件打包）
 date: 2019-08-11
 tags:
  - JavaScript
