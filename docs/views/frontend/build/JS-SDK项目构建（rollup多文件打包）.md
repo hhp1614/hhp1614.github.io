@@ -105,7 +105,7 @@ module.exports = [
     output: {
       file: resolveFile('dist/sdk.js'),
       format: 'umd',
-      name: 'ZYSDK'
+      name: 'hhpSDK' // 打包后暴露的全局变量
     },
     plugins
   }
