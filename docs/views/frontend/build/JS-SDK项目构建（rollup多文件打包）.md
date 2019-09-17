@@ -59,7 +59,8 @@ const path = require('path');
 const babel = require('rollup-plugin-babel');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
-// const {eslint} = require('rollup-plugin-eslint');
+// const sass = require('rollup-plugin-sass'); // 需要先安装 rollup-plugin-sass
+// const {eslint} = require('rollup-plugin-eslint'); // 需要先安装 rollup-plugin-eslint
 
 const resolveFile = function(filePath) {
   return path.join(__dirname, '..', filePath);
@@ -68,7 +69,11 @@ const resolveFile = function(filePath) {
 const plugins = [
   resolve(),
   commonjs(),
-  // 如果安装了eslint，就这样配置
+  // 如果安装了sass，在这里配置
+  // sass(
+  //   insert: true // 将编译后的 css 动态插入到 head 标签
+  // ),
+  // 如果安装了eslint，在这里配置
   // eslint({
   //   include: ['src/**'],
   //   exclude: ['node_modules/**']
@@ -92,7 +97,7 @@ module.exports = [
     output: {
       file: resolveFile('dist/index.js'),
       format: 'umd',
-      name: '' // umd输出模式必填name
+      name: '' // umd 输出模式必填 name
     },
     plugins
   }, {
@@ -112,8 +117,8 @@ module.exports = [
 先安装用于开发环境的rollup插件
 
 ```sh
-npm i -D rollup-plugin-serve // 用于启动本地server
-npm i -D rollup-plugin-livereload // 配合rollup-plugin-serve 监听开发文件自动刷新浏览器
+npm i -D rollup-plugin-serve // 用于启动本地 server
+npm i -D rollup-plugin-livereload // 配合 rollup-plugin-serve 监听开发文件自动刷新浏览器
 ```
 
 然后再配置`rollup.config.dev.js`
@@ -140,7 +145,7 @@ configList.map((config, index) => {
           port: 3000,
           contentBase: [resolveFile('')]
         }),
-        livereload(resolveFile('dist')) // 启动重载，并且监听dist目录
+        livereload(resolveFile('dist')) // 启动重载，并且监听 dist 目录
       ]
     ];
   }
@@ -156,7 +161,7 @@ module.exports = configList;
 
 ```sh
 // npm i -D rollup-plugin-uglify // 混淆代码专用
-// TIPS：上述插件不支持es模块打包，所以想输出uglify的es模块需要使用下边的插件
+// TIPS：上述插件不支持es模块打包，所以想输出 uglify 的 es 模块需要使用下边的插件
 npm i -D rollup-plugin-uglify-es
 ```
 
@@ -196,8 +201,8 @@ module.exports = configList;
 
 ```json
   "scripts": {
-    "build": "node_modules/.bin/rollup -c ./build/rollup.config.prod.js", // 构建命令，调用张飞 rollup -c 指定配置文件
-    "dev": "node_modules/.bin/rollup -w -c ./build/rollup.config.dev.js", // 启动生产命令，调用关羽 rollup -w  开启监听模式，文件变化随时知道
+    "build": "node_modules/.bin/rollup -c ./build/rollup.config.prod.js", // 构建命令，rollup -c 指定配置文件
+    "dev": "node_modules/.bin/rollup -w -c ./build/rollup.config.dev.js", // 启动生产命令，rollup -w 开启监听模式，文件变化随时知道
   },
 ```
 
