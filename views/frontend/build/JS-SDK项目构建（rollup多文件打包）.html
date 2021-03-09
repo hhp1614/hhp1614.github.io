@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS-SDK项目构建（rollup多文件打包） | hhp1614のBlog</title>
+    <meta name="description" content="Welcome to my blog.">
+    <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#ff7700">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#ff7700">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.872130de.css" as="style"><link rel="preload" href="/assets/js/app.bc8f5b1d.js" as="script"><link rel="preload" href="/assets/js/4.b0d01004.js" as="script"><link rel="preload" href="/assets/js/1.e0d46219.js" as="script"><link rel="preload" href="/assets/js/13.cc660f86.js" as="script"><link rel="preload" href="/assets/js/8.ba33497e.js" as="script"><link rel="prefetch" href="/assets/js/10.9d33a636.js"><link rel="prefetch" href="/assets/js/11.4a939c6a.js"><link rel="prefetch" href="/assets/js/12.26f42ba0.js"><link rel="prefetch" href="/assets/js/14.d59816d1.js"><link rel="prefetch" href="/assets/js/15.d574c646.js"><link rel="prefetch" href="/assets/js/16.ccf58d63.js"><link rel="prefetch" href="/assets/js/17.e6a89239.js"><link rel="prefetch" href="/assets/js/18.367567c6.js"><link rel="prefetch" href="/assets/js/19.fa858edb.js"><link rel="prefetch" href="/assets/js/20.ccc1f342.js"><link rel="prefetch" href="/assets/js/21.e10c633c.js"><link rel="prefetch" href="/assets/js/22.2a0bc801.js"><link rel="prefetch" href="/assets/js/23.bb3065e8.js"><link rel="prefetch" href="/assets/js/24.8bbeb21e.js"><link rel="prefetch" href="/assets/js/25.413d7c6e.js"><link rel="prefetch" href="/assets/js/26.28cfa500.js"><link rel="prefetch" href="/assets/js/27.4d8056ee.js"><link rel="prefetch" href="/assets/js/28.cbae1f59.js"><link rel="prefetch" href="/assets/js/29.4c2ee3c2.js"><link rel="prefetch" href="/assets/js/30.6762afc2.js"><link rel="prefetch" href="/assets/js/31.1a38d7e5.js"><link rel="prefetch" href="/assets/js/5.245b1580.js"><link rel="prefetch" href="/assets/js/6.c8ec5037.js"><link rel="prefetch" href="/assets/js/7.aa24893a.js"><link rel="prefetch" href="/assets/js/9.b68ee958.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.61a7b9af.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.872130de.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/head.png" alt="hhp1614のBlog" class="logo"> <span class="site-name">hhp1614のBlog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/Linux.html" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/category/Build.html" class="nav-link"><i class="iconfont undefined"></i>
+  Build
+</a></li><li class="dropdown-item"><!----> <a href="/category/JavaScript.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/category/TypeScript.html" class="nav-link"><i class="iconfont undefined"></i>
+  TypeScript
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      找到我
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~hhp1614" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  NPM
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/hhp1614" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/Linux.html" class="nav-link"><i class="iconfont undefined"></i>
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/category/Build.html" class="nav-link"><i class="iconfont undefined"></i>
+  Build
+</a></li><li class="dropdown-item"><!----> <a href="/category/JavaScript.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/category/TypeScript.html" class="nav-link"><i class="iconfont undefined"></i>
+  TypeScript
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      找到我
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~hhp1614" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  NPM
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/hhp1614" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>JS-SDK项目构建（rollup多文件打包）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/frontend/build/JS-SDK%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%EF%BC%88rollup%E5%A4%9A%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%EF%BC%89.html#初始化文件目录" class="sidebar-link">初始化文件目录</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/frontend/build/JS-SDK%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%EF%BC%88rollup%E5%A4%9A%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%EF%BC%89.html#安装依赖" class="sidebar-link">安装依赖</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/frontend/build/JS-SDK%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%EF%BC%88rollup%E5%A4%9A%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%EF%BC%89.html#配置-rollup" class="sidebar-link">配置 rollup</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/frontend/build/JS-SDK%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%EF%BC%88rollup%E5%A4%9A%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%EF%BC%89.html#rollup-config-js" class="sidebar-link">rollup.config.js</a></li><li class="sidebar-sub-header"><a href="/views/frontend/build/JS-SDK%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%EF%BC%88rollup%E5%A4%9A%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%EF%BC%89.html#rollup-config-dev-js" class="sidebar-link">rollup.config.dev.js</a></li><li class="sidebar-sub-header"><a href="/views/frontend/build/JS-SDK%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%EF%BC%88rollup%E5%A4%9A%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%EF%BC%89.html#rollup-config-prod-js" class="sidebar-link">rollup.config.prod.js</a></li></ul></li><li><a href="/views/frontend/build/JS-SDK%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%EF%BC%88rollup%E5%A4%9A%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%EF%BC%89.html#配置启动命令" class="sidebar-link">配置启动命令</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>JS-SDK项目构建（rollup多文件打包）</h1> <hr> <div data-v-362e684e><i class="iconfont reco-account" data-v-362e684e><span data-v-362e684e>hhp1614</span></i> <i class="iconfont reco-date" data-v-362e684e><span data-v-362e684e>9/12/2019</span></i> <span id="/views/frontend/build/JS-SDK%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%EF%BC%88rollup%E5%A4%9A%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%EF%BC%89.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-2e99e05a data-v-362e684e><i class="iconfont reco-eye" style="margin-right: .5rem" data-v-2e99e05a></i> <a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;" data-v-2e99e05a></a></span> <i class="iconfont reco-tag tags" data-v-362e684e><span class="tag-item" data-v-362e684e>
+      JavaScript
+    </span><span class="tag-item" data-v-362e684e>
+      Rollup
+    </span></i></div></div> <div class="content__default"><h2 id="初始化文件目录"><a href="#初始化文件目录" aria-hidden="true" class="header-anchor">#</a> 初始化文件目录</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>ProjectName
+├─ build
+│   ├─ rollup.config.dev.js    开发环境的配置文件（启动本地服务、开启热重载）
+│   ├─ rollup.config.js        通用配置文件（控制打包流程、代码转换、cmd规范的js转换、eslint代码规范等等）
+│   └─ rollup.config.prod.js   生产环境的配置文件（混淆生产代码）
+├─ dist                        存放打包后的文件
+├─ example                     开发时，用于调试的页面
+│   ├─ index.html
+│   └─ game.html
+├─ src                         打包的入口
+│   ├─ index.js
+│   └─ sdk.js
+└─ package.json
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="安装依赖"><a href="#安装依赖" aria-hidden="true" class="header-anchor">#</a> 安装依赖</h2> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token function">npm</span> i -D rollup // rollup基础模块
+<span class="token function">npm</span> i -D rollup-plugin-babel // 转换代码
+<span class="token function">npm</span> i -D @babel/core @babel/preset-env @babel/plugin-transform-classes // babel核心、自动辨别加载相应babel模块、class转换
+<span class="token function">npm</span> i -D rollup-plugin-node-resolve // 识别无法识别node_modules的模块
+<span class="token function">npm</span> i -D rollup-plugin-commonjs // 将node_modules中的cmd规范的模块转换为es语法
+
+// 如果需要eslint
+// <span class="token function">npm</span> i -D rrollup-plugin-eslint // 代码规范检查插件
+// <span class="token function">npm</span> i -g eslint
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>一键安装</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token function">npm</span> i -D rollup rollup-plugin-babel @babel/core @babel/preset-env @babel/plugin-transform-classes rollup-plugin-node-resolve rollup-plugin-commonjs
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="配置-rollup"><a href="#配置-rollup" aria-hidden="true" class="header-anchor">#</a> 配置 rollup</h2> <h3 id="rollup-config-js"><a href="#rollup-config-js" aria-hidden="true" class="header-anchor">#</a> <code>rollup.config.js</code></h3> <p>如果安装了eslint，在项目的根目录执行<code>eslint --init</code>，会生成一个<code>.eslintrc.**</code>的文件，并且<code>rollup-plugin-eslint</code>会自动加载这个配置文件</p> <p>配置<code>rollup.config.js</code></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> babel <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-babel'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> resolve <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-node-resolve'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> commonjs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-commonjs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// const sass = require('rollup-plugin-sass'); // 需要先安装 rollup-plugin-sass</span>
+<span class="token comment">// const {eslint} = require('rollup-plugin-eslint'); // 需要先安装 rollup-plugin-eslint</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">resolveFile</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">filePath</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> plugins <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token function">commonjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment">// 如果安装了sass，在这里配置</span>
+  <span class="token comment">// sass(</span>
+  <span class="token comment">//   insert: true // 将编译后的 css 动态插入到 head 标签</span>
+  <span class="token comment">// ),</span>
+  <span class="token comment">// 如果安装了eslint，在这里配置</span>
+  <span class="token comment">// eslint({</span>
+  <span class="token comment">//   include: ['src/**'],</span>
+  <span class="token comment">//   exclude: ['node_modules/**']</span>
+  <span class="token comment">// }),</span>
+  <span class="token function">babel</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    babelrc<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    presets<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">[</span><span class="token string">'@babel/preset-env'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> modules<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">[</span><span class="token string">'@babel/plugin-transform-classes'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token string">'loose'</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    input<span class="token operator">:</span> <span class="token function">resolveFile</span><span class="token punctuation">(</span><span class="token string">'src/index.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    output<span class="token operator">:</span> <span class="token punctuation">{</span>
+      file<span class="token operator">:</span> <span class="token function">resolveFile</span><span class="token punctuation">(</span><span class="token string">'dist/index.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      format<span class="token operator">:</span> <span class="token string">'umd'</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token string">''</span> <span class="token comment">// umd 输出模式必填 name</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    input<span class="token operator">:</span> <span class="token function">resolveFile</span><span class="token punctuation">(</span><span class="token string">'src/sdk.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    output<span class="token operator">:</span> <span class="token punctuation">{</span>
+      file<span class="token operator">:</span> <span class="token function">resolveFile</span><span class="token punctuation">(</span><span class="token string">'dist/sdk.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      format<span class="token operator">:</span> <span class="token string">'umd'</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token string">'hhpSDK'</span> <span class="token comment">// 打包后暴露的全局变量</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br></div></div><h3 id="rollup-config-dev-js"><a href="#rollup-config-dev-js" aria-hidden="true" class="header-anchor">#</a> <code>rollup.config.dev.js</code></h3> <p>先安装用于开发环境的rollup插件</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token function">npm</span> i -D rollup-plugin-serve // 用于启动本地 server
+<span class="token function">npm</span> i -D rollup-plugin-livereload // 配合 rollup-plugin-serve 监听开发文件自动刷新浏览器
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>然后再配置<code>rollup.config.dev.js</code></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">=</span> <span class="token string">'development'</span><span class="token punctuation">;</span> <span class="token comment">// 设置环境变量为开发模式</span>
+
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> serve <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-serve'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> configList <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./rollup.config'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> livereload <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-livereload'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">resolveFile</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">filePath</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'..'</span><span class="token punctuation">,</span> filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 合并rollup.config.js中的基础配置</span>
+configList<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">config<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>sourcemap <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    config<span class="token punctuation">.</span>plugins <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token operator">...</span>config<span class="token punctuation">.</span>plugins<span class="token punctuation">,</span>
+      <span class="token operator">...</span><span class="token punctuation">[</span>
+        <span class="token function">serve</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          port<span class="token operator">:</span> <span class="token number">3000</span><span class="token punctuation">,</span>
+          contentBase<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">resolveFile</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">livereload</span><span class="token punctuation">(</span><span class="token function">resolveFile</span><span class="token punctuation">(</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 启动重载，并且监听 dist 目录</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> config<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> configList<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h3 id="rollup-config-prod-js"><a href="#rollup-config-prod-js" aria-hidden="true" class="header-anchor">#</a> <code>rollup.config.prod.js</code></h3> <p>先安装用于生产环境的rollup插件</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>// <span class="token function">npm</span> i -D rollup-plugin-uglify // 混淆代码专用
+// TIPS：上述插件不支持es模块打包，所以想输出 uglify 的 es 模块需要使用下边的插件
+<span class="token function">npm</span> i -D rollup-plugin-uglify-es
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>然后再配置<code>rollup.config.prod.js</code></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">=</span> <span class="token string">'production'</span><span class="token punctuation">;</span> <span class="token comment">// 设置环境变量为生产</span>
+<span class="token comment">// const { uglify } = require('rollup-plugin-uglify');</span>
+<span class="token comment">// import uglify from 'rollup-plugin-uglify-es';</span>
+<span class="token keyword">const</span> uglify <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'rollup-plugin-uglify-es'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// const path = require('path');</span>
+
+<span class="token keyword">const</span> configList <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./rollup.config'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// const resolveFile = function(filePath) {</span>
+<span class="token comment">//   return path.join(__dirname, '..', filePath);</span>
+<span class="token comment">// };</span>
+
+<span class="token comment">// 合并rollup.config.js中的基础配置</span>
+configList<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">config</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>sourcemap <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  config<span class="token punctuation">.</span>plugins <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token operator">...</span>config<span class="token punctuation">.</span>plugins<span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token punctuation">[</span>
+      <span class="token function">uglify</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> config<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> configList<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h2 id="配置启动命令"><a href="#配置启动命令" aria-hidden="true" class="header-anchor">#</a> 配置启动命令</h2> <p>在<code>package.json</code>的<code>script</code>中加入下面的命令</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code>  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;node_modules/.bin/rollup -c ./build/rollup.config.prod.js&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 构建命令，rollup -c 指定配置文件</span>
+    <span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;node_modules/.bin/rollup -w -c ./build/rollup.config.dev.js&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 启动生产命令，rollup -w 开启监听模式，文件变化随时知道</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><blockquote><p>注意：</p> <ol><li><code>example</code>目录下面的测试文件，引入的是<code>dist</code>目录下打包后的文件</li> <li>实际使用的时候发现在样式文件内 @import 引入其他的样式文件不会触发自动编译，暂时的解决办法为：用JS来引入样式文件</li></ol></blockquote></div> <!----> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新: </span> <span class="time">9/20/2019, 6:13:10 AM</span></div></footer> <!----> </main> <div class="valine-wrapper" data-v-5029e45b><div id="valine" data-v-5029e45b></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-cd623d78 data-v-cd623d78><i class="iconfont reco-up" data-v-cd623d78></i></div></div></div></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.bc8f5b1d.js" defer></script><script src="/assets/js/4.b0d01004.js" defer></script><script src="/assets/js/1.e0d46219.js" defer></script><script src="/assets/js/13.cc660f86.js" defer></script><script src="/assets/js/8.ba33497e.js" defer></script>
+  </body>
+</html>
