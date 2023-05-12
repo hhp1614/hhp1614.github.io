@@ -39,15 +39,19 @@ export default defineConfig(({ mode }) => {
         );
     }
     return {
+        // 开发服务器设置
         server: {
             host: '0.0.0.0',
             port: 4000,
         },
-        alias: {
-            '@': '/src/',
-            '@store': '/src/store/',
-            '@utils': '/src/utils/',
-            '@components': '/src/components/',
+        resolve: {
+            // 别名
+            alias: {
+                '@': '/src/',
+                '@store': '/src/store/',
+                '@utils': '/src/utils/',
+                '@components': '/src/components/',
+            },
         },
         plugins,
     };
