@@ -34,6 +34,7 @@ export function useSearchEngine() {
     /** 当前使用的搜索引擎 */
     const engine = ref({
         name: 'google',
+        text: '谷歌',
         href: 'https://www.google.com/search?q=',
     });
     /** 搜索引擎列表 */
@@ -59,7 +60,7 @@ export function useSearchEngine() {
      * @param item 搜索引擎选项
      */
     const changeEngine = (item: EngineItem) => {
-        engine.value = { name: item.name, href: item.href };
+        engine.value = { name: item.name, text: item.text, href: item.href };
         localStorage.setItem('search-engine', item.name);
     };
     /**
@@ -88,7 +89,7 @@ export function useSearchEngine() {
     if (cacheEngine) {
         const item = engineList.value.find(v => v.name === cacheEngine);
         if (item) {
-            engine.value = { name: item.name, href: item.href };
+            engine.value = { name: item.name, text: item.text, href: item.href };
         }
     }
 
