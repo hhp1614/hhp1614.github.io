@@ -21,10 +21,10 @@ export default defineConfig(({ mode }) => {
                             options: {
                                 cacheName: 'icon-fonts-cache',
                                 expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 }, // 365 天
-                                cacheableResponse: { statuses: [0, 200] }
-                            }
-                        }
-                    ]
+                                cacheableResponse: { statuses: [0, 200] },
+                            },
+                        },
+                    ],
                 },
                 manifest: {
                     name: '亦留亦思',
@@ -32,17 +32,23 @@ export default defineConfig(({ mode }) => {
                     description: '亦留亦思',
                     icons: [
                         { src: 'avatar.svg', sizes: 'any', type: 'image/svg' },
-                        { src: 'avatar.svg', sizes: '1333x1333', type: 'image/svg' }
-                    ]
-                }
-            })
+                        { src: 'avatar.svg', sizes: '1333x1333', type: 'image/svg' },
+                    ],
+                },
+            }),
         );
     }
     return {
         server: {
             host: '0.0.0.0',
-            port: 4000
+            port: 4000,
         },
-        plugins
+        alias: {
+            '@': '/src/',
+            '@store': '/src/store/',
+            '@utils': '/src/utils/',
+            '@components': '/src/components/',
+        },
+        plugins,
     };
 });
