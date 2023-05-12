@@ -6,7 +6,7 @@ import { defineStore } from 'pinia';
 export const useDarkModeStore = defineStore('darkMode', {
     state: () => ({
         /** 深色模式是否打开 */
-        darkModeOn: false
+        darkModeOn: false,
     }),
     actions: {
         /**
@@ -17,6 +17,6 @@ export const useDarkModeStore = defineStore('darkMode', {
         async setDarkModeOn(flag: boolean) {
             this.darkModeOn = flag;
             return this.darkModeOn;
-        }
-    }
+        },
+    },
 });
