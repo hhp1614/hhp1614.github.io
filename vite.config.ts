@@ -53,6 +53,15 @@ export default defineConfig(({ mode }) => {
                 '@components': '/src/components/',
             },
         },
+        // CSS 预处理
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    // 注入依赖
+                    additionalData: `@import "@/scss/variables";`,
+                },
+            },
+        },
         plugins,
     };
 });

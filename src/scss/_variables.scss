@@ -1,0 +1,20 @@
+// ! 全局注入文件
+
+// 字体大小
+$font-mini: 10px;
+$font-normal: 13px;
+$font-medium: 15px;
+$font-large: 20px;
+
+// 过渡动画
+$transition: all 120ms;
+// 透明边框
+$transparent-border: 1px solid transparent;
+// 阴影
+$shadow: 0 2px 6px #0003;
+
+// 撑满父级
+%full {
+    width: 100%;
+    height: 100%;
+}

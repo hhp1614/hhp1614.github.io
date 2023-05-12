@@ -2,7 +2,7 @@
 
 <template>
     <div class="toolbox">
-        layout1
+        layout
         <h2>toolbox</h2>
     </div>
 </template>
