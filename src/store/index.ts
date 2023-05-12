@@ -1,24 +1,22 @@
 import { defineStore } from 'pinia';
 
+/**
+ * 深色模式
+ */
 export const useDarkModeStore = defineStore('darkMode', {
-  state: () => ({
-    darkModeOn: false
-  }),
-  actions: {
-    async setDarkModeOn(flag: boolean) {
-      this.darkModeOn = flag;
-      return this.darkModeOn;
+    state: () => ({
+        /** 深色模式是否打开 */
+        darkModeOn: false
+    }),
+    actions: {
+        /**
+         * 设置是否是深色模式
+         * @param flag 是否是深色模式
+         * @returns 当前状态
+         */
+        async setDarkModeOn(flag: boolean) {
+            this.darkModeOn = flag;
+            return this.darkModeOn;
+        }
     }
-  }
 });
-
-// export const useDarkModeStore = defineStore('darkMode', () => {
-//     const darkModeOn = ref(false);
-
-//     async function setDarkModeOn(flag: boolean) {
-//         darkModeOn.value = flag;
-//         return darkModeOn.value;
-//     }
-
-//     return { darkModeOn, setDarkModeOn };
-// });
