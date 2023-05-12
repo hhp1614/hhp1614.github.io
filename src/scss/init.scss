@@ -1,35 +1,27 @@
 :root {
-    // 字体
-    --font-mini: 10px;
-    --font-normal: 13px;
-    --font-medium: 15px;
-    --font-large: 20px;
-    // 动画
-    --transition: all 120ms;
-    // 透明边框
-    --t-border: 1px solid transparent;
     // 主题色
     --theme-color: #5ca1ff;
-    // 浅色主题颜色
-    --bg: #f0f0f0;
-    --bg-primary: #ffffff;
-    --text: #666666;
-    --text-primary: #333333;
-    --text-light: #cccccc;
-    --border: 1px solid #dddddd;
-    --shadow: 1px 1px 10px #cccccc;
+
+    // bg
+    --bg-1: #eaeaea;
+    --bg-2: #f1f1f1;
+    --bg-3: #fafafa;
+    // text
+    --color-1: #3a3a3a;
+    --color-2: #6a6a6a;
+    --color-3: #9a9a9a;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        // 深色主题颜色
-        --bg: #303030;
-        --bg-primary: #222222;
-        --text: #cccccc;
-        --text-primary: #cccccc;
-        --text-light: #333333;
-        --border: 1px solid #444444;
-        --shadow: 1px 1px 10px #333333;
+        // bg
+        --bg-1: #121212;
+        --bg-2: #2f2f2f;
+        --bg-3: #424242;
+        // text
+        --color-1: #efefef;
+        --color-2: #bfbfbf;
+        --color-3: #8f8f8f;
     }
 }
 
@@ -42,9 +34,9 @@ body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    font-size: var(--font-normal);
-    background-color: var(--bg);
-    color: var(--text);
+    font-size: $font-normal;
+    background-color: var(--bg-1);
+    color: var(--color-10);
 }
 
 #app {
@@ -72,7 +64,7 @@ a {
         bottom: -1px;
         width: 0;
         height: 1px;
-        transition: var(--transition);
+        transition: $transition;
         background-color: var(--theme-color);
     }
 
@@ -80,4 +72,10 @@ a {
         width: 100%;
         left: 0;
     }
+}
+
+button,
+input {
+    border: none;
+    outline: none;
 }

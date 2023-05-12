@@ -34,13 +34,14 @@ export function useSearchEngine() {
     /** 当前使用的搜索引擎 */
     const engine = ref({
         name: 'google',
-        href: 'https://www.google.com/search?q='
+        text: '谷歌',
+        href: 'https://www.google.com/search?q=',
     });
     /** 搜索引擎列表 */
     const engineList = ref<EngineItem[]>([
         { name: 'google', text: '谷歌', tip: 'Alt+1', href: 'https://www.google.com/search?q=' },
         { name: 'baidu', text: '百度', tip: 'Alt+2', href: 'https://www.baidu.com/s?ie=utf-8&word=' },
-        { name: 'bing', text: '必应', tip: 'Alt+3', href: 'https://cn.bing.com/search?q=' }
+        { name: 'bing', text: '必应', tip: 'Alt+3', href: 'https://cn.bing.com/search?q=' },
     ]);
     /** 搜索引擎显示状态 */
     const engineListShow = ref(false);
@@ -59,7 +60,7 @@ export function useSearchEngine() {
      * @param item 搜索引擎选项
      */
     const changeEngine = (item: EngineItem) => {
-        engine.value = { name: item.name, href: item.href };
+        engine.value = { name: item.name, text: item.text, href: item.href };
         localStorage.setItem('search-engine', item.name);
     };
     /**
@@ -88,7 +89,7 @@ export function useSearchEngine() {
     if (cacheEngine) {
         const item = engineList.value.find(v => v.name === cacheEngine);
         if (item) {
-            engine.value = { name: item.name, href: item.href };
+            engine.value = { name: item.name, text: item.text, href: item.href };
         }
     }
 

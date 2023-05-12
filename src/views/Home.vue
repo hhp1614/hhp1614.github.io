@@ -22,14 +22,14 @@ const darkModeStore = useDarkModeStore();
             <button class="engine" @focus="toggleEngineList(true)" @blur="toggleEngineList(false)">
                 <i :class="'icon-' + engine.name"></i>
             </button>
-            <input type="text" v-model="searchText" @keydown="shortcutKey" @keypress.enter="search" />
+            <input type="text" v-model="searchText" :placeholder="`使用 ${engine.text} 搜索`" @keydown="shortcutKey" @keypress.enter="search" autofocus />
             <button class="btn" @click="search">
                 <i class="icon-search"></i>
             </button>
             <Transition name="slide-fade">
                 <div class="engine-list" v-show="engineListShow">
                     <div v-for="(item, key) in engineList" :key="key" class="item" @click="changeEngine(item)">
-                        <i :class="'icon-' + engine.name"></i>
+                        <i :class="'icon-' + item.name"></i>
                         <span class="name">{{ item.text }}</span>
                         <span class="key-tip">{{ item.tip }}</span>
                     </div>
