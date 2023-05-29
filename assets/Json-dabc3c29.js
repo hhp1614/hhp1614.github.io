@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vueexport-helper-c27b6911.js";import{q as o,z as r}from"./@vue-e176c1a0.js";const c={};function n(t,s){return o(),r("div",null,"JSON")}const f=e(c,[["render",n]]);export{f as default};
