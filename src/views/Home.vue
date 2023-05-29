@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { useDarkModeStore } from '../store';
-import { useDateTime, useSearchEngine } from './home';
-
-const dateTime = useDateTime();
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
+import { useDarkModeStore } from '@/store';
+import { useSearchEngine } from './home';
 
 const { engine, engineList, engineListShow, searchText, toggleEngineList, changeEngine, shortcutKey, search } = useSearchEngine();
 
@@ -11,10 +11,7 @@ const darkModeStore = useDarkModeStore();
 
 <template>
     <div class="home">
-        <header>
-            <div class="date-time">{{ dateTime }}</div>
-            <router-link to="/toolbox">工具箱</router-link>
-        </header>
+        <Header />
         <div class="avatar">
             <img :src="darkModeStore.darkModeOn ? '/avatar-dark.svg' : '/avatar.svg'" alt="头像" draggable="false" />
         </div>
@@ -37,4 +34,5 @@ const darkModeStore = useDarkModeStore();
             </Transition>
         </div>
     </div>
+    <Footer />
 </template>
