@@ -1,3 +1,3 @@
 <template>
-  <div>JSON</div>
+    <div>JSON</div>
 </template>

@@ -1,2 +1,2 @@
-export * from './useDarkMode'
-export * from './useTab'
+export * from './useDarkMode';
+export * from './useTab';

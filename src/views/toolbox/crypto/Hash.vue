@@ -1,3 +1,3 @@
 <template>
-  <div>Hash</div>
+    <div>Hash</div>
 </template>
