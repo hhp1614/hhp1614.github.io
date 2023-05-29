@@ -1,9 +1,9 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import { pages } from './pages';
+import { toolboxPages } from './pages';
 
 let toolboxRedirect = '';
 
-const toolboxRoutes: RouteRecordRaw[] = pages.reduce((prev, curr, i) => {
+const toolboxRoutes: RouteRecordRaw[] = toolboxPages.reduce((prev, curr, i) => {
     curr.children = curr.children.map((item, j) => {
         item.path = `/toolbox/${item.name}`;
         if (i === 0 && j === 0) {

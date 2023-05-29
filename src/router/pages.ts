@@ -1,3 +1,6 @@
+/**
+ * 页面类型
+ */
 type Pages = {
     path: string;
     name: string;
@@ -6,7 +9,10 @@ type Pages = {
     children: Pages;
 }[];
 
-export const pages = [
+/**
+ * 工具箱页面
+ */
+export const toolboxPages = [
     {
         name: 'format',
         meta: { title: '代码格式' },
