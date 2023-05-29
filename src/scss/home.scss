@@ -1,0 +1,105 @@
+// 首页
+.home {
+    // 头像
+    .avatar {
+        width: 10vmin;
+        margin: 15vmin auto 2em;
+        background-color: var(--bg-2);
+        border-radius: 50%;
+        box-shadow: $shadow;
+        overflow: hidden;
+        user-select: none;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    // 搜索框
+    .search {
+        position: relative;
+        width: 80vmin;
+        margin: 0 auto;
+
+        // 输入框
+        input {
+            font-size: $font-medium;
+            padding: 0 3em;
+            width: 100%;
+            line-height: 3em;
+            border-radius: 1.5em;
+            color: var(--color-1);
+            background-color: var(--bg-2);
+            box-shadow: $shadow;
+        }
+
+        button {
+            font-size: $font-medium;
+            position: absolute;
+            top: 0;
+            padding: 0 0.5em;
+            line-height: 3em;
+            border-radius: 50%;
+            background-color: transparent;
+            color: var(--color-1);
+            cursor: pointer;
+            transition: $transition;
+
+            i {
+                padding: 0.5em;
+                border-radius: 50%;
+            }
+
+            &:focus i,
+            &:hover i {
+                color: var(--theme-color);
+            }
+
+            // 搜索引擎按钮
+            &.engine {
+                left: 0;
+            }
+
+            // 搜素按钮
+            &.btn {
+                right: 0;
+            }
+        }
+
+        // 搜索引擎列表
+        .engine-list {
+            font-size: $font-medium;
+            position: absolute;
+            top: 3.5em;
+            padding: 0.3em;
+            width: 30%;
+            background-color: var(--bg-2);
+            border-radius: 0.5em;
+            box-shadow: $shadow;
+            overflow: hidden;
+
+            .item {
+                display: flex;
+                justify-content: space-between;
+                font-size: $font-normal;
+                line-height: 2.5em;
+                padding: 0 1em;
+                cursor: pointer;
+                border-radius: 0.5em;
+                transition: $transition;
+
+                > i {
+                    margin-right: 0.5em;
+                }
+
+                > .name {
+                    flex: 1;
+                }
+
+                &:hover {
+                    background-color: var(--bg-3);
+                }
+            }
+        }
+    }
+}

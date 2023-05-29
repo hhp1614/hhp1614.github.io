@@ -1,0 +1,17 @@
+.toolbox {
+    @extend %full;
+
+    display: flex;
+
+    main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        article {
+            flex: 1;
+            padding: 0.5em;
+            background-color: var(--bg-2);
+        }
+    }
+}
