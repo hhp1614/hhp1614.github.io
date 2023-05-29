@@ -1,6 +1,13 @@
 <script lang="ts" setup>
 import { pages } from '@/router/pages'
 import router from '@/router'
+import { useTabStore } from '@/store'
+
+function switchView(path: string, name: string) {
+  const tabStore = useTabStore()
+  tabStore.gotoTab({ path, name })
+  router.push(path)
+}
 </script>
 
 <template>
@@ -8,7 +15,13 @@ import router from '@/router'
     <div v-for="item in pages" :key="item.name" class="item">
       {{ item.meta.title }}
       <template v-if="item.children.length">
-        <div v-for="child in item.children" :key="child.name" class="child" :class="{ active: child.path === $route.path }" @click="router.push(child.path)">
+        <div
+          v-for="child in item.children"
+          :key="child.name"
+          class="child"
+          :class="{ active: child.path === $route.path }"
+          @click="switchView(child.path, child.meta.title)"
+        >
           {{ child.meta!.title }}
         </div>
       </template>
@@ -28,7 +41,7 @@ aside {
 
     .child {
       display: block;
-      padding: 0 0.5em;
+      padding-left: 1em;
       cursor: pointer;
       transition: var(--transition);
       color: var(--color-2);

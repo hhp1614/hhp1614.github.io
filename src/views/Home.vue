@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import { useDarkModeStore } from '@/store'
 import { useSearchEngine } from './home'
 
@@ -33,4 +34,5 @@ const darkModeStore = useDarkModeStore()
       </Transition>
     </div>
   </div>
+  <Footer />
 </template>

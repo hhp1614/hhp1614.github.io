@@ -44,5 +44,6 @@ footer {
   padding: 0 0.5em;
   line-height: 2;
   color: var(--color-2);
+  background-color: var(--bg-2);
 }
 </style>

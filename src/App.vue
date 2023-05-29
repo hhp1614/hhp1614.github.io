@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import Footer from '@/components/Footer.vue'
 import { onMounted } from 'vue'
 import { useDarkModeStore } from '@store'
 
@@ -24,5 +23,4 @@ onMounted(() => {
 
 <template>
   <router-view />
-  <Footer />
 </template>
