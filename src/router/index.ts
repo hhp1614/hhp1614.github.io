@@ -3,6 +3,9 @@ import { toolboxPages } from './pages';
 
 let toolboxRedirect = '';
 
+/**
+ * toolbox 路由配置
+ */
 const toolboxRoutes: RouteRecordRaw[] = toolboxPages.reduce((prev, curr, i) => {
     curr.children = curr.children.map((item, j) => {
         item.path = `/toolbox/${item.name}`;
@@ -14,6 +17,9 @@ const toolboxRoutes: RouteRecordRaw[] = toolboxPages.reduce((prev, curr, i) => {
     return [...prev, ...(curr.children as RouteRecordRaw[])];
 }, [] as RouteRecordRaw[]);
 
+/**
+ * 所有路由
+ */
 const routes: RouteRecordRaw[] = [
     // 首页
     { path: '/', component: () => import('@/views/Home.vue') },

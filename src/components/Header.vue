@@ -14,7 +14,7 @@ tabStore.gotoTab({
     <header>
         <nav class="tabs">
             <template v-if="$route.path.startsWith('/toolbox')">
-                <div v-for="tab in tabStore.tabs" :key="tab.name" class="item" :class="{ active: tab.path === $route.path }" @click="tabStore.gotoTab(tab)">
+                <div class="item" v-for="tab in tabStore.tabs" :key="tab.name" :class="{ active: tab.path === $route.path }" @click="tabStore.gotoTab(tab)">
                     <span>{{ tab.name }}</span>
                     <span class="close" @click.stop="tabStore.removeTab(tab)">×</span>
                 </div>

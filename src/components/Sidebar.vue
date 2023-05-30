@@ -12,13 +12,13 @@ function switchView(path: string, name: string) {
 
 <template>
     <aside>
-        <div v-for="item in toolboxPages" :key="item.name" class="item">
+        <div class="item" v-for="item in toolboxPages" :key="item.name">
             {{ item.meta.title }}
             <template v-if="item.children.length">
                 <div
+                    class="child"
                     v-for="child in item.children"
                     :key="child.name"
-                    class="child"
                     :class="{ active: child.path === $route.path }"
                     @click="switchView(child.path, child.meta.title)"
                 >
