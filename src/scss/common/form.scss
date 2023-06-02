@@ -1,0 +1,90 @@
+// 表单
+$color: get-color(0.8);
+$bg: get-bg(1);
+$arrow-size: 0.5em;
+
+.form {
+    display: flex;
+    gap: 1em;
+
+    .form-item {
+        $h: 2em;
+        $border-width: 2px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.2em;
+        height: $h;
+        border-bottom: $border-width solid get-color(0.2);
+        user-select: none;
+        transition: $transition;
+        cursor: pointer;
+
+        .prefix {
+            user-select: none;
+            color: get-color(0.5);
+        }
+
+        input {
+            flex: 1;
+            color: get-color(0.8);
+            cursor: pointer;
+
+            &::placeholder {
+                color: get-color(0.3);
+            }
+        }
+
+        &:hover {
+            border-color: get-color(0.5);
+        }
+
+        &:active,
+        &:has(input:focus) {
+            border-color: var(--theme-color);
+
+            .prefix {
+                color: var(--theme-color);
+            }
+        }
+
+        .select-list {
+            position: absolute;
+            top: $h + 1;
+            line-height: $h;
+            left: 0;
+            width: 100%;
+            background-color: $bg;
+            color: $color;
+            box-shadow: $shadow;
+            border-radius: 0.2em;
+
+            &::before {
+                content: '';
+                position: absolute;
+                border-width: 0 $arrow-size $arrow-size $arrow-size;
+                border-style: solid;
+                border-color: transparent;
+                border-bottom-color: red;
+                border-bottom-color: $bg;
+
+                top: -$arrow-size + 0.1;
+                left: 50%;
+                z-index: 99;
+                transform: translateX(-50%);
+            }
+
+            .select-option {
+                @extend %hover;
+                padding: 0 0.5em;
+                border-radius: unset;
+            }
+        }
+    }
+
+    // select {
+    //     border: none;
+    //     background: transparent;
+    //     border-bottom: 2px solid get-color(0.2);
+    // }
+}

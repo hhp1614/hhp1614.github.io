@@ -1,97 +1,97 @@
 // Json.vue
 .json {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
+    // flex: 1;
+    // display: flex;
+    // flex-direction: column;
+    // gap: 0.5em;
 
-    // 标签
-    .tabs {
-        display: flex;
-        gap: 0.5em;
+    // // 标签
+    // .tabs {
+    //     display: flex;
+    //     gap: 0.5em;
 
-        .item {
-            @extend %hover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5em;
-            padding: 0 0.5em;
-            line-height: 2rem;
-            user-select: none;
-            color: get-color(0.8);
+    //     .item {
+    //         @extend %hover;
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //         gap: 0.5em;
+    //         padding: 0 0.5em;
+    //         line-height: 2rem;
+    //         user-select: none;
+    //         color: get-color(0.8);
 
-            &.active {
-                background-color: var(--theme-color);
-                color: #fff;
-            }
+    //         &.active {
+    //             background-color: var(--theme-color);
+    //             color: #fff;
+    //         }
 
-            .close {
-                @extend %hover;
-                $size: 1.2em;
-                width: $size;
-                height: $size;
-                line-height: $size;
-                text-align: center;
-                border-radius: 50%;
-            }
-        }
-    }
+    //         .close {
+    //             @extend %hover;
+    //             $size: 1.2em;
+    //             width: $size;
+    //             height: $size;
+    //             line-height: $size;
+    //             text-align: center;
+    //             border-radius: 50%;
+    //         }
+    //     }
+    // }
 
-    // 操作
-    .actions {
-        $h: 2rem;
-        display: flex;
-        height: $h;
+    // // 操作
+    // .actions {
+    //     $h: 2rem;
+    //     display: flex;
+    //     height: $h;
 
-        > div {
-            flex: 1;
-            display: flex;
-            gap: 0.5em;
+    //     > div {
+    //         flex: 1;
+    //         display: flex;
+    //         gap: 0.5em;
 
-            button {
-                @extend %hover;
-                line-height: $h;
+    //         button {
+    //             @extend %hover;
+    //             line-height: $h;
 
-                &:hover {
-                    color: var(--theme-color);
-                }
-            }
-        }
-    }
+    //             &:hover {
+    //                 color: var(--theme-color);
+    //             }
+    //         }
+    //     }
+    // }
 
-    // 内容
-    .content {
-        flex: 1;
-        display: flex;
-        gap: 0.5em;
+    // // 内容
+    // .content {
+    //     flex: 1;
+    //     display: flex;
+    //     gap: 0.5em;
 
-        // 输入 输出
-        .input,
-        .output {
-            flex: 1;
-            display: flex;
-            flex-flow: column;
-            margin: 0;
-            padding: 0.5em;
-            width: 100%;
-            height: calc(100vh - 10rem);
-            resize: none;
-            outline: none;
-            background-color: get-color(0.05);
-            border-radius: 0.2em;
-            overflow: auto;
-            color: get-color(0.8);
-            word-break: break-all;
+    //     // 输入 输出
+    //     .input,
+    //     .output {
+    //         flex: 1;
+    //         display: flex;
+    //         flex-flow: column;
+    //         margin: 0;
+    //         padding: 0.5em;
+    //         width: 100%;
+    //         height: calc(100vh - 10rem);
+    //         resize: none;
+    //         outline: none;
+    //         background-color: get-color(0.05);
+    //         border-radius: 0.2em;
+    //         overflow: auto;
+    //         color: get-color(0.8);
+    //         word-break: break-all;
 
-            .code-text {
-                flex: 0 0 auto;
+    //         .code-text {
+    //             flex: 0 0 auto;
 
-                .null,
-                .boolean {
-                    color: var(--code-color-keyword);
-                }
-            }
-        }
-    }
+    //             .null,
+    //             .boolean {
+    //                 color: var(--code-color-keyword);
+    //             }
+    //         }
+    //     }
+    // }
 }

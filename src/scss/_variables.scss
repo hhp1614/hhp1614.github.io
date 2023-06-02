@@ -7,7 +7,7 @@ $font-medium: 15px;
 $font-large: 20px;
 
 // 过渡动画
-$transition: all 120ms;
+$transition: all 240ms;
 // 透明边框
 $transparent-border: 1px solid transparent;
 // 阴影
@@ -50,7 +50,17 @@ $shadow: 0 2px 6px $shadow-color;
     border-radius: 0.2em;
     cursor: pointer;
     transition: $transition;
+
     &:hover {
+        color: var(--theme-color);
+        background-color: get-color(0.1);
+    }
+
+    &:active {
+        color: var(--theme-color);
+    }
+
+    &:focus {
         background-color: get-color(0.1);
     }
 }

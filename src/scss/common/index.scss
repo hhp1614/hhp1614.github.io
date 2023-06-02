@@ -38,10 +38,23 @@ textarea {
     font-size: 1rem;
     background-color: unset;
     color: get-color(0.8);
+    transition: $transition;
 }
 
 [contenteditable] {
     outline: none;
+}
+
+// 关闭
+.close {
+    $size: 1.2em;
+    width: $size;
+    height: $size;
+    line-height: $size;
+    text-align: center;
+    border-radius: 50%;
+    user-select: none;
+    @extend %hover;
 }
 
 // 底部
