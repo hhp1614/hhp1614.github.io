@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vueexport-helper-c27b6911.js";import{q as t,z as n}from"./@vue-e176c1a0.js";const r={};function c(o,s){return t(),n("div",null,"Snippets")}const a=e(r,[["render",c]]);export{a as default};
