@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue';
-import { useDarkModeStore } from '@store';
+import { useDarkModeStore } from '@/store';
 
 /**
  * 根据深色模式设置网站 favicon

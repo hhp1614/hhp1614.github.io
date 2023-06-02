@@ -1,0 +1,55 @@
+// icon 图标
+i.iconfont {
+    font-family: iconfont !important;
+    font-style: normal !important;
+    font-size: inherit !important;
+}
+
+// 链接
+.link,
+a {
+    position: relative;
+    text-decoration: none;
+    color: var(--theme-color);
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        transition: $transition;
+        background-color: var(--theme-color);
+    }
+
+    &:hover::after {
+        width: 100%;
+        left: 0;
+    }
+}
+
+// 按钮、输入框、文本域
+button,
+input,
+textarea {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background-color: unset;
+    color: get-color(0.8);
+}
+
+[contenteditable] {
+    outline: none;
+}
+
+// 底部
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 0 0.5em;
+    line-height: 2;
+    color: get-color(0.5);
+}

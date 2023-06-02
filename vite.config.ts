@@ -65,9 +65,6 @@ export default defineConfig(({ mode }) => {
             // 别名
             alias: {
                 '@': '/src/',
-                '@store': '/src/store/',
-                '@utils': '/src/utils/',
-                '@components': '/src/components/',
             },
         },
         // CSS 预处理

@@ -1,27 +1,31 @@
 :root {
     // 主题色
-    --theme-color: #5ca1ff;
+    // --theme-color: #5ca1ff;
+    --theme-color: #ff9800;
+    --accent-color: #ff5252;
 
-    // bg
-    --bg-1: #eaeaea;
-    --bg-2: #f1f1f1;
-    --bg-3: #fafafa;
-    // text
-    --color-1: #3a3a3a;
-    --color-2: #6a6a6a;
-    --color-3: #9a9a9a;
+    --bg: 255, 255, 255;
+    --color: 0, 0, 0;
+
+    // 代码颜色
+    --code-color-property: #0451a5;
+    --code-color-string: #a31515;
+    --code-color-keyword: #0000ff;
+    --code-color-number: #098658;
+    --code-color-comment: #008000;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        // bg
-        --bg-1: #121212;
-        --bg-2: #2f2f2f;
-        --bg-3: #424242;
-        // text
-        --color-1: #efefef;
-        --color-2: #bfbfbf;
-        --color-3: #8f8f8f;
+        --bg: 0, 0, 0;
+        --color: 255, 255, 255;
+
+        // 代码颜色
+        --code-color-property: #9cdcfe;
+        --code-color-string: #ce9178;
+        --code-color-keyword: #569cd6;
+        --code-color-number: #b5cea8;
+        --code-color-comment: #6a9955;
     }
 }
 
@@ -35,8 +39,7 @@ body {
     width: 100vw;
     height: 100vh;
     font-size: $font-normal;
-    background-color: var(--bg-1);
-    color: var(--color-1);
+    color: get-color(0.8);
 }
 
 #app {
@@ -46,44 +49,9 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+    background-color: get-color(0.1);
 
     > div {
         flex: 1;
     }
-}
-
-// icon 图标
-i {
-    font-family: iconfont !important;
-    font-style: normal !important;
-}
-
-// 链接
-.link,
-a {
-    position: relative;
-    text-decoration: none;
-    color: var(--theme-color);
-
-    &::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        width: 0;
-        height: 2px;
-        transition: $transition;
-        background-color: var(--theme-color);
-    }
-
-    &:hover::after {
-        width: 100%;
-        left: 0;
-    }
-}
-
-button,
-input {
-    border: none;
-    outline: none;
 }

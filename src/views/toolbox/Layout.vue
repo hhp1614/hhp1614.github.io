@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import Sidebar from '@/components/Sidebar.vue';
-import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
+import Sidebar from '@/components/toolbox/Sidebar.vue';
+import Header from '@/components/toolbox/Header.vue';
+import Footer from '@/components/content/Footer.vue';
 </script>
 
 <template>

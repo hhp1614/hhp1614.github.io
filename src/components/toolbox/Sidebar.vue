@@ -3,6 +3,11 @@ import { toolboxPages } from '@/router/pages';
 import router from '@/router';
 import { useTabStore } from '@/store';
 
+/**
+ * 切换视图
+ * @param path 路由路径
+ * @param name 标签名
+ */
 function switchView(path: string, name: string) {
     const tabStore = useTabStore();
     tabStore.gotoTab({ path, name });
@@ -21,6 +26,8 @@ function switchView(path: string, name: string) {
                     :key="child.name"
                     :class="{ active: child.path === $route.path }"
                     @click="switchView(child.path, child.meta.title)"
+                    :tooltip="child.meta.desc"
+                    position="right"
                 >
                     {{ child.meta!.title }}
                 </div>
@@ -28,29 +35,3 @@ function switchView(path: string, name: string) {
         </div>
     </aside>
 </template>
-
-<style lang="scss" scoped>
-aside {
-    padding: 0.5rem;
-    min-width: 20vmin;
-
-    .item {
-        color: var(--color-3);
-        margin-bottom: 0.5rem;
-        line-height: 1.5;
-
-        .child {
-            display: block;
-            padding-left: 1em;
-            cursor: pointer;
-            transition: var(--transition);
-            color: var(--color-2);
-
-            &:hover,
-            &.active {
-                color: var(--theme-color);
-            }
-        }
-    }
-}
-</style>

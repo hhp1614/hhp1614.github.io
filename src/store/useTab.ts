@@ -31,15 +31,15 @@ export const useTabStore = defineStore('tab', {
         },
         /**
          * 删除标签页
-         * @param tab 标签页
+         * @param path 标签页路由路径
          */
-        removeTab(tab: { path: string; name: string }) {
+        removeTab(path: string) {
             if (this.tabs.length === 1) {
                 return;
             }
-            let index = this.tabs.findIndex(item => item.path === tab.path);
+            let index = this.tabs.findIndex(item => item.path === path);
             this.tabs.splice(index, 1);
-            if (this.active.path !== tab.path) {
+            if (this.active.path !== path) {
                 return;
             }
             if (index === this.tabs.length) {
@@ -47,6 +47,12 @@ export const useTabStore = defineStore('tab', {
             }
             this.active = this.tabs[index];
             router.push(this.active.path);
+        },
+        /**
+         * 清空标签页
+         */
+        clearTab() {
+            this.tabs = this.tabs.filter(item => item.path === this.active.path);
         },
     },
 });

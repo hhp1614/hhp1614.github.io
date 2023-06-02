@@ -1,0 +1,116 @@
+$color: get-color(0.8);
+$bg: get-bg(1);
+$z-index: 99;
+$arrow-size: 6px;
+
+[tooltip] {
+    position: relative;
+    transition: $transition;
+
+    &::before,
+    &::after {
+        position: absolute;
+        opacity: 0;
+        transition: $transition;
+        line-height: 2rem;
+        font-size: 1rem;
+    }
+
+    // tooltip 箭头
+    &::before {
+        content: '';
+        border-width: $arrow-size $arrow-size 0 $arrow-size;
+        border-style: solid;
+        border-color: transparent;
+        border-top-color: $bg;
+        z-index: $z-index;
+
+        top: -$arrow-size - 1;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    // tooltip 主体
+    &::after {
+        content: attr(tooltip);
+        background: $bg;
+        color: $color;
+        border-radius: 0.2em;
+        padding: 0 0.5em;
+        white-space: nowrap;
+        pointer-events: none;
+        box-shadow: $shadow;
+        z-index: $z-index - 1;
+
+        left: 50%;
+        top: -$arrow-size + 1;
+        transform: translateX(-50%) translateY(-100%);
+    }
+
+    &:hover {
+        &::before,
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    /* 右侧 */
+    &[position='right'] {
+        $top: 50%;
+        $left: 100%;
+
+        &::before {
+            top: $top;
+            left: $left;
+            margin-left: -$arrow-size + 4;
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        &::after {
+            top: $top;
+            left: $left;
+            margin-left: $arrow-size;
+            transform: translateY(-50%);
+        }
+    }
+
+    /* 左侧 */
+    &[position='left'] {
+        $top: 50%;
+        $left: 0;
+
+        &::before {
+            top: $top;
+            left: $left;
+            margin-left: -$arrow-size - 4;
+            transform: translateY(-50%) rotate(-90deg);
+        }
+
+        &::after {
+            top: $top;
+            left: $left;
+            margin-left: -$arrow-size;
+            transform: translateY(-50%) translateX(-100%);
+        }
+    }
+
+    /* 底侧 */
+    &[position='bottom'] {
+        $top: 100%;
+        $left: 50%;
+
+        &::before {
+            top: $top;
+            left: $left;
+            margin-top: 1px;
+            transform: translatex(-50%) rotate(180deg);
+        }
+
+        &::after {
+            top: $top;
+            left: $left;
+            margin-top: $arrow-size;
+            transform: translatex(-50%);
+        }
+    }
+}

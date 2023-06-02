@@ -35,15 +35,3 @@ const datetime = useDatetime();
         <div>© <a href="https://github.com/hhp1614" target="_blank">hhp1614</a></div>
     </footer>
 </template>
-
-<style lang="scss" scoped>
-footer {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    padding: 0 0.5em;
-    line-height: 2;
-    color: var(--color-2);
-    background-color: var(--bg-2);
-}
-</style>
