@@ -22,7 +22,7 @@ const darkModeStore = useDarkModeStore();
         </div>
         <div class="search">
             <button class="engine" @focus="toggleEngineList(true)" @blur="toggleEngineList(false)">
-                <i :class="'icon-' + engine.name"></i>
+                <Icon :name="engine.name" />
             </button>
             <input type="text" v-model="searchText" :placeholder="`使用 ${engine.text} 搜索`" @keydown="shortcutKey" @keypress.enter="search" autofocus />
             <button class="btn" @click="search"><Icon name="search" /></button>
