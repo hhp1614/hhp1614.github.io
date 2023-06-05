@@ -37,24 +37,22 @@ const syntaxHighlight = computed(() => jsonHighlight(formatJson(jsonStore.active
                 >
                     {{ tab.title }}
                 </span>
-                <span class="close" @click.stop="jsonStore.removeTab(tab.id)" tooltip="关闭标签">×</span>
+                <span class="close" tooltip="关闭标签" @click.stop="jsonStore.removeTab(tab.id)">×</span>
             </div>
-            <div class="item" @click="jsonStore.addTab(inputRef!)" tooltip="添加标签">
+            <button class="item" @click="jsonStore.addTab(inputRef!)" tooltip="添加标签">
                 <Icon name="plus" />
-            </div>
-            <div class="item" @click="jsonStore.clearTab(inputRef!)" tooltip="清空标签">
-                <Icon name="clear" />
-            </div>
+            </button>
+            <BtnIcon class="item" icon="clear" tooltip="清空标签" @click="jsonStore.clearTab(inputRef!)" />
         </nav>
         <div class="actions">
             <div class="input">
-                <Copy :text="jsonStore.activeTabText" />
-                <button @click="jsonStore.changeTabText('')" tooltip="清空"><Icon name="clear" /></button>
+                <BtnCopy :text="jsonStore.activeTabText" />
+                <BtnIcon class="item" icon="clear" @click="jsonStore.changeTabText('')" />
                 <button @click="jsonStore.changeTabText(formatJson(jsonStore.activeTabText))">格式化</button>
                 <button @click="jsonStore.changeTabText(formatJson(jsonStore.activeTabText, true))">压缩</button>
             </div>
             <div class="output">
-                <Copy :text="formatJson(jsonStore.activeTabText)" />
+                <BtnCopy :text="formatJson(jsonStore.activeTabText)" />
             </div>
         </div>
         <div class="content">

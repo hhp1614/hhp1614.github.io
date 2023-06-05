@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { copyText } from '@/utils/copy';
+import BtnIcon from './BtnIcon.vue';
 
 defineProps({
     text: { type: String, default: '' },
@@ -7,7 +8,5 @@ defineProps({
 </script>
 
 <template>
-    <button @click="copyText(text)" tooltip="复制">
-        <Icon name="copy" />
-    </button>
+    <BtnIcon icon="copy" @click="copyText(text)" />
 </template>

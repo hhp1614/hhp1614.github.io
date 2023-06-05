@@ -1,14 +1,14 @@
 import { App, Component } from 'vue';
 import Icon from './Icon.vue';
-import Copy from './Copy.vue';
-import Clear from './Clear.vue';
+import BtnIcon from './BtnIcon.vue';
+import BtnCopy from './BtnCopy.vue';
 import FormInput from './FormInput.vue';
 import FormSelect from './FormSelect.vue';
 
 const components = {
     Icon,
-    Copy,
-    Clear,
+    BtnIcon,
+    BtnCopy,
     FormInput,
     FormSelect,
 } as { [key: string]: Component };
