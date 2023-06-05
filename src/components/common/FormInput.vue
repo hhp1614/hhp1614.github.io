@@ -16,13 +16,9 @@ const emit = defineEmits<{
 
 const inputRef = ref();
 
-function handleInput(e: Event) {
+function input(e: Event) {
     const target = e.target as HTMLInputElement;
     emit('update:modelValue', target.value);
-}
-
-function clearInput() {
-    emit('update:modelValue', '');
 }
 </script>
 
@@ -31,7 +27,7 @@ function clearInput() {
         <div class="prefix" :tooltip="label">
             <Icon name="pencil" />
         </div>
-        <input ref="inputRef" :type="type" :placeholder="placeholder" :readonly="readonly" :value="modelValue" @input="handleInput($event)" />
-        <span v-if="clearable" class="close" @click="clearInput">×</span>
+        <input ref="inputRef" :type="type" :placeholder="placeholder" :readonly="readonly" :value="modelValue" @input="input($event)" />
+        <span v-if="clearable" class="close" @click="emit('update:modelValue', '')">×</span>
     </div>
 </template>

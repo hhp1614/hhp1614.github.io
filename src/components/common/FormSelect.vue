@@ -9,12 +9,16 @@ const props = defineProps({
     list: { type: Array<{ label: string; value: string }>, default: [{ label: '', value: '' }] },
 });
 
-const emit = defineEmits(['update:modelValue', 'change']);
+const emit = defineEmits<{
+    (e: 'update:modelValue', value: string): void;
+    (e: 'change', value: string): void;
+}>();
 
 /** 输入框 */
 const inputRef = ref<HTMLInputElement>();
 /** 列表显示状态 */
 const listShow = ref(false);
+/** 清除按钮显示状态 */
 const closeShow = ref(false);
 
 /** v-model 对应 value 的值 */
@@ -46,11 +50,14 @@ function select(value: string) {
 function keydown(e: KeyboardEvent) {
     const index = props.list.findIndex(item => item.value === props.modelValue) ?? 0;
     if (e.key === 'Enter') {
+        // 回车
         listShow.value = false;
     } else if (e.key === 'ArrowDown') {
+        // 向下
         const nextIndex = index >= props.list.length - 1 ? 0 : index + 1;
         select(props.list![nextIndex].value);
     } else if (e.key === 'ArrowUp') {
+        // 向上
         const prevIndex = index <= 0 ? props.list.length - 1 : index - 1;
         select(props.list![prevIndex].value);
     }
