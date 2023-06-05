@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue';
+import { computed } from 'vue';
 import { useJsonStore } from '@/store';
+import jsonHighlight from '@/utils/syntax/jsonHighlight';
+import useAutofocus from '@/hooks/useAutofocus';
 
-/** 输入框 */
-const inputRef = ref<HTMLTextAreaElement>();
+const inputRef = useAutofocus();
 const jsonStore = useJsonStore();
 
 /**
@@ -21,31 +22,8 @@ function formatJson(json: string, compress = false) {
     }
 }
 
-/**
- * JSON 语法高亮
- */
-const syntaxHighlight = computed(() => {
-    const json = formatJson(jsonStore.activeTabText).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-        let cls = 'number';
-        if (/^"/.test(match)) {
-            if (/:$/.test(match)) {
-                cls = 'key';
-            } else {
-                cls = 'string';
-            }
-        } else if (/true|false/.test(match)) {
-            cls = 'boolean';
-        } else if (/null/.test(match)) {
-            cls = 'null';
-        }
-        return `<span class="${cls}">${match}</span>`;
-    });
-});
-
-onMounted(() => {
-    inputRef.value?.focus();
-});
+/** JSON 语法高亮 */
+const syntaxHighlight = computed(() => jsonHighlight(formatJson(jsonStore.activeTabText)));
 </script>
 
 <template>
@@ -73,6 +51,7 @@ onMounted(() => {
         <div class="actions">
             <div class="input">
                 <Copy :text="jsonStore.activeTabText" />
+                <button @click="jsonStore.changeTabText('')" tooltip="清空"><Icon name="clear" /></button>
                 <button @click="jsonStore.changeTabText(formatJson(jsonStore.activeTabText))">格式化</button>
                 <button @click="jsonStore.changeTabText(formatJson(jsonStore.activeTabText, true))">压缩</button>
             </div>

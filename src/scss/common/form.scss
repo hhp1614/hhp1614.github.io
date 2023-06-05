@@ -1,12 +1,12 @@
-// 表单
 $color: get-color(0.8);
 $bg: get-bg(1);
-$arrow-size: 0.5em;
 
+// 表单
 .form {
     display: flex;
     gap: 1em;
 
+    // 表单项
     .form-item {
         $h: 2em;
         $border-width: 2px;
@@ -20,11 +20,13 @@ $arrow-size: 0.5em;
         transition: $transition;
         cursor: pointer;
 
+        // 前缀
         .prefix {
             user-select: none;
             color: get-color(0.5);
         }
 
+        // 输入框
         input {
             flex: 1;
             color: get-color(0.8);
@@ -48,9 +50,22 @@ $arrow-size: 0.5em;
             }
         }
 
+        // 折叠图标
+        .collapse {
+            width: 1.2em;
+            height: 1.2em;
+            line-height: 1.2em;
+            transition: $transition;
+
+            &.open {
+                transform: rotate(-180deg);
+            }
+        }
+
+        // 选择框列表
         .select-list {
             position: absolute;
-            top: $h + 1;
+            top: $h + 0.5;
             line-height: $h;
             left: 0;
             width: 100%;
@@ -59,32 +74,23 @@ $arrow-size: 0.5em;
             box-shadow: $shadow;
             border-radius: 0.2em;
 
-            &::before {
-                content: '';
-                position: absolute;
-                border-width: 0 $arrow-size $arrow-size $arrow-size;
-                border-style: solid;
-                border-color: transparent;
-                border-bottom-color: red;
-                border-bottom-color: $bg;
-
-                top: -$arrow-size + 0.1;
-                left: 50%;
-                z-index: 99;
-                transform: translateX(-50%);
-            }
-
+            // 选择框选项
             .select-option {
                 @extend %hover;
                 padding: 0 0.5em;
                 border-radius: unset;
+
+                &.selected {
+                    color: var(--theme-color);
+                    background-color: get-color(0.1);
+                }
             }
         }
     }
 
-    // select {
-    //     border: none;
-    //     background: transparent;
-    //     border-bottom: 2px solid get-color(0.2);
-    // }
+    // 按钮
+    > button {
+        @extend %hover;
+        cursor: pointer;
+    }
 }

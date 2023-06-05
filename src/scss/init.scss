@@ -54,3 +54,7 @@ body {
         flex: 1;
     }
 }
+
+::selection {
+    background-color: get-color(0.1);
+}
