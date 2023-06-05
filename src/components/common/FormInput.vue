@@ -14,7 +14,7 @@ const emit = defineEmits<{
     (e: 'update:modelValue', value: string): void;
 }>();
 
-const inputRef = ref();
+const inputRef = ref<HTMLInputElement>();
 
 function input(e: Event) {
     const target = e.target as HTMLInputElement;
@@ -23,7 +23,7 @@ function input(e: Event) {
 </script>
 
 <template>
-    <div class="form-item" @click="() => inputRef.focus()">
+    <div class="form-item" @click="inputRef?.focus">
         <div class="prefix" :tooltip="label">
             <Icon name="pencil" />
         </div>
