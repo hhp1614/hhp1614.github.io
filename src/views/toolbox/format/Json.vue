@@ -12,12 +12,10 @@ const jsonStore = useJsonStore();
  * @param json JSON 字符串
  */
 function formatJson(json: string, compress = false) {
-    if (!json) {
-        return '';
-    }
+    if (!json) return '';
     try {
         return JSON.stringify(JSON.parse(json), null, compress ? 0 : 4);
-    } catch (err) {
+    } catch {
         return 'Error: is not valid JSON';
     }
 }
