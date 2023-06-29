@@ -66,7 +66,7 @@ const syntaxHighlight = computed(() => jsonHighlight(formatJson(jsonStore.active
                 ref="inputRef"
                 :value="jsonStore.activeTabText"
                 @input="e => jsonStore.changeTabText((e.target as HTMLTextAreaElement).value)"
-            ></textarea>
+            />
             <div class="output">
                 <div class="code-text" v-for="line in syntaxHighlight.split('\n')" v-html="line"></div>
             </div>
