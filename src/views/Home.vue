@@ -7,7 +7,8 @@ import useAutofocus from '@/hooks/useAutofocus';
 const inputRef = useAutofocus<HTMLInputElement>();
 const tabStore = useTabStore();
 
-const { engine, engineList, engineListShow, searchText, toggleEngineList, changeEngine, shortcutKey, search } = useSearchEngine();
+const { engine, engineList, engineListShow, searchText, toggleEngineList, changeEngine, shortcutKey, search } =
+    useSearchEngine();
 
 const darkModeStore = useDarkModeStore();
 </script>
@@ -26,7 +27,14 @@ const darkModeStore = useDarkModeStore();
             <button class="engine" @focus="toggleEngineList(true)" @blur="toggleEngineList(false)">
                 <Icon :name="engine.name" />
             </button>
-            <input type="text" ref="inputRef" v-model="searchText" :placeholder="`使用 ${engine.text} 搜索`" @keydown="shortcutKey" @keypress.enter="search" />
+            <input
+                type="text"
+                ref="inputRef"
+                v-model="searchText"
+                :placeholder="`使用 ${engine.text} 搜索`"
+                @keydown="shortcutKey"
+                @keypress.enter="search"
+            />
             <button class="btn" @click="search"><Icon name="search" /></button>
             <Transition name="slide-fade">
                 <div class="engine-list" v-show="engineListShow">

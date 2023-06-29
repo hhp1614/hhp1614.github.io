@@ -24,7 +24,12 @@ const routes: RouteRecordRaw[] = [
     // 首页
     { path: '/', component: () => import('@/views/Home.vue') },
     // 工具箱
-    { path: '/toolbox', component: () => import('@/views/toolbox/Layout.vue'), children: toolboxRoutes, redirect: toolboxRedirect },
+    {
+        path: '/toolbox',
+        component: () => import('@/views/toolbox/Layout.vue'),
+        children: toolboxRoutes,
+        redirect: toolboxRedirect,
+    },
 ];
 
 const router = createRouter({ history: createWebHistory(), routes });

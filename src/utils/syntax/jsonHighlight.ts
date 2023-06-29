@@ -1,3 +1,5 @@
+const regexp = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g;
+
 /**
  * JSON 代码高亮
  * @param json JSON 字符串
@@ -5,7 +7,7 @@
  */
 export default function (json: string) {
     const result = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return result.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, match => {
+    return result.replace(regexp, match => {
         let cls = 'number';
         if (/^"/.test(match)) {
             if (/:$/.test(match)) {

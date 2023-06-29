@@ -27,7 +27,12 @@ const syntaxHighlight = computed(() => jsonHighlight(formatJson(jsonStore.active
 <template>
     <div class="json has-tabs">
         <nav class="tabs">
-            <div class="item" v-for="tab in jsonStore.tabs" :key="tab.id" :class="{ active: tab.id === jsonStore.activeTabId }">
+            <div
+                class="item"
+                v-for="tab in jsonStore.tabs"
+                :key="tab.id"
+                :class="{ active: tab.id === jsonStore.activeTabId }"
+            >
                 <span
                     class="title"
                     @blur="e => jsonStore.changeTabName(tab.id, tab.title, (e.target as HTMLSpanElement).innerText)"

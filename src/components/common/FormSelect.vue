@@ -87,8 +87,20 @@ function keydown(e: KeyboardEvent) {
             <Icon class="collapse" name="arrow-down" :class="{ open: listShow }" />
         </template>
         <Transition name="slide-fade">
-            <div v-show="listShow" class="select-list" @test="select" @click="e => e.stopPropagation()" @mouseover.stop="closeShow = false">
-                <div v-for="{ label, value } in list" :key="value" class="select-option" :class="{ selected: value === modelValue }" @click="select(value)">
+            <div
+                v-show="listShow"
+                class="select-list"
+                @test="select"
+                @click="e => e.stopPropagation()"
+                @mouseover.stop="closeShow = false"
+            >
+                <div
+                    v-for="{ label, value } in list"
+                    :key="value"
+                    class="select-option"
+                    :class="{ selected: value === modelValue }"
+                    @click="select(value)"
+                >
                     {{ label }}
                 </div>
             </div>
