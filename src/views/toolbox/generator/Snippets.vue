@@ -92,7 +92,7 @@ function resetForm() {
                 ref="inputRef"
                 placeholder="代码片段"
                 @paste.prevent="handlePaste($event)"
-            />
+            ></textarea>
             <div class="output">
                 <div class="code-text" v-for="line in syntaxHighlight.split('\n')" v-html="line"></div>
             </div>
