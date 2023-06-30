@@ -1,7 +1,14 @@
 :root {
     // 主题色
     // --theme-color: #5ca1ff;
-    --theme-color: #ff9800;
+    --theme-color: #f7630c;
+    --theme-rgb: 247, 99, 12;
+
+    --bg-0: #ffffff;
+    --bg-1: #f9f9f9;
+    --bg-2: #efefef;
+    --bg-3: #e1e1e1;
+    --border-color: #cccccc;
 
     --bg: 255, 255, 255;
     --color: 0, 0, 0;
@@ -16,6 +23,12 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
+        --bg-0: #000000;
+        --bg-1: #212121;
+        --bg-2: #313131;
+        --bg-3: #414141;
+        --border-color: #515151;
+
         --bg: 0, 0, 0;
         --color: 255, 255, 255;
 
@@ -32,13 +45,14 @@
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
     font-size: $font-normal;
-    color: get-color(0.8);
+    color: get-color(0.7);
 }
 
 #app {
@@ -46,9 +60,7 @@ body {
     height: 100%;
     overflow: hidden;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: get-color(0.1);
+    background-color: var(--bg-1);
 
     > div {
         flex: 1;
@@ -56,5 +68,14 @@ body {
 }
 
 ::selection {
-    background-color: get-color(0.1);
+    background-color: rgba(var(--theme-rgb), 0.3);
+}
+
+input {
+    accent-color: var(--theme-color);
+    cursor: pointer;
+
+    &::placeholder {
+        color: get-color(0.3);
+    }
 }

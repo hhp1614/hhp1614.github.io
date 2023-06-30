@@ -6,7 +6,7 @@ const props = defineProps({
     label: String,
     clearable: Boolean,
     modelValue: String,
-    list: { type: Array<{ label: string; value: string }>, default: [{ label: '', value: '' }] },
+    list: { type: Array<{ label?: string; value: string }>, default: [{ value: '' }] },
 });
 
 const emit = defineEmits<{
@@ -72,7 +72,7 @@ function keydown(e: KeyboardEvent) {
         <input
             ref="inputRef"
             :placeholder="placeholder"
-            :value="modelLabel"
+            :value="modelLabel || modelValue"
             @focus="listShow = true"
             @blur="listShow = false"
             @input="input($event)"
@@ -101,7 +101,7 @@ function keydown(e: KeyboardEvent) {
                     :class="{ selected: value === modelValue }"
                     @click="select(value)"
                 >
-                    {{ label }}
+                    {{ label || value }}
                 </div>
             </div>
         </Transition>

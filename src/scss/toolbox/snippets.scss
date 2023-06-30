@@ -1,28 +1,4 @@
-// Json.vue
-.json {
-    // 标签
-    .tabs {
-        display: flex;
-        gap: 0.5em;
-
-        .item {
-            @extend %hover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5em;
-            padding: 0 0.5em;
-            line-height: 2rem;
-            user-select: none;
-            color: get-color(0.7);
-
-            &.active {
-                background-color: var(--theme-color);
-                color: #fff;
-            }
-        }
-    }
-
+.snippets {
     // 操作
     .actions {
         $h: 2rem;

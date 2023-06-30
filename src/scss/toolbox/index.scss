@@ -1,53 +1,21 @@
 // Layout.vue
 .toolbox {
     @extend %full;
-    display: flex;
-
-    @include header(space-between);
-
-    // 导航标签
-    header {
-        background-color: get-bg(0.2);
-
-        .tabs {
-            .item {
-                display: flex;
-                align-items: center;
-                gap: 0.2em;
-                position: relative;
-                padding: 0 0.5em;
-                color: get-color(0.7);
-                cursor: pointer;
-                @extend %hover;
-                user-select: none;
-
-                &:hover {
-                    color: var(--theme-color);
-                }
-
-                &.active {
-                    color: var(--theme-color);
-
-                    &::after {
-                        content: '';
-                        display: block;
-                        width: 100%;
-                        height: 2px;
-                        background-color: var(--theme-color);
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                    }
-                }
-            }
-        }
-    }
+    position: relative;
+    padding: 2em 0 2em 20vmin;
+    overflow: auto;
 
     // 侧边栏
     aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 20;
         padding: 0.5rem;
-        min-width: 20vmin;
-        background-color: get-bg(0.2);
+        height: 100%;
+        width: 20vmin;
+        background-color: var(--bg-1);
+        box-shadow: $shadow;
 
         .item {
             color: get-color(0.3);
@@ -69,15 +37,55 @@
 
     // 主体
     main {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
+        background-color: var(--bg-0);
+
+        @include header(space-between);
+
+        // 导航标签
+        header {
+            position: fixed;
+            top: 0;
+            z-index: 10;
+            background-color: var(--bg-1);
+            width: calc(100vw - 20vmin);
+
+            .tabs {
+                .item {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.2em;
+                    position: relative;
+                    padding: 0 0.5em;
+                    color: get-color(0.7);
+                    cursor: pointer;
+                    @extend %hover;
+                    user-select: none;
+
+                    &:hover {
+                        color: var(--theme-color);
+                    }
+
+                    &.active {
+                        color: var(--theme-color);
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            width: 100%;
+                            height: 2px;
+                            background-color: var(--theme-color);
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
 
         article {
-            flex: 1;
-            display: flex;
             padding: 0.5em;
-            background-color: get-bg(0.5);
+            min-height: calc(100vh - 4rem);
 
             // page router view
             > div {
@@ -85,87 +93,6 @@
                 display: flex;
                 flex-direction: column;
                 gap: 0.5em;
-
-                // 标签
-                .tabs {
-                    display: flex;
-                    gap: 0.5em;
-
-                    .item {
-                        @extend %hover;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 0.5em;
-                        padding: 0 0.5em;
-                        line-height: 2rem;
-                        user-select: none;
-                        color: get-color(0.8);
-
-                        &.active {
-                            background-color: var(--theme-color);
-                            color: #fff;
-                        }
-                    }
-                }
-
-                // 操作
-                .actions {
-                    $h: 2rem;
-                    display: flex;
-                    height: $h;
-
-                    .input,
-                    .output {
-                        flex: 1;
-                        display: flex;
-                        gap: 0.5em;
-
-                        button {
-                            @extend %hover;
-                            line-height: $h;
-
-                            &:hover {
-                                color: var(--theme-color);
-                            }
-                        }
-                    }
-                }
-
-                // 内容
-                .content {
-                    flex: 1;
-                    display: flex;
-                    gap: 0.5em;
-
-                    // 输入 输出
-                    .input,
-                    .output {
-                        flex: 1;
-                        display: flex;
-                        flex-flow: column;
-                        margin: 0;
-                        padding: 0.5em;
-                        width: 100%;
-                        height: calc(100vh - 10rem);
-                        resize: none;
-                        outline: none;
-                        background-color: get-color(0.05);
-                        border-radius: 0.2em;
-                        overflow: auto;
-                        color: get-color(0.8);
-                        word-break: break-all;
-
-                        .code-text {
-                            flex: 0 0 auto;
-
-                            .null,
-                            .boolean {
-                                color: var(--code-color-keyword);
-                            }
-                        }
-                    }
-                }
             }
         }
     }

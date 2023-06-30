@@ -37,7 +37,7 @@ textarea {
     outline: none;
     font-size: 1rem;
     background-color: unset;
-    color: get-color(0.8);
+    color: get-color(0.7);
     transition: $transition;
 }
 
@@ -59,10 +59,14 @@ textarea {
 
 // 底部
 footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     gap: 1em;
     padding: 0 0.5em;
-    line-height: 2;
-    color: get-color(0.5);
+    line-height: 2rem;
+    color: get-color(0.3);
+    background-color: var(--bg-1);
 }

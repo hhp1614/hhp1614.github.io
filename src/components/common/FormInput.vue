@@ -2,10 +2,11 @@
 import { ref } from 'vue';
 
 defineProps({
-    type: String,
+    type: { type: String, default: 'text' },
     placeholder: String,
     label: String,
     readonly: Boolean,
+    disabled: Boolean,
     clearable: Boolean,
     modelValue: String, // 'v-model' must be use 'modelValue'
 });
@@ -32,6 +33,7 @@ function input(e: Event) {
             :type="type"
             :placeholder="placeholder"
             :readonly="readonly"
+            :disabled="disabled"
             :value="modelValue"
             @input="input($event)"
         />

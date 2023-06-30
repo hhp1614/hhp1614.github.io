@@ -5,11 +5,7 @@ import useAutoFocus from '@/hooks/useAutofocus';
 
 const inputRef = useAutoFocus();
 /** scope 选择列表 */
-const list = ref([
-    { label: 'HTML', value: 'html' },
-    { label: 'JS', value: 'js' },
-    { label: 'PHP', value: 'php' },
-]);
+const list = ref([{ value: 'html' }, { value: 'js' }, { value: 'php' }]);
 
 /** 页面数据 */
 const json = reactive({
@@ -17,7 +13,7 @@ const json = reactive({
     prefix: '',
     desc: '',
     body: '',
-    scope: '',
+    scope: 'html',
 });
 
 /** 输出数据 */
@@ -39,31 +35,13 @@ const output = computed(() => {
 const syntaxHighlight = computed(() => jsonHighlight(output.value));
 
 /**
- * 处理粘贴
- * @param e 剪贴板事件对象
- */
-function handlePaste(e: ClipboardEvent) {
-    let paste = e.clipboardData?.getData('text') ?? '';
-    let tempSpace = 0;
-    // 行首空格处理
-    const lines = paste.split(/\r\n|\r|\n/g).map((line, i) => {
-        if (i === 0) {
-            const [space] = line.match(/^ +/) || [''];
-            tempSpace = space.length;
-        }
-        return line.length >= tempSpace ? line.slice(tempSpace) : line;
-    });
-    json.body = lines.join('\n');
-}
-
-/**
  * 清空表单
  */
 function resetForm() {
     json.name = '';
     json.prefix = '';
     json.desc = '';
-    json.scope = '';
+    json.scope = 'html';
 }
 </script>
 
@@ -86,13 +64,7 @@ function resetForm() {
             </div>
         </div>
         <div class="content">
-            <textarea
-                v-model="json.body"
-                class="input"
-                ref="inputRef"
-                placeholder="代码片段"
-                @paste.prevent="handlePaste($event)"
-            ></textarea>
+            <textarea v-model="json.body" class="input" ref="inputRef" placeholder="代码片段"></textarea>
             <div class="output">
                 <div class="code-text" v-for="line in syntaxHighlight.split('\n')" v-html="line"></div>
             </div>

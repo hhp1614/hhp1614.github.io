@@ -1,5 +1,5 @@
-$color: get-color(0.8);
-$bg: get-bg(1);
+$color: get-color(0.7);
+$bg: var(--bg-1);
 
 // 表单
 .form {
@@ -20,6 +20,15 @@ $bg: get-bg(1);
         transition: $transition;
         cursor: pointer;
 
+        // 撑满
+        &.full {
+            flex: 1;
+
+            input {
+                flex: 1;
+            }
+        }
+
         // 前缀
         .prefix {
             user-select: none;
@@ -27,14 +36,10 @@ $bg: get-bg(1);
         }
 
         // 输入框
-        input {
+        input[type='text'] {
             flex: 1;
-            color: get-color(0.8);
+            color: get-color(0.7);
             cursor: pointer;
-
-            &::placeholder {
-                color: get-color(0.3);
-            }
         }
 
         &:hover {
@@ -66,6 +71,7 @@ $bg: get-bg(1);
         .select-list {
             position: absolute;
             top: $h + 0.5;
+            z-index: 10;
             line-height: $h;
             left: 0;
             width: 100%;
@@ -84,6 +90,27 @@ $bg: get-bg(1);
                     color: var(--theme-color);
                     background-color: get-color(0.1);
                 }
+            }
+        }
+
+        // 单选框、复选框取消下划线
+        &:has(input[type='radio']),
+        &:has(input[type='checkbox']) {
+            border-bottom: unset;
+        }
+
+        // 单选框
+        label.radio,
+        label.checkbox {
+            display: flex;
+            align-items: center;
+            padding: 0 0.5em;
+            cursor: pointer;
+
+            input[type='radio'],
+            input[type='checkbox'] {
+                margin: 0;
+                margin-right: 0.5em;
             }
         }
     }

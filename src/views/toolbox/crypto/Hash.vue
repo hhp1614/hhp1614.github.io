@@ -1,3 +1,69 @@
+<script lang="ts" setup>
+import useAutofocus from '@/hooks/useAutofocus';
+import { computed, reactive } from 'vue';
+import CryptoJS from 'crypto-js';
+
+const inputRef = useAutofocus();
+const form = reactive({
+    secret: '',
+    text: '',
+});
+
+const list = computed(() => {
+    return [
+        { name: 'MD5', value: CryptoJS.MD5(form.text).toString() },
+        { name: 'SHA1', value: CryptoJS.SHA1(form.text).toString() },
+        { name: 'SHA256', value: CryptoJS.SHA256(form.text).toString() },
+        { name: 'SHA224', value: CryptoJS.SHA224(form.text).toString() },
+        { name: 'SHA512', value: CryptoJS.SHA512(form.text).toString() },
+        { name: 'SHA384', value: CryptoJS.SHA384(form.text).toString() },
+        { name: 'SHA3', value: CryptoJS.SHA3(form.text).toString() },
+        { name: 'RIPEMD160', value: CryptoJS.RIPEMD160(form.text).toString() },
+    ];
+});
+
+const hmac = computed(() => {
+    return [
+        { name: 'HmacMD5', value: CryptoJS.HmacMD5(form.text, form.secret).toString() },
+        { name: 'HmacSHA1', value: CryptoJS.HmacSHA1(form.text, form.secret).toString() },
+        { name: 'HmacSHA256', value: CryptoJS.HmacSHA256(form.text, form.secret).toString() },
+        { name: 'HmacSHA224', value: CryptoJS.HmacSHA224(form.text, form.secret).toString() },
+        { name: 'HmacSHA512', value: CryptoJS.HmacSHA512(form.text, form.secret).toString() },
+        { name: 'HmacSHA384', value: CryptoJS.HmacSHA384(form.text, form.secret).toString() },
+        { name: 'HmacSHA3', value: CryptoJS.HmacSHA3(form.text, form.secret).toString() },
+        { name: 'HmacRIPEMD160', value: CryptoJS.HmacRIPEMD160(form.text, form.secret).toString() },
+    ];
+});
+</script>
+
 <template>
-    <div>Hash</div>
+    <div class="hash">
+        <div class="form">
+            <BtnCopy :text="form.text" />
+            <FormInput v-model="form.secret" class="full" label="秘钥" placeholder="秘钥" clearable />
+        </div>
+        <div class="content">
+            <textarea v-model="form.text" class="input" ref="inputRef" placeholder="明文"></textarea>
+            <div class="output">
+                <div class="left">
+                    <div class="item" v-for="item in list" :key="item.name">
+                        <div class="item-title">
+                            <span :tooltip="`CryptoJS.${item.name}('明文')`">{{ item.name }}</span>
+                            <BtnCopy :text="item.value" />
+                        </div>
+                        <div class="item-value">{{ item.value }}</div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="item" v-for="item in hmac" :key="item.name">
+                        <div class="item-title">
+                            <span :tooltip="`CryptoJS.${item.name}('明文', '秘钥')`">{{ item.name }}</span>
+                            <BtnCopy :text="item.value" />
+                        </div>
+                        <div class="item-value">{{ item.value }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>

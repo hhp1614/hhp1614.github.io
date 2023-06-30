@@ -1,7 +1,7 @@
 // ! 全局注入文件
 
 // 字体大小
-$font-mini: 10px;
+$font-mini: 11px;
 $font-normal: 13px;
 $font-medium: 15px;
 $font-large: 20px;
@@ -11,8 +11,7 @@ $transition: all 240ms;
 // 透明边框
 $transparent-border: 1px solid transparent;
 // 阴影
-$shadow-color: #0003;
-$shadow: 0 2px 6px $shadow-color;
+$shadow: 0 0 0.5rem var(--border-color);
 
 // 颜色
 @function get-color($opacity) {
@@ -31,7 +30,8 @@ $shadow: 0 2px 6px $shadow-color;
         justify-content: $justify-content;
         gap: 1em;
         padding: 0 0.5em;
-        line-height: 2;
+        width: 100%;
+        line-height: 2rem;
 
         nav {
             display: flex;

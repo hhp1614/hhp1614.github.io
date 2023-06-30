@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import { toolboxPages } from './pages';
 
 let toolboxRedirect = '';
@@ -32,6 +32,6 @@ const routes: RouteRecordRaw[] = [
     },
 ];
 
-const router = createRouter({ history: createWebHistory(), routes });
+const router = createRouter({ history: createWebHashHistory(), routes });
 
 export default router;
