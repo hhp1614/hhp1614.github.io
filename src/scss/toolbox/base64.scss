@@ -1,0 +1,66 @@
+// Base64.vue
+.base64 {
+    // 操作
+    .actions {
+        $h: 2rem;
+        display: flex;
+        height: $h;
+        line-height: $h;
+
+        .input,
+        .output {
+            flex: 1;
+            display: flex;
+            gap: 0.5em;
+
+            button {
+                @extend %hover;
+                line-height: $h;
+
+                &:hover {
+                    color: var(--theme-color);
+                }
+            }
+
+            .msg {
+                color: var(--theme-color);
+                font-size: $font-mini;
+            }
+        }
+    }
+
+    // 内容
+    .content {
+        flex: 1;
+        display: flex;
+        gap: 0.5em;
+
+        // 输入 输出
+        .input,
+        .output {
+            flex: 1;
+            display: flex;
+            flex-flow: column;
+            margin: 0;
+            padding: 0.5em;
+            width: 100%;
+            height: calc(100vh - 8rem);
+            resize: none;
+            outline: none;
+            background-color: var(--bg-1);
+            border-radius: 0.2em;
+            overflow: auto;
+            color: get-color(0.7);
+            word-break: break-all;
+
+            .code-text {
+                flex: 0 0 auto;
+
+                .null,
+                .boolean {
+                    color: var(--code-color-keyword);
+                }
+            }
+        }
+    }
+}

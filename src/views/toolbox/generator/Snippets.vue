@@ -52,7 +52,7 @@ function resetForm() {
             <FormSelect v-model="json.scope" :list="list" label="scope" placeholder="scope" clearable />
             <FormInput v-model="json.prefix" label="prefix" placeholder="prefix" clearable />
             <FormInput v-model="json.desc" label="desc" placeholder="desc" clearable />
-            <BtnIcon class="item" icon="clear" @click="resetForm" />
+            <BtnIcon icon="clear" @click="resetForm" />
         </div>
         <div class="actions">
             <div class="input">
