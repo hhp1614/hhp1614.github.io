@@ -1,6 +1,6 @@
 import { defineConfig, PluginOption } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { VitePWA } from 'vite-plugin-pwa';
+// import { VitePWA } from 'vite-plugin-pwa';
 
 /**
  * 重写 rollup 打包方法，解决 GitHub Pages 404 问题
@@ -22,39 +22,39 @@ function sanitizeFileName(name: string) {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
     const plugins: PluginOption = [vue()];
-    if (mode === 'production') {
-        // 打包开启 PWA
-        plugins.push(
-            VitePWA({
-                injectRegister: 'auto',
-                registerType: 'autoUpdate',
-                includeAssets: ['avatar.svg', 'avatar-dark.svg'],
-                workbox: {
-                    globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,woff,ttf}'],
-                    runtimeCaching: [
-                        {
-                            handler: 'CacheFirst',
-                            urlPattern: /^https?:\/\/at\.alicdn\.com\/.*/i,
-                            options: {
-                                cacheName: 'icon-fonts-cache',
-                                expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 }, // 365 天
-                                cacheableResponse: { statuses: [0, 200] },
-                            },
-                        },
-                    ],
-                },
-                manifest: {
-                    name: '亦留亦思',
-                    short_name: '亦留亦思',
-                    description: '亦留亦思',
-                    icons: [
-                        { src: 'avatar.svg', sizes: 'any', type: 'image/svg' },
-                        { src: 'avatar.svg', sizes: '1333x1333', type: 'image/svg' },
-                    ],
-                },
-            }),
-        );
-    }
+    // if (mode === 'production') {
+    //     // 打包开启 PWA
+    //     plugins.push(
+    //         VitePWA({
+    //             injectRegister: 'auto',
+    //             registerType: 'autoUpdate',
+    //             includeAssets: ['avatar.svg', 'avatar-dark.svg'],
+    //             workbox: {
+    //                 globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,woff,ttf}'],
+    //                 runtimeCaching: [
+    //                     {
+    //                         handler: 'CacheFirst',
+    //                         urlPattern: /^https?:\/\/at\.alicdn\.com\/.*/i,
+    //                         options: {
+    //                             cacheName: 'icon-fonts-cache',
+    //                             expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 }, // 365 天
+    //                             cacheableResponse: { statuses: [0, 200] },
+    //                         },
+    //                     },
+    //                 ],
+    //             },
+    //             manifest: {
+    //                 name: '亦留亦思',
+    //                 short_name: '亦留亦思',
+    //                 description: '亦留亦思',
+    //                 icons: [
+    //                     { src: 'avatar.svg', sizes: 'any', type: 'image/svg' },
+    //                     { src: 'avatar.svg', sizes: '1333x1333', type: 'image/svg' },
+    //                 ],
+    //             },
+    //         }),
+    //     );
+    // }
     return {
         // 开发服务器设置
         server: {

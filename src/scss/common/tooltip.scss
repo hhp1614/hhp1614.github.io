@@ -13,8 +13,8 @@ $arrow-size: 6px;
         position: absolute;
         opacity: 0;
         transition: $transition;
-        line-height: 2rem;
-        font-size: 1rem;
+        line-height: 2em;
+        font-size: $font-mini;
     }
 
     // tooltip 箭头
