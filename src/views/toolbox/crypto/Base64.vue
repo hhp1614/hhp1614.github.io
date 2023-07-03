@@ -1,24 +1,32 @@
 <script lang="ts" setup>
 import useAutofocus from '@/hooks/useAutofocus';
-import { ref } from 'vue';
+import { reactive } from 'vue';
 
 const inputRef = useAutofocus();
-const origin = ref('');
-const cipher = ref('');
-const msg = ref('');
+const form = reactive({
+    origin: '',
+    cipher: '',
+    msg: '',
+});
 
 function originInput() {
-    cipher.value = window.btoa(origin.value);
-    msg.value = '';
+    form.cipher = window.btoa(form.origin);
+    form.msg = '';
 }
 
 function cipherInput() {
     try {
-        origin.value = window.atob(cipher.value);
-        msg.value = '';
-    } catch (err) {
-        msg.value = '要解码的字符串未正确编码';
+        form.origin = window.atob(form.cipher);
+        form.msg = '';
+    } catch {
+        form.msg = '要解码的字符串未正确编码';
     }
+}
+
+function clearForm() {
+    form.origin = '';
+    form.cipher = '';
+    form.msg = '';
 }
 </script>
 
@@ -26,18 +34,26 @@ function cipherInput() {
     <div class="base64">
         <div class="actions">
             <div class="input">
-                <BtnCopy :text="origin" />
-                <BtnIcon icon="clear" @click="origin = cipher = msg = ''" />
+                <BtnCopy :text="form.origin" />
+                <BtnIcon icon="clear" @click="clearForm" />
+                <span class="desc">window.btoa('密文')</span>
             </div>
             <div class="output">
-                <BtnCopy :text="cipher" />
-                <BtnIcon icon="clear" @click="origin = cipher = msg = ''" />
-                <div class="msg">{{ msg }}</div>
+                <BtnCopy :text="form.cipher" />
+                <BtnIcon icon="clear" @click="clearForm" />
+                <span class="desc">window.atob('原文')</span>
+                <span class="msg">{{ form.msg }}</span>
             </div>
         </div>
         <div class="content">
-            <textarea v-model="origin" class="input" ref="inputRef" placeholder="原文" @input="originInput"></textarea>
-            <textarea v-model="cipher" class="input" placeholder="Base64" @input="cipherInput"></textarea>
+            <textarea
+                v-model="form.origin"
+                class="input"
+                ref="inputRef"
+                placeholder="原文"
+                @input="originInput"
+            ></textarea>
+            <textarea v-model="form.cipher" class="input" placeholder="密文" @input="cipherInput"></textarea>
         </div>
     </div>
 </template>

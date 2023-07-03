@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { computed, reactive, ref } from 'vue';
+import { computed, reactive } from 'vue';
 import jsonHighlight from '@/utils/syntax/jsonHighlight';
 import useAutoFocus from '@/hooks/useAutofocus';
 
 const inputRef = useAutoFocus();
 /** scope 选择列表 */
-const list = ref([{ value: 'html' }, { value: 'js' }, { value: 'php' }]);
+const list = [{ value: 'html' }, { value: 'js' }, { value: 'php' }];
 
 /** 页面数据 */
 const json = reactive({
@@ -37,7 +37,7 @@ const syntaxHighlight = computed(() => jsonHighlight(output.value));
 /**
  * 清空表单
  */
-function resetForm() {
+function clearForm() {
     json.name = '';
     json.prefix = '';
     json.desc = '';
@@ -52,7 +52,7 @@ function resetForm() {
             <FormSelect v-model="json.scope" :list="list" label="scope" placeholder="scope" clearable />
             <FormInput v-model="json.prefix" label="prefix" placeholder="prefix" clearable />
             <FormInput v-model="json.desc" label="desc" placeholder="desc" clearable />
-            <BtnIcon icon="clear" @click="resetForm" />
+            <BtnIcon icon="clear" @click="clearForm" />
         </div>
         <div class="actions">
             <div class="input">

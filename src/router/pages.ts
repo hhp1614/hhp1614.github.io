@@ -38,6 +38,11 @@ export const toolboxPages = [
                 meta: { title: 'Base64', desc: '编码 / 解码' },
                 component: () => import('@/views/toolbox/crypto/Base64.vue'),
             },
+            {
+                name: 'encrypt',
+                meta: { title: '对称加密', desc: 'AES / DES / RC4 ...' },
+                component: () => import('@/views/toolbox/crypto/Encrypt.vue'),
+            },
         ],
     },
     {

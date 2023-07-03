@@ -40,15 +40,15 @@ const hmac = computed(() => {
     <div class="hash">
         <div class="form">
             <BtnCopy :text="form.text" />
-            <FormInput v-model="form.secret" class="full" label="秘钥" placeholder="秘钥" clearable />
+            <FormInput v-model="form.secret" class="full" label="密钥" placeholder="密钥" clearable />
         </div>
         <div class="content">
-            <textarea v-model="form.text" class="input" ref="inputRef" placeholder="明文"></textarea>
+            <textarea v-model="form.text" class="input" ref="inputRef" placeholder="原文"></textarea>
             <div class="output">
                 <div class="left">
                     <div class="item" v-for="item in list" :key="item.name">
                         <div class="item-title">
-                            <span :tooltip="`CryptoJS.${item.name}('明文')`">{{ item.name }}</span>
+                            <span :tooltip="`CryptoJS.${item.name}('原文')`">{{ item.name }}</span>
                             <BtnCopy :text="item.value" />
                         </div>
                         <div class="item-value">{{ item.value }}</div>
@@ -57,7 +57,7 @@ const hmac = computed(() => {
                 <div class="right">
                     <div class="item" v-for="item in hmac" :key="item.name">
                         <div class="item-title">
-                            <span :tooltip="`CryptoJS.${item.name}('明文', '秘钥')`">{{ item.name }}</span>
+                            <span :tooltip="`CryptoJS.${item.name}('原文', '密钥')`">{{ item.name }}</span>
                             <BtnCopy :text="item.value" />
                         </div>
                         <div class="item-value">{{ item.value }}</div>

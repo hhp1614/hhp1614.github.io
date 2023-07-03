@@ -32,6 +32,6 @@ const datetime = useDatetime();
 <template>
     <footer>
         <div>{{ datetime }}</div>
-        <div>© <a href="https://github.com/hhp1614" target="_blank">hhp1614</a></div>
+        <div>&copy; <a href="https://github.com/hhp1614" target="_blank">hhp1614</a></div>
     </footer>
 </template>

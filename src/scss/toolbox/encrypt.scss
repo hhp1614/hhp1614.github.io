@@ -1,5 +1,5 @@
-// Base64.vue
-.base64 {
+// Encrypt.vue
+.encrypt {
     // 操作
     .actions {
         $h: 2rem;
@@ -26,11 +26,6 @@
                 color: var(--theme-color);
                 font-size: $font-mini;
             }
-
-            .desc {
-                color: get-color(0.5);
-                font-size: $font-mini;
-            }
         }
     }
 
@@ -49,7 +44,7 @@
             margin: 0;
             padding: 0.5em;
             width: 100%;
-            height: calc(100vh - 8rem);
+            height: calc(100vh - 10rem);
             resize: none;
             outline: none;
             background-color: var(--bg-1);
