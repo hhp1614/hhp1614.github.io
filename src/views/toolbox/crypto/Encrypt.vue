@@ -2,16 +2,10 @@
 import { reactive } from 'vue';
 import CryptoJS from 'crypto-js';
 
+/** 加密方式 */
 type Key = 'AES' | 'DES' | 'RC4' | 'RC4Drop' | 'Rabbit' | 'RabbitLegacy' | 'TripleDES';
 
-const form = reactive({
-    type: 'AES',
-    secret: '',
-    origin: '',
-    cipher: '',
-    msg: '',
-});
-
+/** 加密方式列表 */
 const list: { value: Key }[] = [
     { value: 'AES' },
     { value: 'DES' },
@@ -22,11 +16,26 @@ const list: { value: Key }[] = [
     { value: 'TripleDES' },
 ];
 
+/** 页面数据 */
+const form = reactive({
+    type: 'AES',
+    secret: '',
+    origin: '',
+    cipher: '',
+    msg: '',
+});
+
+/**
+ * 加密
+ */
 function encrypt() {
     form.cipher = CryptoJS[form.type as Key].encrypt(form.origin, form.secret).toString();
     form.msg = '';
 }
 
+/**
+ * 解密
+ */
 function decrypt() {
     const bytes = CryptoJS[form.type as Key].decrypt(form.cipher, form.secret);
     if (bytes.sigBytes >= 0) {

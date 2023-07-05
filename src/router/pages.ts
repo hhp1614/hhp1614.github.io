@@ -43,6 +43,11 @@ export const toolboxPages = [
                 meta: { title: '对称加密', desc: 'AES / DES / RC4 ...' },
                 component: () => import('@/views/toolbox/crypto/Encrypt.vue'),
             },
+            {
+                name: 'unicode',
+                meta: { title: 'Unicode', desc: 'UTF-8 / UTF-16' },
+                component: () => import('@/views/toolbox/crypto/Unicode.vue'),
+            },
         ],
     },
     {

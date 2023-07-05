@@ -52,15 +52,6 @@
             overflow: auto;
             color: get-color(0.7);
             word-break: break-all;
-
-            .code-text {
-                flex: 0 0 auto;
-
-                .null,
-                .boolean {
-                    color: var(--code-color-keyword);
-                }
-            }
         }
     }
 }

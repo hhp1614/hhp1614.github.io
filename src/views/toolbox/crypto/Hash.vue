@@ -4,11 +4,13 @@ import { computed, reactive } from 'vue';
 import CryptoJS from 'crypto-js';
 
 const inputRef = useAutofocus();
+/** 页面数据 */
 const form = reactive({
     secret: '',
     text: '',
 });
 
+/** 算法 */
 const list = computed(() => {
     return [
         { name: 'MD5', value: CryptoJS.MD5(form.text).toString() },
@@ -22,6 +24,7 @@ const list = computed(() => {
     ];
 });
 
+/** Hmac 算法 */
 const hmac = computed(() => {
     return [
         { name: 'HmacMD5', value: CryptoJS.HmacMD5(form.text, form.secret).toString() },

@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 defineProps({
     modelValue: [String, Number],
-    list: { type: Array<{ label?: string; value: string }>, default: [{ value: '' }] },
+    list: { type: Array<{ label?: string; value: string; desc?: string }>, default: [{ value: '' }] },
+    label: String,
 });
 
 const emit = defineEmits<{
@@ -16,7 +17,7 @@ function checked(value: string) {
 </script>
 
 <template>
-    <div class="form-item">
+    <div class="form-item" :label="label">
         <label v-for="item in list" :key="item.value" class="radio">
             <input
                 type="radio"
@@ -24,7 +25,7 @@ function checked(value: string) {
                 :checked="modelValue === item.value"
                 @change="checked(item.value)"
             />
-            <span>{{ item.label || item.value }}</span>
+            <span :tooltip="item.desc">{{ item.label || item.value }}</span>
         </label>
     </div>
 </template>

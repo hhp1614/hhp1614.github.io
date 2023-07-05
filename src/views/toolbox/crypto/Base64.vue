@@ -3,18 +3,25 @@ import useAutofocus from '@/hooks/useAutofocus';
 import { reactive } from 'vue';
 
 const inputRef = useAutofocus();
+/** 页面数据 */
 const form = reactive({
     origin: '',
     cipher: '',
     msg: '',
 });
 
-function originInput() {
+/**
+ * 编码
+ */
+function encode() {
     form.cipher = window.btoa(form.origin);
     form.msg = '';
 }
 
-function cipherInput() {
+/**
+ * 解码
+ */
+function decode() {
     try {
         form.origin = window.atob(form.cipher);
         form.msg = '';
@@ -23,6 +30,9 @@ function cipherInput() {
     }
 }
 
+/**
+ * 清空表单
+ */
 function clearForm() {
     form.origin = '';
     form.cipher = '';
@@ -46,14 +56,8 @@ function clearForm() {
             </div>
         </div>
         <div class="content">
-            <textarea
-                v-model="form.origin"
-                class="input"
-                ref="inputRef"
-                placeholder="原文"
-                @input="originInput"
-            ></textarea>
-            <textarea v-model="form.cipher" class="input" placeholder="密文" @input="cipherInput"></textarea>
+            <textarea v-model="form.origin" class="input" ref="inputRef" placeholder="原文" @input="encode"></textarea>
+            <textarea v-model="form.cipher" class="input" placeholder="密文" @input="decode"></textarea>
         </div>
     </div>
 </template>
