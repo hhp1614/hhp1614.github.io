@@ -37,7 +37,7 @@
 
     // 主体
     main {
-        background-color: var(--bg-0);
+        background-color: var(--bg-1);
 
         @include header(space-between);
 
@@ -89,10 +89,60 @@
 
             // page router view
             > div {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
+                @extend %flex-column;
                 gap: 0.5em;
+            }
+
+            // 操作
+            .actions {
+                $h: 2rem;
+                display: flex;
+                height: $h;
+                line-height: $h;
+
+                .input,
+                .output {
+                    flex: 1;
+                    display: flex;
+                    gap: 0.5em;
+                }
+
+                button {
+                    @extend %hover;
+
+                    &:hover {
+                        color: var(--theme-color);
+                    }
+                }
+
+                .msg {
+                    color: var(--theme-color);
+                    font-size: $font-mini;
+                }
+
+                .desc {
+                    color: get-color(0.5);
+                    font-size: $font-mini;
+                }
+            }
+
+            // 内容
+            .content {
+                @extend %flex;
+                gap: 0.5em;
+
+                .input,
+                .output {
+                    margin: 0;
+                    padding: 0.5em;
+                    width: 100%;
+                    resize: none;
+                    outline: none;
+                    background-color: var(--bg-0);
+                    border-radius: 0.2em;
+                    color: get-color(0.7);
+                    word-break: break-all;
+                }
             }
         }
     }

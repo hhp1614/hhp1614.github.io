@@ -64,3 +64,14 @@ $shadow: 0 0 0.5rem var(--border-color);
         background-color: get-color(0.1);
     }
 }
+
+%flex {
+    flex: 1;
+    display: flex;
+}
+
+// 纵向 flex 样式
+%flex-column {
+    @extend %flex;
+    flex-flow: column;
+}
