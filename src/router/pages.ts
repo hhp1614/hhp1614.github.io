@@ -40,7 +40,7 @@ export const toolboxPages = [
             },
             {
                 name: 'encrypt',
-                meta: { title: '对称加密', desc: 'AES / DES / RC4 ...' },
+                meta: { title: 'Encrypt', desc: 'AES / DES / RC4 ...' },
                 component: () => import('@/views/toolbox/crypto/Encrypt.vue'),
             },
             {
@@ -56,7 +56,7 @@ export const toolboxPages = [
         children: [
             {
                 name: 'snippets',
-                meta: { title: 'Snippets', desc: '代码片段' },
+                meta: { title: 'Snippets', desc: 'VS Code 代码片段' },
                 component: () => import('@/views/toolbox/generator/Snippets.vue'),
             },
         ],
