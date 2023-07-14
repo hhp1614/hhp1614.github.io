@@ -1,21 +1,28 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import { toolboxPages } from './pages';
-
-let toolboxRedirect = '';
+import { createRouter, createWebHashHistory, RouteComponent, RouteRecordRaw } from 'vue-router';
+import toolbox from './toolbox';
 
 /**
- * toolbox 路由配置
+ * 根据 Pages 生成路由
+ * @param path 路径
+ * @param pages 页面
+ * @param layout Layout 组件
  */
-const toolboxRoutes: RouteRecordRaw[] = toolboxPages.reduce((prev, curr, i) => {
-    curr.children = curr.children.map((item, j) => {
-        item.path = `/toolbox/${item.name}`;
-        if (i === 0 && j === 0) {
-            toolboxRedirect = item.path;
-        }
-        return item;
-    });
-    return [...prev, ...(curr.children as RouteRecordRaw[])];
-}, [] as RouteRecordRaw[]);
+function getRoutes(path: string, pages: Pages, component: RouteComponent) {
+    let redirect = '';
+
+    const children = pages.reduce((prev, curr, i) => {
+        curr.children = curr.children.map((item, j) => {
+            item.path = `${path}/${item.name}`;
+            if (i === 0 && j === 0) {
+                redirect = item.path;
+            }
+            return item;
+        });
+        return [...prev, ...(curr.children as RouteRecordRaw[])];
+    }, [] as RouteRecordRaw[]);
+
+    return { path, redirect, component, children };
+}
 
 /**
  * 所有路由
@@ -24,12 +31,7 @@ const routes: RouteRecordRaw[] = [
     // 首页
     { path: '/', component: () => import('@/views/Home.vue') },
     // 工具箱
-    {
-        path: '/toolbox',
-        component: () => import('@/views/toolbox/Layout.vue'),
-        children: toolboxRoutes,
-        redirect: toolboxRedirect,
-    },
+    getRoutes('/toolbox', toolbox, () => import('@/views/toolbox/Layout.vue')),
 ];
 
 const router = createRouter({ history: createWebHashHistory(), routes });

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { toolboxPages } from '@/router/pages';
+import toolbox from '@/router/toolbox';
 import router from '@/router';
 import { useTabStore } from '@/store';
 
@@ -17,7 +17,7 @@ function switchView(path: string, name: string) {
 
 <template>
     <aside>
-        <div class="item" v-for="item in toolboxPages" :key="item.name">
+        <div class="item" v-for="item in toolbox" :key="item.name">
             {{ item.meta.title }}
             <template v-if="item.children.length">
                 <div

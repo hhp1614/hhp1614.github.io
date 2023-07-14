@@ -1,18 +1,7 @@
 /**
- * 页面类型
- */
-type Pages = {
-    path: string;
-    name: string;
-    meta: { title: string; desc: string };
-    component?: any;
-    children: Pages;
-}[];
-
-/**
  * 工具箱页面
  */
-export const toolboxPages = [
+export default [
     {
         name: 'format',
         meta: { title: '代码格式' },
