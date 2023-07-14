@@ -5,7 +5,7 @@ import toolbox from './toolbox';
  * 根据 Pages 生成路由
  * @param path 路径
  * @param pages 页面
- * @param layout Layout 组件
+ * @param component Layout 组件
  */
 function getRoutes(path: string, pages: Pages, component: RouteComponent) {
     let redirect = '';
