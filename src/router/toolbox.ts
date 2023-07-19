@@ -37,6 +37,11 @@ export default [
                 meta: { title: 'Unicode', desc: 'UTF-8 / UTF-16' },
                 component: () => import('@/views/toolbox/crypto/Unicode.vue'),
             },
+            {
+                name: 'html-entity',
+                meta: { title: 'HTML Entity', desc: 'HTML 实体编码' },
+                component: () => import('@/views/toolbox/crypto/HtmlEntity.vue'),
+            },
         ],
     },
     {

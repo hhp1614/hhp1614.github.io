@@ -3,7 +3,7 @@ import { onMounted } from 'vue';
 import { useDarkModeStore } from '@/store';
 
 /**
- * 根据深色模式设置网站 favicon
+ * 深色模式设置
  * @param e 事件对象
  */
 function handleDarkMode(e: MediaQueryList | MediaQueryListEvent) {
