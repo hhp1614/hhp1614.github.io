@@ -42,6 +42,11 @@ export default [
                 meta: { title: 'HTML Entity', desc: 'HTML 实体编码' },
                 component: () => import('@/views/toolbox/crypto/HtmlEntity.vue'),
             },
+            {
+                name: 'url-encoding',
+                meta: { title: 'URL Encoding', desc: 'URL 编码' },
+                component: () => import('@/views/toolbox/crypto/UrlEncoding.vue'),
+            },
         ],
     },
     {
