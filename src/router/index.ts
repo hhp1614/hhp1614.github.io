@@ -32,6 +32,8 @@ const routes: RouteRecordRaw[] = [
     { path: '/', component: () => import('@/views/Home.vue') },
     // 工具箱
     getRoutes('/toolbox', toolbox, () => import('@/views/toolbox/Layout.vue')),
+    // 管理后台
+    // getRoutes('/admin', admin, () => import('@/views/admin/Layout.vue')),
 ];
 
 const router = createRouter({ history: createWebHashHistory(), routes });

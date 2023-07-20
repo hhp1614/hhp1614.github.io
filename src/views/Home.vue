@@ -3,19 +3,25 @@ import Footer from '@/components/content/Footer.vue';
 import { useTabStore } from '@/store';
 import { useSearchEngine } from './home';
 import useAutofocus from '@/hooks/useAutofocus';
+import router from '@/router';
 
 const inputRef = useAutofocus<HTMLInputElement>();
 const tabStore = useTabStore();
 
 const { engine, engineList, engineListShow, searchText, toggleEngineList, changeEngine, shortcutKey, search } =
     useSearchEngine();
+
+function goto(key: keyof typeof tabStore.tabs) {
+    tabStore.reset();
+    router.push('/' + key);
+}
 </script>
 
 <template>
     <div class="home">
         <header>
             <nav>
-                <router-link :to="tabStore.active.path || '/toolbox'">工具箱</router-link>
+                <span class="link" @click="goto('toolbox')">工具箱</span>
             </nav>
         </header>
         <div class="avatar">
@@ -25,15 +31,11 @@ const { engine, engineList, engineListShow, searchText, toggleEngineList, change
             <button class="engine" @focus="toggleEngineList(true)" @blur="toggleEngineList(false)">
                 <Icon :name="engine.name" />
             </button>
-            <input
-                type="text"
-                ref="inputRef"
-                v-model="searchText"
-                :placeholder="`使用 ${engine.text} 搜索`"
-                @keydown="shortcutKey"
-                @keypress.enter="search"
-            />
-            <button class="btn" @click="search"><Icon name="search" /></button>
+            <input type="text" ref="inputRef" v-model="searchText" :placeholder="`使用 ${engine.text} 搜索`"
+                @keydown="shortcutKey" @keypress.enter="search" />
+            <button class="btn" @click="search">
+                <Icon name="search" />
+            </button>
             <Transition name="slide-fade">
                 <div class="engine-list" v-show="engineListShow">
                     <div v-for="(item, key) in engineList" :key="key" class="item" @click="changeEngine(item)">
