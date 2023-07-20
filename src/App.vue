@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { onMounted } from 'vue';
 import { useDarkModeStore } from '@/store';
 
 /**
@@ -11,12 +10,10 @@ function handleDarkMode(e: MediaQueryList | MediaQueryListEvent) {
     store.setDarkModeOn(e.matches);
 }
 
-onMounted(() => {
-    const darkMode = window.matchMedia('(prefers-color-scheme: dark');
-    handleDarkMode(darkMode);
-    // 监听深色模式切换
-    darkMode.addEventListener('change', handleDarkMode);
-});
+const darkMode = window.matchMedia('(prefers-color-scheme: dark');
+handleDarkMode(darkMode);
+// 监听深色模式切换
+darkMode.addEventListener('change', handleDarkMode);
 </script>
 
 <template>

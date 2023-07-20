@@ -43,7 +43,7 @@ const hmac = computed(() => {
     <div class="hash">
         <div class="form">
             <BtnCopy :text="form.text" />
-            <FormInput v-model="form.secret" class="full" label="密钥" placeholder="密钥" clearable />
+            <FormInput v-model="form.secret" class="full" label="密钥" clearable />
         </div>
         <div class="content">
             <textarea v-model="form.text" class="input" ref="inputRef" placeholder="原文"></textarea>

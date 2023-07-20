@@ -48,10 +48,10 @@ function clearForm() {
 <template>
     <div class="snippets">
         <div class="form">
-            <FormInput v-model="json.name" label="name" placeholder="name" clearable />
-            <FormSelect v-model="json.scope" :list="list" label="scope" placeholder="scope" clearable />
-            <FormInput v-model="json.prefix" label="prefix" placeholder="prefix" clearable />
-            <FormInput v-model="json.desc" label="desc" placeholder="desc" clearable />
+            <FormInput v-model="json.name" label="name" clearable />
+            <FormSelect v-model="json.scope" :list="list" label="scope" clearable />
+            <FormInput v-model="json.prefix" label="prefix" clearable />
+            <FormInput v-model="json.desc" label="desc" clearable />
             <BtnIcon icon="clear" @click="clearForm" />
         </div>
         <div class="actions">

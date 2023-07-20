@@ -6,7 +6,7 @@ import CryptoJS from 'crypto-js';
 type Key = 'AES' | 'DES' | 'RC4' | 'RC4Drop' | 'Rabbit' | 'RabbitLegacy' | 'TripleDES';
 
 /** 加密方式列表 */
-const list: { value: Key }[] = [
+const list: { value: Key; }[] = [
     { value: 'AES' },
     { value: 'DES' },
     { value: 'RC4' },
@@ -52,7 +52,7 @@ function decrypt() {
     <div class="encrypt">
         <div class="form">
             <FormSelect v-model="form.type" :list="list" label="加密方式" />
-            <FormInput v-model="form.secret" class="full" label="密钥" placeholder="密钥" clearable />
+            <FormInput v-model="form.secret" class="full" label="密钥" clearable />
         </div>
         <div class="actions">
             <div class="input">
@@ -65,10 +65,8 @@ function decrypt() {
             <div class="output">
                 <BtnCopy :text="form.cipher" />
                 <BtnIcon icon="clear" @click="form.cipher = ''" />
-                <button
-                    @click="decrypt"
-                    :tooltip="`CryptoJS.enc.Utf8.stringify(CryptoJS.${form.type}.decrypt('密文', '密钥'))`"
-                >
+                <button @click="decrypt"
+                    :tooltip="`CryptoJS.enc.Utf8.stringify(CryptoJS.${form.type}.decrypt('密文', '密钥'))`">
                     解密
                 </button>
                 <span class="msg">{{ form.msg }}</span>
