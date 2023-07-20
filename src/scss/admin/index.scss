@@ -1,0 +1,6 @@
+.admin {
+    @extend %full;
+    position: relative;
+    padding: 2em 0 2em 20vmin;
+    overflow: auto;
+}

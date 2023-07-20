@@ -20,5 +20,5 @@ onMounted(() => {
 </script>
 
 <template>
-    <router-view />
+    <router-view class="layout" />
 </template>

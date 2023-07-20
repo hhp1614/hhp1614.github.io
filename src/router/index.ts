@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteComponent, RouteRecordRaw } from 'vue-router';
 import toolbox from './toolbox';
+import admin from './admin';
 
 /**
  * 根据 Pages 生成路由
@@ -32,9 +33,12 @@ const routes: RouteRecordRaw[] = [
     { path: '/', component: () => import('@/views/Home.vue') },
     // 工具箱
     getRoutes('/toolbox', toolbox, () => import('@/views/toolbox/Layout.vue')),
-    // 管理后台
-    // getRoutes('/admin', admin, () => import('@/views/admin/Layout.vue')),
 ];
+
+if (window.isLocal) {
+    // 管理后台
+    routes.push(getRoutes('/admin', admin, () => import('@/views/admin/Layout.vue')));
+}
 
 const router = createRouter({ history: createWebHashHistory(), routes });
 

@@ -11,6 +11,8 @@ const tabStore = useTabStore();
 const { engine, engineList, engineListShow, searchText, toggleEngineList, changeEngine, shortcutKey, search } =
     useSearchEngine();
 
+const isLocal = window.isLocal;
+
 function goto(key: keyof typeof tabStore.tabs) {
     tabStore.reset();
     router.push('/' + key);
@@ -20,7 +22,8 @@ function goto(key: keyof typeof tabStore.tabs) {
 <template>
     <div class="home">
         <header>
-            <nav>
+            <nav class="nav">
+                <span v-if="isLocal" class="link" @click="goto('admin')">管理后台</span>
                 <span class="link" @click="goto('toolbox')">工具箱</span>
             </nav>
         </header>
