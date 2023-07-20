@@ -45,7 +45,7 @@ export default defineConfig(() => {
         },
         plugins: [vue()],
         build: {
-            outDir: 'dist',
+            outDir: 'homepage',
             emptyOutDir: true,
             rollupOptions: {
                 output: {
