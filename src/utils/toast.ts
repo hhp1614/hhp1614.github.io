@@ -1,10 +1,14 @@
 type Type = 'info' | 'success' | 'warning' | 'error';
 
+/**
+ * 提示框
+ * @param text 提示文本
+ * @param type 提示类型
+ * @param second 显示时间（秒）
+ */
 export default function (text: string, type: Type = 'info', second = 2) {
     const old = document.querySelector('.toast');
-    if (old) {
-        document.body.removeChild(old);
-    }
+    old && old.remove();
 
     const animateTime = 200;
     const toast = document.createElement('div');
