@@ -5,6 +5,7 @@ import FormInput from './components/common/FormInput.vue';
 import FormRadio from './components/common/FormRadio.vue';
 import FormSelect from './components/common/FormSelect.vue';
 import Icon from './components/common/Icon.vue';
+import DataTable from './components/common/DataTable.vue';
 
 declare module '@vue/runtime-core' {
     export interface GlobalComponents {
@@ -15,5 +16,6 @@ declare module '@vue/runtime-core' {
         FormRadio: typeof FormRadio;
         FormSelect: typeof FormSelect;
         Icon: typeof Icon;
+        DataTable: typeof DataTable;
     }
 }

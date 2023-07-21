@@ -6,6 +6,7 @@ import FormInput from './FormInput.vue';
 import FormSelect from './FormSelect.vue';
 import FormRadio from './FormRadio.vue';
 import FormCheckbox from './FormCheckbox.vue';
+import DataTable from './DataTable.vue';
 
 const components = {
     Icon,
@@ -15,6 +16,7 @@ const components = {
     FormSelect,
     FormRadio,
     FormCheckbox,
+    DataTable,
 } as { [key: string]: Component };
 
 export default {
