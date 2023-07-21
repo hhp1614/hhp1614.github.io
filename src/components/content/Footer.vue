@@ -31,7 +31,8 @@ const datetime = useDatetime();
 
 <template>
     <footer>
-        <div>{{ datetime }}</div>
-        <div>&copy; <a href="https://github.com/hhp1614" target="_blank">hhp1614</a></div>
+        <span>{{ datetime }}</span>
+        &emsp;
+        <a href="https://github.com/hhp1614" target="_blank">hhp1614</a>
     </footer>
 </template>

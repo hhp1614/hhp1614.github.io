@@ -32,9 +32,15 @@ function switchView(path: string, name: string) {
         <div class="item" v-for="item in list[tabsKey]" :key="item.name">
             {{ item.meta.title }}
             <template v-if="item.children.length">
-                <div class="child" v-for="child in item.children" :key="child.name"
-                    :class="{ active: child.path === $route.path }" @click="switchView(child.path, child.meta.title)"
-                    :tooltip="child.meta.desc" position="right">
+                <div
+                    class="child"
+                    v-for="child in item.children"
+                    :key="child.name"
+                    :class="{ active: child.path === $route.path }"
+                    @click="switchView(child.path, child.meta.title)"
+                    :tooltip="child.meta.desc"
+                    position="right"
+                >
                     {{ child.meta!.title }}
                 </div>
             </template>

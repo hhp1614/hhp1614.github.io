@@ -28,8 +28,15 @@ function input(e: Event) {
         <div class="prefix" :tooltip="label">
             <Icon name="pencil" />
         </div>
-        <input ref="inputRef" :type="type" :placeholder="placeholder || label" :readonly="readonly" :disabled="disabled"
-            :value="modelValue" @input="input($event)" />
+        <input
+            ref="inputRef"
+            :type="type"
+            :placeholder="placeholder || label"
+            :readonly="readonly"
+            :disabled="disabled"
+            :value="modelValue"
+            @input="input($event)"
+        />
         <span v-if="clearable" class="close" @click="emit('update:modelValue', '')">×</span>
     </div>
 </template>

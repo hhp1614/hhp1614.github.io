@@ -16,16 +16,25 @@ onMounted(() => {
         name: router.currentRoute.value.meta.title as string,
     });
 });
-
 </script>
 
 <template>
     <header>
         <nav class="tabs">
-            <div class="item" v-for="tab in tabStore.tabs[tabsKey]" :key="tab.name"
-                :class="{ active: tab.path === $route.path }" @click="tabStore.gotoTab(tabsKey, tab)">
+            <div
+                class="item"
+                v-for="tab in tabStore.tabs[tabsKey]"
+                :key="tab.name"
+                :class="{ active: tab.path === $route.path }"
+                @click="tabStore.gotoTab(tabsKey, tab)"
+            >
                 <span position="bottom">{{ tab.name }}</span>
-                <span class="close" @click.stop="tabStore.removeTab(tabsKey, tab.path)" tooltip="关闭标签页" position="bottom">
+                <span
+                    class="close"
+                    @click.stop="tabStore.removeTab(tabsKey, tab.path)"
+                    tooltip="关闭标签页"
+                    position="bottom"
+                >
                     ×
                 </span>
             </div>

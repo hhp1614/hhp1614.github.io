@@ -30,7 +30,7 @@ export const useTabStore = defineStore('tab', {
          * @param key 标签组 key
          * @param tabs 标签页
          */
-        gotoTab(key: keyof Tabs, tab: { path: string; name: string; }) {
+        gotoTab(key: keyof Tabs, tab: { path: string; name: string }) {
             if (tab.path === '/') {
                 return;
             }
@@ -77,6 +77,6 @@ export const useTabStore = defineStore('tab', {
         reset() {
             this.tabs = { toolbox: [], admin: [] };
             this.active = { path: '', name: '' };
-        }
+        },
     },
 });

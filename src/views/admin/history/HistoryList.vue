@@ -11,8 +11,6 @@ const form = reactive({
         <div class="form">
             <FormInput v-model="form.title" label="标题" clearable />
         </div>
-        <div class="content">
-            table
-        </div>
+        <div class="content">table</div>
     </div>
 </template>

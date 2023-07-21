@@ -34,8 +34,14 @@ function goto(key: keyof typeof tabStore.tabs) {
             <button class="engine" @focus="toggleEngineList(true)" @blur="toggleEngineList(false)">
                 <Icon :name="engine.name" />
             </button>
-            <input type="text" ref="inputRef" v-model="searchText" :placeholder="`使用 ${engine.text} 搜索`"
-                @keydown="shortcutKey" @keypress.enter="search" />
+            <input
+                type="text"
+                ref="inputRef"
+                v-model="searchText"
+                :placeholder="`使用 ${engine.text} 搜索`"
+                @keydown="shortcutKey"
+                @keypress.enter="search"
+            />
             <button class="btn" @click="search">
                 <Icon name="search" />
             </button>

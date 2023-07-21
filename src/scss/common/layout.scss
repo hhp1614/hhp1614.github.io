@@ -6,7 +6,7 @@
     overflow: auto;
 
     // page router view
-    article>div {
+    article > div {
         @extend %flex-column;
         gap: 0.5em;
     }

@@ -62,11 +62,9 @@ textarea {
 footer {
     position: fixed;
     bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 1em;
+    width: calc(100vw - 20vmin);
     line-height: 2rem;
+    text-align: center;
     color: get-color(0.3);
     background-color: var(--bg-1);
 }
