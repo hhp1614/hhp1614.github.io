@@ -1,14 +1,15 @@
-<script lang="ts" setup>
+<script lang="ts" setup generic="T extends {[key: string]: any}">
 type Col = {
     prop: string;
     label: string;
     align?: 'left' | 'center' | 'right';
     width?: string | number;
+    slot?: boolean;
 };
 
 defineProps<{
     cols: Col[];
-    data: any[];
+    data: T[];
 }>();
 </script>
 
@@ -21,7 +22,12 @@ defineProps<{
         </thead>
         <tbody>
             <tr v-for="(item, i) in data" :key="i">
-                <td v-for="(col, j) in cols" :key="j">{{ item[col.prop] }}</td>
+                <template v-for="col in cols" :key="col.prop">
+                    <td v-if="col.slot">
+                        <slot :name="col.prop" :row="item"></slot>
+                    </td>
+                    <td v-else>{{ item[col.prop] }}</td>
+                </template>
             </tr>
             <tr v-if="data.length === 0">
                 <td :colspan="cols.length" align="center">暂无数据</td>

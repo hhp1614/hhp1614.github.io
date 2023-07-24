@@ -7,6 +7,7 @@ import FormSelect from './FormSelect.vue';
 import FormRadio from './FormRadio.vue';
 import FormCheckbox from './FormCheckbox.vue';
 import DataTable from './DataTable.vue';
+import Paginate from './Paginate.vue';
 
 const components = {
     Icon,
@@ -17,6 +18,7 @@ const components = {
     FormRadio,
     FormCheckbox,
     DataTable,
+    Paginate,
 } as { [key: string]: Component };
 
 export default {

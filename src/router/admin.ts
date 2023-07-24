@@ -5,7 +5,7 @@ export default [
         children: [
             {
                 name: 'history-list',
-                meta: { title: '列表', desc: '历史记录列表' },
+                meta: { title: '历史记录列表', desc: '历史记录列表' },
                 component: () => import('@/views/admin/history/HistoryList.vue'),
             },
         ],

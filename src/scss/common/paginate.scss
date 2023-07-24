@@ -1,0 +1,32 @@
+// 分页
+ul.paginate {
+    display: flex;
+    gap: 0.5em;
+    justify-content: center;
+    margin: 0.5em 0 0 0;
+    padding: 0;
+    list-style-type: none;
+    line-height: 2;
+
+    // 分页项
+    li {
+        padding: 0 0.5em;
+        cursor: pointer;
+        user-select: none;
+
+        &.active,
+        &:hover {
+            color: var(--theme-color);
+        }
+
+        &.active {
+            pointer-events: none;
+        }
+    }
+
+    // 数据条数
+    div {
+        color: get-color(0.3);
+        user-select: none;
+    }
+}

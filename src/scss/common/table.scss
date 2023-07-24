@@ -1,20 +1,35 @@
+// 表格
 table {
     table-layout: fixed;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
 
+    // 单元格
     th,
     td {
         padding: 0 0.5em;
         line-height: 2;
         border: 1px solid var(--border-color);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        > * {
+            margin-right: 0.5em;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
     }
 
+    // 表头
     thead {
         background-color: var(--bg-2);
     }
 
+    // 行
     tr {
         transition: $transition;
 

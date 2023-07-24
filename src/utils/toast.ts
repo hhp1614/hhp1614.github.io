@@ -1,3 +1,6 @@
+/**
+ * 提示类型
+ */
 type Type = 'info' | 'success' | 'warning' | 'error';
 
 /**
@@ -21,4 +24,6 @@ export default function (text: string, type: Type = 'info', second = 2) {
         toast.style.animation = `toast-out ${animateTime}ms forwards`;
         setTimeout(() => toast.remove(), animateTime);
     }, second * 1000);
+
+    return true;
 }

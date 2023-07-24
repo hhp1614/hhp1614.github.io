@@ -9,6 +9,14 @@ declare type Pages = {
     children: Pages;
 }[];
 
+declare type PaginateType<T> = {
+    current_page: number;
+    last_page: number;
+    per_page: number;
+    total: number;
+    data: T[];
+};
+
 /**
  * 扩展 window 对象
  */
