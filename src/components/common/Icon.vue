@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const props = defineProps({
+    /** 图标名称 */
     name: { type: String, require: true },
 });
 </script>

@@ -1,8 +1,13 @@
 import request from '@/utils/request';
 
+/**
+ * 获取历史记录列表参数
+ */
 export type GetHistoryAllParams = {
-    page: number;
-    size: number;
+    title?: string;
+    scheme?: string;
+    host?: string;
+    port?: number;
 };
 
 /**
@@ -25,7 +30,7 @@ export type GetHistoryAllItem = {
  * 获取历史记录列表
  * @param params 参数
  */
-export function getHistoryAll(params: GetHistoryAllParams) {
+export function getHistoryAll(params: GetHistoryAllParams | PageParams) {
     return request<PaginateType<GetHistoryAllItem>>('/history/all', params);
 }
 

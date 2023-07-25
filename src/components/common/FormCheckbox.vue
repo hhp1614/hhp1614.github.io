@@ -1,7 +1,10 @@
 <script lang="ts" setup>
 defineProps({
+    /** 是否选中 */
     modelValue: Boolean,
+    /** 标签 */
     label: String,
+    /** 选项列表 */
     list: { type: Array<{ label?: string; value: string }>, default: [{ value: '' }] },
 });
 

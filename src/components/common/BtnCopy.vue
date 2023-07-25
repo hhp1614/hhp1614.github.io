@@ -3,6 +3,7 @@ import { copyText } from '@/utils/copy';
 import BtnIcon from './BtnIcon.vue';
 
 defineProps({
+    /** 需要复制的文本 */
     text: { type: String, default: '' },
 });
 </script>

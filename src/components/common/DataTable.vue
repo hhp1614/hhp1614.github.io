@@ -1,14 +1,24 @@
 <script lang="ts" setup generic="T extends {[key: string]: any}">
+/**
+ * 列类型
+ */
 type Col = {
+    /** 属性 */
     prop: string;
+    /** 表头名称 */
     label: string;
+    /** 对齐 */
     align?: 'left' | 'center' | 'right';
+    /** 宽度 */
     width?: string | number;
+    /** 是否使用插槽 */
     slot?: boolean;
 };
 
 defineProps<{
+    /** 列类型 */
     cols: Col[];
+    /** 表数据 */
     data: T[];
 }>();
 </script>
@@ -24,7 +34,7 @@ defineProps<{
             <tr v-for="(item, i) in data" :key="i">
                 <template v-for="col in cols" :key="col.prop">
                     <td v-if="col.slot">
-                        <slot :name="col.prop" :row="item"></slot>
+                        <slot :name="col.prop" :row="item" />
                     </td>
                     <td v-else>{{ item[col.prop] }}</td>
                 </template>

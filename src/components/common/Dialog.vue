@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 defineProps({
+    /** 是否显示弹窗 */
     modelValue: { type: Boolean, default: false },
+    /** 弹窗标题 */
     title: String,
 });
 
@@ -9,6 +11,9 @@ const emit = defineEmits<{
     (e: 'success'): void;
 }>();
 
+/**
+ * 点击确定按钮
+ */
 function success() {
     emit('success');
     emit('update:modelValue', false);

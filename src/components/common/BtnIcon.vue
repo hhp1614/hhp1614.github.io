@@ -3,7 +3,9 @@ import { computed } from 'vue';
 import Icon from './Icon.vue';
 
 const prop = defineProps({
+    /** 图标 */
     icon: { type: String, required: true },
+    /** 提示 */
     tooltip: { type: String, default: '' },
 });
 

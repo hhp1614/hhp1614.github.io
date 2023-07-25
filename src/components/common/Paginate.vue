@@ -62,9 +62,11 @@ function change(page: number | string) {
     if (page === props.page) {
         return;
     }
+    // 快退
     if (page === 'backward') {
         page = props.page - (props.count - 2);
     }
+    // 快进
     if (page === 'forward') {
         page = props.page + (props.count - 2);
     }

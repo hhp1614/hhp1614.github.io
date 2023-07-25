@@ -2,16 +2,22 @@
 import { computed, ref } from 'vue';
 
 const props = defineProps({
+    /** 占位符 */
     placeholder: { type: String, default: '请选择' },
+    /** 标签 */
     label: String,
+    /** 是否可清空 */
     clearable: Boolean,
+    /** 绑定值 */
     modelValue: String,
+    /** 选项列表 */
     list: { type: Array<{ label?: string; value: string }>, default: [{ value: '' }] },
 });
 
 const emit = defineEmits<{
     (e: 'update:modelValue', value: string): void;
     (e: 'change', value: string): void;
+    (e: 'clear'): void;
 }>();
 
 /** 输入框 */
@@ -62,6 +68,14 @@ function keydown(e: KeyboardEvent) {
         select(props.list![prevIndex].value);
     }
 }
+
+/**
+ * 清空事件
+ */
+function clear() {
+    emit('update:modelValue', '');
+    emit('clear');
+}
 </script>
 
 <template>
@@ -80,7 +94,7 @@ function keydown(e: KeyboardEvent) {
             readonly
         />
         <template v-if="clearable">
-            <span v-if="closeShow" class="close" @click.stop="emit('update:modelValue', '')">×</span>
+            <span v-if="closeShow" class="close" @click.stop="clear">×</span>
             <Icon v-else class="collapse" name="arrow-down" :class="{ open: listShow }" />
         </template>
         <template v-else>

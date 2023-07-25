@@ -1,7 +1,10 @@
 <script lang="ts" setup>
 defineProps({
+    /** 绑定值 */
     modelValue: [String, Number],
+    /** 选项列表 */
     list: { type: Array<{ label?: string; value: string; desc?: string }>, default: [{ value: '' }] },
+    /** 标签 */
     label: String,
 });
 
