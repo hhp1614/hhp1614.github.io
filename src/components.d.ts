@@ -1,6 +1,7 @@
 import BtnCopyVue from './components/common/BtnCopy.vue';
 import BtnIconVue from './components/common/BtnIcon.vue';
 import DataTableVue from './components/common/DataTable.vue';
+import DialogVue from './components/common/Dialog.vue';
 import FormCheckboxVue from './components/common/FormCheckbox.vue';
 import FormInputVue from './components/common/FormInput.vue';
 import FormRadioVue from './components/common/FormRadio.vue';
@@ -19,5 +20,6 @@ declare module '@vue/runtime-core' {
         Icon: typeof IconVue;
         DataTable: typeof DataTableVue;
         Paginate: typeof PaginateVue;
+        Dialog: typeof DialogVue;
     }
 }
