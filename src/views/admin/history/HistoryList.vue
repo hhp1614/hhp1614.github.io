@@ -146,7 +146,7 @@ getData();
         </div>
     </div>
     <Dialog title="详情" v-model="dialog.visible">
-        <table>
+        <table class="wrap">
             <tr v-for="{ label, value } in dialog.data">
                 <td width="80">{{ label }}</td>
                 <td>{{ value }}</td>

@@ -24,6 +24,17 @@ table {
         }
     }
 
+    // 单元格 - 换行
+    &.wrap th,
+    &.wrap td {
+        padding: 0.35em 0.5em;
+        line-height: 1.3;
+        word-break: break-all;
+        white-space: unset;
+        text-overflow: unset;
+        overflow: unset;
+    }
+
     // 表头
     thead {
         background-color: var(--bg-2);
