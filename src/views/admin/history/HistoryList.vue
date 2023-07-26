@@ -5,9 +5,7 @@ import { reactive, ref } from 'vue';
 
 const schemeList = [{ value: 'http' }, { value: 'https' }];
 
-/**
- * 表单数据
- */
+// 表单数据
 const form = reactive({
     title: '',
     scheme: '',
@@ -18,16 +16,7 @@ const form = reactive({
     ts: '',
 });
 
-/**
- * 弹窗数据
- */
-const dialog = reactive({
-    visible: false,
-    title: '',
-    row: {} as GetHistoryAllItem,
-    data: [] as { label: string; value: string | number }[],
-});
-
+// 表格数据
 const cols = [
     { prop: 'title', label: '标题' },
     { prop: 'scheme', label: '协议', width: 50 },
@@ -38,6 +27,16 @@ const cols = [
 ];
 const data = ref<GetHistoryAllItem[]>([]);
 const total = ref(0);
+
+/**
+ * 弹窗数据
+ */
+const dialog = reactive({
+    visible: false,
+    title: '',
+    row: {} as GetHistoryAllItem,
+    data: [] as { label: string; value: string | number }[],
+});
 
 /**
  * 获取数据
