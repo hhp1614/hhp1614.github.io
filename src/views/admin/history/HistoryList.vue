@@ -5,6 +5,9 @@ import { reactive, ref } from 'vue';
 
 const schemeList = [{ value: 'http' }, { value: 'https' }];
 
+/**
+ * 表单数据
+ */
 const form = reactive({
     title: '',
     scheme: '',
@@ -12,8 +15,12 @@ const form = reactive({
     port: '',
     page: 1,
     size: 28,
+    ts: '',
 });
 
+/**
+ * 弹窗数据
+ */
 const dialog = reactive({
     visible: false,
     title: '',
@@ -26,9 +33,6 @@ const cols = [
     { prop: 'scheme', label: '协议', width: 50 },
     { prop: 'host', label: '域名', width: 200 },
     { prop: 'port', label: '端口', width: 50 },
-    // { prop: 'path', label: '路径' },
-    // { prop: 'query', label: '查询参数' },
-    // { prop: 'fragment', label: '锚点' },
     { prop: 'create_ts', label: '创建时间', width: 140 },
     { prop: 'action', label: '操作', width: 105, slot: true },
 ];
@@ -129,7 +133,15 @@ getData();
                 @clear="getData"
                 clearable
             />
-            <FormInput v-model="form.port" label="端口" @keypress.enter="getData" @clear="getData" clearable />
+            <FormInput
+                v-model="form.port"
+                type="number"
+                label="端口"
+                @keypress.enter="getData"
+                @clear="getData"
+                clearable
+            />
+            <DatePicker v-model="form.ts" label="创建时间" @keypress.enter="getData" @clear="getData" clearable />
 
             <BtnIcon icon="search" tooltip="查询" @click="getData" />
             <BtnIcon icon="clear" @click="clearForm" />

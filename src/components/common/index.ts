@@ -9,6 +9,7 @@ import FormCheckbox from './FormCheckbox.vue';
 import DataTable from './DataTable.vue';
 import Paginate from './Paginate.vue';
 import Dialog from './Dialog.vue';
+import DatePicker from './DatePicker.vue';
 
 const components = {
     Icon,
@@ -21,6 +22,7 @@ const components = {
     DataTable,
     Paginate,
     Dialog,
+    DatePicker,
 } as { [key: string]: Component };
 
 export default {
