@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { GetHistoryAllItem, getHistoryAll, removeHistory } from '@/api/history';
+import { GetHistoryIndexItem, getHistoryIndex, removeHistory } from '@/api/history';
 import toast from '@/utils/toast';
 import { reactive, ref } from 'vue';
 
@@ -25,7 +25,7 @@ const cols = [
     { prop: 'create_ts', label: '创建时间', width: 140 },
     { prop: 'action', label: '操作', width: 105, slot: true },
 ];
-const data = ref<GetHistoryAllItem[]>([]);
+const data = ref<GetHistoryIndexItem[]>([]);
 const total = ref(0);
 
 /**
@@ -34,7 +34,7 @@ const total = ref(0);
 const dialog = reactive({
     visible: false,
     title: '',
-    row: {} as GetHistoryAllItem,
+    row: {} as GetHistoryIndexItem,
     data: [] as { label: string; value: string | number }[],
 });
 
@@ -46,7 +46,7 @@ async function getData(page?: number) {
     if (typeof page === 'number') {
         form.page = page;
     }
-    const res = await getHistoryAll(form);
+    const res = await getHistoryIndex(form);
     data.value = res.data.data;
     form.page = res.data.current_page;
     total.value = res.data.total;
@@ -63,7 +63,7 @@ function visit(url: string) {
  * 查看详情
  * @param row 当前行
  */
-function detail(row: GetHistoryAllItem) {
+function detail(row: GetHistoryIndexItem) {
     dialog.visible = true;
     dialog.row = row;
     dialog.data = [

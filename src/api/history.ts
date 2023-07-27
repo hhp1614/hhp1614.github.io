@@ -3,7 +3,7 @@ import request from '@/utils/request';
 /**
  * 获取历史记录列表参数
  */
-export type GetHistoryAllParams = Partial<{
+export type GetHistoryIndexParams = Partial<{
     title: string;
     scheme: string;
     host: string;
@@ -13,7 +13,7 @@ export type GetHistoryAllParams = Partial<{
 /**
  * 获取历史记录列表项类型
  */
-export type GetHistoryAllItem = {
+export type GetHistoryIndexItem = {
     id: number;
     title: string;
     scheme: string;
@@ -30,8 +30,8 @@ export type GetHistoryAllItem = {
  * 获取历史记录列表
  * @param params 参数
  */
-export function getHistoryAll(params: GetHistoryAllParams | PageParams) {
-    return request<PaginateType<GetHistoryAllItem>>('/history/all', params);
+export function getHistoryIndex(params: GetHistoryIndexParams | PageParams) {
+    return request<PaginateType<GetHistoryIndexItem>>('/history/index', params);
 }
 
 /**
