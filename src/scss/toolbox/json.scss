@@ -30,6 +30,7 @@
         .output {
             @extend %flex-column;
             height: calc(100vh - 10rem);
+            overflow: auto;
 
             .code-text {
                 flex: 0 0 auto;
