@@ -17,5 +17,5 @@ darkMode.addEventListener('change', handleDarkMode);
 </script>
 
 <template>
-    <router-view class="layout" />
+    <router-view />
 </template>

@@ -102,5 +102,32 @@
                 }
             }
         }
+
+        // 搜索结果列表
+        .search-result {
+            font-size: $font-medium;
+            position: absolute;
+            top: 3.5em;
+            padding: 0.3em;
+            width: 100%;
+            background-color: var(--bg-1);
+            border-radius: 0.5em;
+            box-shadow: $shadow;
+            overflow: hidden;
+
+            .item {
+                display: flex;
+                justify-content: space-between;
+                font-size: $font-normal;
+                line-height: 2.5em;
+                padding: 0 1em;
+                cursor: pointer;
+
+                &.active {
+                    color: var(--theme-color);
+                    background-color: get-color(0.1);
+                }
+            }
+        }
     }
 }

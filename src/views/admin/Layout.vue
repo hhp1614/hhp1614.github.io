@@ -5,7 +5,7 @@ import Footer from '@/components/content/Footer.vue';
 </script>
 
 <template>
-    <div class="admin">
+    <div class="layout admin">
         <Sidebar tabs-key="admin" />
         <main>
             <Header tabs-key="admin" />

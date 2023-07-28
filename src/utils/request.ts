@@ -1,3 +1,5 @@
+import toast from './toast';
+
 const base = 'http://localhost/homepage';
 
 /**
@@ -17,11 +19,16 @@ type Response<T> = {
  * @param url 接口地址
  * @param params 参数
  */
-export default async function <T = unknown>(url: string, params = {}): Promise<Response<T>> {
+export default async function <T = unknown>(url: string, params = {}) {
     const response = await fetch(base + url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params),
     });
-    return response.json();
+    const res: Response<T> = await response.json();
+    if (res.status === false) {
+        toast(res.msg, 'error');
+        throw Error(res.msg);
+    }
+    return res;
 }

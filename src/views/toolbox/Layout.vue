@@ -5,7 +5,7 @@ import Footer from '@/components/content/Footer.vue';
 </script>
 
 <template>
-    <div class="toolbox">
+    <div class="layout toolbox">
         <Sidebar tabs-key="toolbox" />
         <main>
             <Header tabs-key="toolbox" />

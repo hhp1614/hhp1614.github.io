@@ -1,4 +1,5 @@
-import { ref } from 'vue';
+import { searchEngine } from '@/api/home';
+import { reactive, ref } from 'vue';
 
 /**
  * 当前时间
@@ -47,6 +48,11 @@ export function useSearchEngine() {
     const engineListShow = ref(false);
     /** 搜索文本 */
     const searchText = ref('');
+    const result = reactive({
+        show: false,
+        data: [] as string[],
+        index: -1,
+    });
 
     /**
      * 切换搜索引擎列表显示状态
@@ -62,19 +68,21 @@ export function useSearchEngine() {
     const changeEngine = (item: EngineItem) => {
         engine.value = { name: item.name, text: item.text, href: item.href };
         localStorage.setItem('search-engine', item.name);
+        result.index = -1;
+        changeText();
     };
     /**
      * 快捷键事件
      * @param e 键盘事件对象
      */
     const shortcutKey = (e: KeyboardEvent) => {
+        const key = e.key;
         // Alt + Enter
         if (e.altKey && e.key === 'Enter' && searchText.value) {
             return window.open(engine.value.href + searchText.value);
         }
         // Alt + 数字
-        const key = +e.key;
-        if (e.altKey && key <= engineList.value.length && key > 0) {
+        if (e.altKey && +key <= engineList.value.length && +key > 0) {
             const item = engineList.value.find(v => v.tip === `Alt+${key}`);
             changeEngine(item!);
         }
@@ -82,7 +90,11 @@ export function useSearchEngine() {
     /**
      * 搜索事件
      */
-    const search = () => searchText.value && location.replace(engine.value.href + searchText.value);
+    const search = () => {
+        if (searchText.value) {
+            location.href = engine.value.href + searchText.value;
+        }
+    };
 
     // 使用本地缓存的搜索引擎
     const cacheEngine = localStorage.getItem('search-engine');
@@ -93,5 +105,51 @@ export function useSearchEngine() {
         }
     }
 
-    return { engine, engineList, engineListShow, searchText, toggleEngineList, changeEngine, shortcutKey, search };
+    /**
+     * 输入事件
+     */
+    const changeText = async () => {
+        if (!searchText.value) {
+            result.show = false;
+            result.data = [];
+            return;
+        }
+        result.data = [];
+        const res = await searchEngine(engine.value.name, searchText.value);
+        result.show = true;
+        result.data = res.data;
+    };
+    const closeResult = () => {
+        result.show = false;
+        result.index = -1;
+    };
+    const arrowToggle = (step: number) => {
+        result.index += step;
+        if (result.index >= result.data.length) {
+            result.index = 0;
+        } else if (result.index < 0) {
+            result.index = engineList.value.length - 1;
+        }
+        searchText.value = result.data[result.index];
+    };
+    const resultSelect = (index: number) => {
+        searchText.value = result.data[index];
+        search();
+    };
+
+    return {
+        engine,
+        engineList,
+        engineListShow,
+        searchText,
+        result,
+        toggleEngineList,
+        changeEngine,
+        shortcutKey,
+        search,
+        changeText,
+        closeResult,
+        arrowToggle,
+        resultSelect,
+    };
 }

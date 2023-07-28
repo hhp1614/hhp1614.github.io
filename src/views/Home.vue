@@ -8,8 +8,21 @@ import router from '@/router';
 const inputRef = useAutofocus<HTMLInputElement>();
 const tabStore = useTabStore();
 
-const { engine, engineList, engineListShow, searchText, toggleEngineList, changeEngine, shortcutKey, search } =
-    useSearchEngine();
+const {
+    engine,
+    engineList,
+    engineListShow,
+    searchText,
+    result,
+    toggleEngineList,
+    changeEngine,
+    shortcutKey,
+    search,
+    changeText,
+    closeResult,
+    arrowToggle,
+    resultSelect,
+} = useSearchEngine();
 
 const isLocal = window.isLocal;
 
@@ -39,8 +52,14 @@ function goto(key: keyof typeof tabStore.tabs) {
                 ref="inputRef"
                 v-model="searchText"
                 :placeholder="`使用 ${engine.text} 搜索`"
+                @input="changeText"
+                @blur="closeResult"
+                @focus="result.show = true"
                 @keydown="shortcutKey"
-                @keypress.enter="search"
+                @keydown.enter="search"
+                @keydown.esc="closeResult"
+                @keydown.up="arrowToggle(-1)"
+                @keydown.down="arrowToggle(1)"
             />
             <button class="btn" @click="search">
                 <Icon name="search" />
@@ -52,6 +71,20 @@ function goto(key: keyof typeof tabStore.tabs) {
                         <span class="name">{{ item.text }}</span>
                         <span class="key-tip">{{ item.tip }}</span>
                     </div>
+                </div>
+            </Transition>
+            <Transition name="slide-fade">
+                <div class="search-result" v-show="result.show && result.data?.length">
+                    <div
+                        v-for="(item, i) in result.data"
+                        :key="i"
+                        class="item"
+                        :class="{ active: i === result.index }"
+                        v-html="item"
+                        @mousemove="result.index = i"
+                        @mouseleave="result.index = -1"
+                        @click="resultSelect(i)"
+                    ></div>
                 </div>
             </Transition>
         </div>
