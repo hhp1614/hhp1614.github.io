@@ -77,10 +77,6 @@ export function useSearchEngine() {
      */
     const shortcutKey = (e: KeyboardEvent) => {
         const key = e.key;
-        // Alt + Enter
-        if (e.altKey && e.key === 'Enter' && searchText.value) {
-            return window.open(engine.value.href + searchText.value);
-        }
         // Alt + 数字
         if (e.altKey && +key <= engineList.value.length && +key > 0) {
             const item = engineList.value.find(v => v.tip === `Alt+${key}`);
@@ -119,10 +115,17 @@ export function useSearchEngine() {
         result.show = true;
         result.data = res.data;
     };
+    /**
+     * 关闭搜索结果
+     */
     const closeResult = () => {
         result.show = false;
         result.index = -1;
     };
+    /**
+     * 上下箭头事件
+     * @param step 步长
+     */
     const arrowToggle = (step: number) => {
         result.index += step;
         if (result.index >= result.data.length) {
@@ -132,6 +135,10 @@ export function useSearchEngine() {
         }
         searchText.value = result.data[result.index];
     };
+    /**
+     * 选择搜索结果
+     * @param index 索引
+     */
     const resultSelect = (index: number) => {
         searchText.value = result.data[index];
         search();

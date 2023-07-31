@@ -80,11 +80,12 @@ function goto(key: keyof typeof tabStore.tabs) {
                         :key="i"
                         class="item"
                         :class="{ active: i === result.index }"
-                        v-html="item"
                         @mousemove="result.index = i"
                         @mouseleave="result.index = -1"
                         @click="resultSelect(i)"
-                    ></div>
+                    >
+                        {{ item }}
+                    </div>
                 </div>
             </Transition>
         </div>
