@@ -60,7 +60,7 @@ getData();
                 v-model="form.host"
                 class="full"
                 label="域名"
-                @keypress.enter="getData"
+                @keydown.enter="getData"
                 @clear="getData"
                 clearable
             />

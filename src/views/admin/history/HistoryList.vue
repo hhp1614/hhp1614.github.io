@@ -111,7 +111,7 @@ getData();
                 v-model="form.title"
                 class="full"
                 label="标题"
-                @keypress.enter="getData"
+                @keydown.enter="getData"
                 @clear="getData"
                 clearable
             />
@@ -128,7 +128,7 @@ getData();
                 v-model="form.host"
                 class="full"
                 label="域名"
-                @keypress.enter="getData"
+                @keydown.enter="getData"
                 @clear="getData"
                 clearable
             />
@@ -136,11 +136,11 @@ getData();
                 v-model="form.port"
                 type="number"
                 label="端口"
-                @keypress.enter="getData"
+                @keydown.enter="getData"
                 @clear="getData"
                 clearable
             />
-            <DatePicker v-model="form.ts" label="创建时间" @keypress.enter="getData" @clear="getData" clearable />
+            <DatePicker v-model="form.ts" label="创建时间" @keydown.enter="getData" @clear="getData" clearable />
 
             <BtnIcon icon="search" tooltip="查询" @click="getData" />
             <BtnIcon icon="clear" @click="clearForm" />
