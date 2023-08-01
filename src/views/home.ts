@@ -79,8 +79,8 @@ export function useSearchEngine() {
         const key = e.key;
         // Alt + 数字
         if (e.altKey && +key <= engineList.value.length && +key > 0) {
-            const item = engineList.value.find(v => v.tip === `Alt+${key}`);
-            changeEngine(item!);
+            const item = engineList.value.find(v => v.tip === `Alt+${key}`)!;
+            changeEngine(item);
         }
     };
     /**
@@ -105,6 +105,9 @@ export function useSearchEngine() {
      * 输入事件
      */
     const changeText = async () => {
+        if (!window.isLocal) {
+            return;
+        }
         if (!searchText.value) {
             result.show = false;
             result.data = [];
