@@ -23,7 +23,7 @@ const cols = [
     { prop: 'host', label: '域名', width: 200 },
     { prop: 'port', label: '端口', width: 50 },
     { prop: 'create_ts', label: '创建时间', width: 140 },
-    { prop: 'action', label: '操作', width: 105, slot: true },
+    { prop: 'action', label: '操作', width: 170, slot: true },
 ];
 const data = ref<GetHistoryIndexItem[]>([]);
 const total = ref(0);
@@ -54,9 +54,11 @@ async function getData(page?: number) {
 
 /**
  * 访问 URL
+ * @param url 链接
+ * @param newTab 是否新标签
  */
-function visit(url: string) {
-    window.open(url, '_blank');
+function visit(url: string, newTab = false) {
+    window.open(url, newTab ? '_blank' : '_self');
 }
 
 /**
@@ -149,6 +151,7 @@ getData();
             <DataTable :cols="cols" :data="data">
                 <template #action="{ row }">
                     <span class="link" @click="visit(row.url)">打开</span>
+                    <span class="link" @click="visit(row.url, true)">新标签页</span>
                     <span class="link" @click="detail(row)">详情</span>
                     <span class="link" @click="remove(row.id)">删除</span>
                 </template>
@@ -164,7 +167,8 @@ getData();
             </tr>
         </table>
         <template #action>
-            <button @click="visit(dialog.row.url)">打开链接</button>
+            <button @click="visit(dialog.row.url)">当前窗口打开</button>
+            <button @click="visit(dialog.row.url, true)">新标签页打开</button>
         </template>
     </Dialog>
 </template>
