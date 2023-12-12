@@ -4,6 +4,7 @@ $bg: var(--bg-1);
 // 表单
 .form {
     display: flex;
+    flex-wrap: wrap;
     gap: 1em;
 
     // 表单项
