@@ -10,6 +10,7 @@ import DataTable from './DataTable.vue';
 import Paginate from './Paginate.vue';
 import Dialog from './Dialog.vue';
 import DatePicker from './DatePicker.vue';
+import Editor from './Editor.vue';
 
 const components = {
     Icon,
@@ -23,6 +24,7 @@ const components = {
     Paginate,
     Dialog,
     DatePicker,
+    Editor,
 } as { [key: string]: Component };
 
 export default {

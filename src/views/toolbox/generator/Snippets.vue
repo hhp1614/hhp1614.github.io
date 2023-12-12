@@ -1,11 +1,8 @@
 <script lang="ts" setup>
 import { computed, reactive } from 'vue';
-import jsonHighlight from '@/utils/syntax/jsonHighlight';
-import useAutoFocus from '@/hooks/useAutofocus';
 
-const inputRef = useAutoFocus();
 /** scope 选择列表 */
-const list = [{ value: 'html' }, { value: 'js' }, { value: 'php' }];
+const list = [{ value: 'html' }, { value: 'javascript' }, { value: 'php' }];
 
 /** 页面数据 */
 const json = reactive({
@@ -30,9 +27,6 @@ const output = computed(() => {
     };
     return JSON.stringify(result, null, 4);
 });
-
-/** JSON 语法高亮 */
-const syntaxHighlight = computed(() => jsonHighlight(output.value));
 
 /**
  * 清空表单
@@ -64,10 +58,8 @@ function clearForm() {
             </div>
         </div>
         <div class="content">
-            <textarea v-model="json.body" class="input" ref="inputRef" placeholder="代码片段"></textarea>
-            <div class="output">
-                <div class="code-text" v-for="line in syntaxHighlight.split('\n')" v-html="line"></div>
-            </div>
+            <Editor class="input" v-model="json.body" :language="json.scope" placeholder="代码片段" autofocus />
+            <Editor class="output" :model-value="output" language="json" disabled />
         </div>
     </div>
 </template>

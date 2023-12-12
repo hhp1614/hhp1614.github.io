@@ -5,12 +5,6 @@
     padding: 2em 0 2em 20vmin;
     overflow: auto;
 
-    // page router view
-    article > div {
-        @extend %flex-column;
-        gap: 0.5em;
-    }
-
     // 侧边栏
     aside {
         position: fixed;
@@ -90,8 +84,16 @@
         }
 
         article {
+            display: flex;
             padding: 0.5em;
             min-height: calc(100vh - 4rem);
+            overflow: auto;
+
+            // page for router view
+            > div {
+                @extend %flex-column;
+                gap: 0.5em;
+            }
         }
     }
 }

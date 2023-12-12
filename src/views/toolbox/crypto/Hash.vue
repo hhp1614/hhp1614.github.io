@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-import useAutofocus from '@/hooks/useAutofocus';
 import { computed, reactive } from 'vue';
 import CryptoJS from 'crypto-js';
 
-const inputRef = useAutofocus();
 /** 页面数据 */
 const form = reactive({
     secret: '',
@@ -46,7 +44,7 @@ const hmac = computed(() => {
             <FormInput v-model="form.secret" class="full" label="密钥" clearable />
         </div>
         <div class="content">
-            <textarea v-model="form.text" class="input" ref="inputRef" placeholder="原文"></textarea>
+            <Editor class="input" v-model="form.text" placeholder="原文" autofocus />
             <div class="output">
                 <div class="left">
                     <div class="item" v-for="item in list" :key="item.name">

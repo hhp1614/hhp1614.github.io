@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { useJsonStore } from '@/store';
-import jsonHighlight from '@/utils/syntax/jsonHighlight';
-import useAutofocus from '@/hooks/useAutofocus';
 
-const inputRef = useAutofocus();
 const jsonStore = useJsonStore();
+
+const result = computed(() => formatJson(jsonStore.activeTabText));
 
 /**
  * 格式化 JSON 字符串
  * @param json JSON 字符串
  */
 function formatJson(json: string, compress = false) {
+    json = json.trim();
     if (!json) return '';
     try {
         return JSON.stringify(JSON.parse(json), null, compress ? 0 : 4);
@@ -19,9 +19,6 @@ function formatJson(json: string, compress = false) {
         return 'Error: is not valid JSON';
     }
 }
-
-/** JSON 语法高亮 */
-const syntaxHighlight = computed(() => jsonHighlight(formatJson(jsonStore.activeTabText)));
 </script>
 
 <template>
@@ -44,10 +41,10 @@ const syntaxHighlight = computed(() => jsonHighlight(formatJson(jsonStore.active
                 </span>
                 <span class="close" tooltip="关闭标签" @click.stop="jsonStore.removeTab(tab.id)">×</span>
             </div>
-            <button class="item" @click="jsonStore.addTab(inputRef!)" tooltip="添加标签">
+            <button class="item" @click="jsonStore.addTab" tooltip="添加标签">
                 <Icon name="plus" />
             </button>
-            <BtnIcon class="item" icon="clear" tooltip="清空标签" @click="jsonStore.clearTab(inputRef!)" />
+            <BtnIcon class="item" icon="clear" tooltip="清空标签" @click="jsonStore.clearTab" />
         </nav>
         <div class="actions">
             <div class="input">
@@ -61,15 +58,15 @@ const syntaxHighlight = computed(() => jsonHighlight(formatJson(jsonStore.active
             </div>
         </div>
         <div class="content">
-            <textarea
+            <Editor
                 class="input"
-                ref="inputRef"
-                :value="jsonStore.activeTabText"
-                @input="e => jsonStore.changeTabText((e.target as HTMLTextAreaElement).value)"
-            ></textarea>
-            <div class="output">
-                <div class="code-text" v-for="line in syntaxHighlight.split('\n')" v-html="line"></div>
-            </div>
+                :model-value="jsonStore.activeTabText"
+                language="json"
+                placeholder="输入 JSON 数据"
+                @change="jsonStore.changeTabText"
+                autofocus
+            />
+            <Editor class="output" :model-value="result" language="json" disabled />
         </div>
     </div>
 </template>

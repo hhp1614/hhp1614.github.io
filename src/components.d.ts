@@ -9,6 +9,7 @@ import FormRadioVue from './components/common/FormRadio.vue';
 import FormSelectVue from './components/common/FormSelect.vue';
 import IconVue from './components/common/Icon.vue';
 import PaginateVue from './components/common/Paginate.vue';
+import EditorVue from './components/common/Editor.vue';
 
 declare module '@vue/runtime-core' {
     export interface GlobalComponents {
@@ -23,5 +24,6 @@ declare module '@vue/runtime-core' {
         Paginate: typeof PaginateVue;
         Dialog: typeof DialogVue;
         DatePicker: typeof DatePickerVue;
+        Editor: typeof EditorVue;
     }
 }

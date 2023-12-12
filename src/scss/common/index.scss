@@ -68,3 +68,8 @@ footer {
     color: get-color(0.3);
     background-color: var(--bg-1);
 }
+
+// CodeMirror 编辑器
+.cm-editor.cm-focused {
+    outline: none;
+}

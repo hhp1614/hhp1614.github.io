@@ -29,14 +29,12 @@ export const useJsonStore = defineStore('json', {
         },
         /**
          * 添加标签页
-         * @param inputRef 输入框，用聚焦到输入框
          */
-        addTab(inputRef?: HTMLTextAreaElement) {
+        addTab() {
             const tab = { ...defTab };
             tab.id = Date.now();
             this.tabs.push(tab);
             this.activeTabId = tab.id;
-            inputRef && inputRef.focus();
         },
         /**
          * 切换标签页
@@ -74,11 +72,10 @@ export const useJsonStore = defineStore('json', {
          * 清空所有标签页
          * @param inputRef 输入框，用聚焦到输入框
          */
-        clearTab(inputRef?: HTMLTextAreaElement) {
+        clearTab() {
             const tab = { ...defTab };
             this.tabs = [tab];
             this.activeTabId = tab.id;
-            inputRef && inputRef.focus();
         },
     },
 });

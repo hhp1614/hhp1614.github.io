@@ -13,11 +13,11 @@
         .output {
             @extend %flex;
             gap: 0.5em;
+            padding: 0.5em;
 
             .left,
             .right {
                 flex: 1;
-                // height: calc(100vh - 22rem);
 
                 .item {
                     margin-bottom: 1em;
@@ -28,6 +28,7 @@
                         align-items: center;
                         gap: 0.5em;
                         margin-bottom: 0.2em;
+                        padding: 0 0.5em;
 
                         > span {
                             cursor: pointer;

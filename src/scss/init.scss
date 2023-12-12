@@ -12,13 +12,6 @@
 
     --bg: 255, 255, 255;
     --color: 0, 0, 0;
-
-    // 代码颜色
-    --code-color-property: #0451a5;
-    --code-color-string: #a31515;
-    --code-color-keyword: #0000ff;
-    --code-color-number: #098658;
-    --code-color-comment: #008000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,13 +24,6 @@
 
         --bg: 0, 0, 0;
         --color: 255, 255, 255;
-
-        // 代码颜色
-        --code-color-property: #9cdcfe;
-        --code-color-string: #ce9178;
-        --code-color-keyword: #569cd6;
-        --code-color-number: #b5cea8;
-        --code-color-comment: #6a9955;
     }
 }
 

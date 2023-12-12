@@ -75,8 +75,8 @@ function decrypt() {
             </div>
         </div>
         <div class="content">
-            <textarea v-model="form.origin" class="input" ref="inputRef" placeholder="原文"></textarea>
-            <textarea v-model="form.cipher" class="input" placeholder="密文"></textarea>
+            <Editor class="input" v-model="form.origin" placeholder="原文" autofocus />
+            <Editor class="output" v-model="form.cipher" placeholder="密文" />
         </div>
     </div>
 </template>

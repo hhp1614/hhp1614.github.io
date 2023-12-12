@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-import useAutofocus from '@/hooks/useAutofocus';
 import { reactive } from 'vue';
 import he from 'he';
 
-const inputRef = useAutofocus();
 /** 页面数据 */
 const form = reactive({
     origin: '',
@@ -39,17 +37,17 @@ function clearForm() {
             <div class="input">
                 <BtnCopy :text="form.origin" />
                 <BtnIcon icon="clear" @click="clearForm" />
-                <span class="desc">he.decode('密文')</span>
+                <span class="desc">he.encode('原文', { useNamedReferences: true })</span>
             </div>
             <div class="output">
                 <BtnCopy :text="form.cipher" />
                 <BtnIcon icon="clear" @click="clearForm" />
-                <span class="desc">he.encode('原文', { useNamedReferences: true })</span>
+                <span class="desc">he.decode('密文')</span>
             </div>
         </div>
         <div class="content">
-            <textarea v-model="form.origin" class="input" ref="inputRef" placeholder="原文" @input="encode"></textarea>
-            <textarea v-model="form.cipher" class="input" placeholder="密文" @input="decode"></textarea>
+            <Editor class="input" v-model="form.origin" placeholder="原文" @change="encode" autofocus />
+            <Editor class="output" v-model="form.cipher" placeholder="密文" @change="decode" />
         </div>
     </div>
 </template>

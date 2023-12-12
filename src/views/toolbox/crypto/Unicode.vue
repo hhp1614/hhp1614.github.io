@@ -128,13 +128,8 @@ function changeType() {
             </div>
         </div>
         <div class="content">
-            <textarea v-model="form.source" class="input" ref="inputRef" placeholder="原文" @input="encode"></textarea>
-            <textarea
-                v-model="form.result"
-                class="input"
-                :placeholder="`${form.type} 编码文本`"
-                @input="decode"
-            ></textarea>
+            <Editor class="input" v-model="form.source" placeholder="原文" @change="encode" autofocus />
+            <Editor class="output" v-model="form.result" :placeholder="`${form.type} 编码文本`" @change="decode" />
         </div>
     </div>
 </template>
