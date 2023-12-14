@@ -7,6 +7,15 @@ $bg: var(--bg-1);
     flex-wrap: wrap;
     gap: 1em;
 
+    // 分隔线
+    .separate {
+        &::after {
+            content: '|';
+            line-height: 2em;
+            color: get-color(0.2);
+        }
+    }
+
     // 表单项
     .form-item {
         $h: 2em;
