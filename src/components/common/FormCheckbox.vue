@@ -22,7 +22,7 @@ function checked(value: boolean) {
 <template>
     <div class="form-item">
         <label class="checkbox">
-            <input type="checkbox" :value="modelValue" @change="checked(modelValue)" />
+            <input type="checkbox" :checked="modelValue" @change="checked(modelValue)" />
             <span>{{ label }}</span>
         </label>
     </div>
