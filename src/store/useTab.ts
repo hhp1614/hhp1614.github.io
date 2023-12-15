@@ -9,6 +9,7 @@ type Tab = {
 type Tabs = {
     toolbox: Tab[];
     admin: Tab[];
+    playground: Tab[];
 };
 
 /**
@@ -20,6 +21,7 @@ export const useTabStore = defineStore('tab', {
         tabs: {
             toolbox: [],
             admin: [],
+            playground: [],
         } as Tabs,
         /** 当前激活的标签页 */
         active: { path: '', name: '' },
@@ -75,7 +77,7 @@ export const useTabStore = defineStore('tab', {
          * 重置标签页
          */
         reset() {
-            this.tabs = { toolbox: [], admin: [] };
+            this.tabs = { toolbox: [], admin: [], playground: [] };
             this.active = { path: '', name: '' };
         },
     },

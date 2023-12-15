@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteComponent, RouteRecordRaw } from 'vue-router';
 import toolbox from './toolbox';
 import admin from './admin';
+import playground from './playground';
 
 /**
  * 根据 Pages 生成路由
@@ -33,6 +34,8 @@ const routes: RouteRecordRaw[] = [
     { path: '/', component: () => import('@/views/Home.vue') },
     // 工具箱
     getRoutes('/toolbox', toolbox, () => import('@/views/toolbox/Layout.vue')),
+    // 演练场
+    getRoutes('/playground', playground, () => import('@/views/playground/Layout.vue')),
 ];
 
 if (window.isLocal) {

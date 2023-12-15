@@ -2,6 +2,7 @@
 import router from '@/router';
 import toolbox from '@/router/toolbox';
 import admin from '@/router/admin';
+import playground from '@/router/playground';
 import { useTabStore } from '@/store';
 
 const tabStore = useTabStore();
@@ -9,6 +10,7 @@ const tabStore = useTabStore();
 const list: { [key in keyof typeof tabStore.tabs]: Pages } = {
     toolbox,
     admin,
+    playground,
 };
 
 const props = defineProps<{

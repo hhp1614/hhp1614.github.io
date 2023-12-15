@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { Codemirror } from 'vue-codemirror';
-import { basicSetup } from 'codemirror';
-import { keymap, EditorView } from '@codemirror/view';
+import { basicSetup, EditorView } from 'codemirror';
+import { keymap } from '@codemirror/view';
 import { indentWithTab } from '@codemirror/commands';
 import { oneDark } from '@codemirror/theme-one-dark';
 import { html } from '@codemirror/lang-html';
@@ -31,6 +31,7 @@ const props = defineProps({
     autofocus: Boolean,
     /** 禁止编辑 */
     disabled: Boolean,
+    /** tab 大小 */
     tabSize: { type: Number, default: 4 },
 });
 

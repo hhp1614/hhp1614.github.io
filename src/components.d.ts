@@ -10,6 +10,7 @@ import FormSelectVue from './components/common/FormSelect.vue';
 import IconVue from './components/common/Icon.vue';
 import PaginateVue from './components/common/Paginate.vue';
 import EditorVue from './components/common/Editor.vue';
+import ResizeVue from './components/common/Resize.vue';
 
 declare module '@vue/runtime-core' {
     export interface GlobalComponents {
@@ -25,5 +26,6 @@ declare module '@vue/runtime-core' {
         Dialog: typeof DialogVue;
         DatePicker: typeof DatePickerVue;
         Editor: typeof EditorVue;
+        Resize: typeof ResizeVue;
     }
 }

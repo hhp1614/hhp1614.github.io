@@ -11,6 +11,7 @@ import Paginate from './Paginate.vue';
 import Dialog from './Dialog.vue';
 import DatePicker from './DatePicker.vue';
 import Editor from './Editor.vue';
+import Resize from './Resize.vue';
 
 const components = {
     Icon,
@@ -25,6 +26,7 @@ const components = {
     Dialog,
     DatePicker,
     Editor,
+    Resize,
 } as { [key: string]: Component };
 
 export default {

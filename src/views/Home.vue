@@ -38,6 +38,7 @@ function goto(key: keyof typeof tabStore.tabs) {
             <nav class="nav">
                 <span v-if="isLocal" class="link" @click="goto('admin')">管理后台</span>
                 <span class="link" @click="goto('toolbox')">工具箱</span>
+                <span class="link" @click="goto('playground')">演练场</span>
             </nav>
         </header>
         <div class="avatar">
