@@ -1,4 +1,4 @@
-import{j as D,a as _,r as n,h as U,w as C,k,v as x,z as u,C as l,F as L,J as M,y as v,K as E,B}from"./@vue-562a0746.js";const V={chobitsu:"http://localhost/libs/chobitsu.js",chiiApp:"http://localhost/libs/chii/public/front_end/entrypoints/chii_app/chii_app.js"},N={chobitsu:"https://unpkg.com/chobitsu@1.4.6/dist/chobitsu.js",chiiApp:"https://unpkg.com/chii@1.8.0/public/front_end/entrypoints/chii_app/chii_app.js"},j=window.isLocal?V:N;function $(i={css:"",html:"",javascript:""}){const e=URL.createObjectURL(new Blob([i.css],{type:"text/css"})),s=URL.createObjectURL(new Blob([i.javascript],{type:"text/javascript"}));return setTimeout(()=>{URL.revokeObjectURL(e),URL.revokeObjectURL(s)},120),`<!DOCTYPE html>
+import{j as E,a as U,r as i,h as L,w as z,k as N,v as R,z as b,C as d,F as j,J as V,N as O,B as T,y as w,K as I}from"./@vue-562a0746.js";const S={chobitsu:"http://localhost/libs/chobitsu.js",chiiApp:"http://localhost/libs/chii/public/front_end/entrypoints/chii_app/chii_app.js"},$={chobitsu:"https://unpkg.com/chobitsu@1.4.6/dist/chobitsu.js",chiiApp:"https://unpkg.com/chii@1.8.0/public/front_end/entrypoints/chii_app/chii_app.js"},C=window.isLocal?S:$;function W(p={css:"",html:"",javascript:""}){const e=URL.createObjectURL(new Blob([p.css],{type:"text/css"})),a=URL.createObjectURL(new Blob([p.javascript],{type:"text/javascript"}));return setTimeout(()=>{URL.revokeObjectURL(e),URL.revokeObjectURL(a)},120),`<!DOCTYPE html>
         <html lang="zh">
         <head>
             <meta charset="UTF-8">
@@ -10,9 +10,9 @@ import{j as D,a as _,r as n,h as U,w as C,k,v as x,z as u,C as l,F as L,J as M,y
             <script>console.clear();<\/script>
         </head>
         <body>
-            ${i.html}
-            <script src="${j.chobitsu}"><\/script>
-            <script src="${s}"><\/script>
+            ${p.html}
+            <script src="${C.chobitsu}"><\/script>
+            <script src="${a}"><\/script>
             <script type="module">
                 const sendToDevtools = message => {
                     window.parent.postMessage(JSON.stringify(message), '*');
@@ -60,7 +60,7 @@ import{j as D,a as _,r as n,h as U,w as C,k,v as x,z as u,C as l,F as L,J as M,y
                 });
             <\/script>
         </body>
-    </html>`}function I(){return`<!DOCTYPE html>
+    </html>`}function A(){return`<!DOCTYPE html>
         <html lang="zh">
         <head>
             <meta charset="UTF-8">
@@ -68,11 +68,11 @@ import{j as D,a as _,r as n,h as U,w as C,k,v as x,z as u,C as l,F as L,J as M,y
             <meta name="color-scheme" content="light dark" />
             <meta name="referrer" content="no-referrer">
             <title>控制台</title>
-            <script type="module" src="${j.chiiApp}"><\/script>
+            <script type="module" src="${C.chiiApp}"><\/script>
         </head>
         <body class="undocked" id="-blink-dev-tools"></body>
-    </html>`}const S={class:"frontend-index"},W={class:"source"},A={class:"label"},F={class:"preview"},P=["src"],z=["src"],H=D({__name:"FrontendIndex",setup(i){const e=_({html:"",javascript:"",css:""}),s=_({html:"",javascript:"",css:""}),a=n(),d=n(),b=n(!1),p=n(""),m=n(""),y=U(()=>{const t=$(s);return p.value=URL.createObjectURL(new Blob([t],{type:"text/html"})),p.value}),O=U(()=>{const t=I();return m.value=URL.createObjectURL(new Blob([t],{type:"text/html"})),`${m.value}#?embedded=${encodeURIComponent(location.origin)}`});window.addEventListener("message",t=>{var h,c,o,r,w,f;(h=a.value)!=null&&h.contentWindow&&t.source===((c=a.value)==null?void 0:c.contentWindow)&&((r=(o=d.value)==null?void 0:o.contentWindow)==null||r.postMessage(t.data,"*")),t.source===((w=d.value)==null?void 0:w.contentWindow)&&((f=a.value)==null||f.contentWindow.postMessage({event:"DEV",data:t.data},"*"))});function R(){URL.revokeObjectURL(p.value),b.value&&a.value.contentWindow.postMessage({event:"LOADED"},"*")}function T(){b.value=!0,URL.revokeObjectURL(m.value)}let g;return C(()=>e,()=>{clearTimeout(g),g=window.setTimeout(()=>{s.css=e.css,s.html=e.html,s.javascript=e.javascript},240)},{deep:!0}),k(()=>{e.html=`<div class="app">
+    </html>`}const F={class:"frontend-index"},H={class:"source"},P={class:"label"},J=["src"],Y=["src"],q=E({__name:"FrontendIndex",setup(p){const e=U({html:"",javascript:"",css:""}),a=U({html:"",javascript:"",css:""}),m=i(),r=i(),u=i(),f=i(!1),h=i(""),v=i(""),g=i(.625),D=L(()=>{const t=W(a);return h.value=URL.createObjectURL(new Blob([t],{type:"text/html"})),h.value}),k=L(()=>{const t=A();return v.value=URL.createObjectURL(new Blob([t],{type:"text/html"})),`${v.value}#?embedded=${encodeURIComponent(location.origin)}`});window.addEventListener("message",t=>{var n,l,c,o,s,y;(n=r.value)!=null&&n.contentWindow&&t.source===((l=r.value)==null?void 0:l.contentWindow)&&((o=(c=u.value)==null?void 0:c.contentWindow)==null||o.postMessage(t.data,"*")),t.source===((s=u.value)==null?void 0:s.contentWindow)&&((y=r.value)==null||y.contentWindow.postMessage({event:"DEV",data:t.data},"*"))});function x(){URL.revokeObjectURL(h.value),f.value&&r.value.contentWindow.postMessage({event:"LOADED"},"*")}function M(){f.value=!0,URL.revokeObjectURL(v.value)}function B(t,n){const l=m.value.getBoundingClientRect(),c=n-l.top-t/2,o=m.value.offsetHeight-t,s=c/o;g.value=s}let _;return z(e,()=>{clearTimeout(_),_=window.setTimeout(()=>{a.css=e.css,a.html=e.html,a.javascript=e.javascript},240)}),N(()=>{e.html=`<div class="app">
     Hello world
 </div>`,e.css=`.app {
     color: red;
-}`,e.javascript="console.log('Hello world')"}),(t,h)=>{const c=x("Editor");return v(),u("div",S,[l("div",W,[(v(!0),u(L,null,M(Object.keys(e),o=>(v(),u(L,{key:o},[l("div",A,E(o),1),B(c,{class:"editor",modelValue:e[o],"onUpdate:modelValue":r=>e[o]=r,language:o},null,8,["modelValue","onUpdate:modelValue","language"])],64))),128))]),l("div",F,[l("iframe",{ref_key:"previewIframe",ref:a,src:y.value,class:"preview-page",onLoad:R,sandbox:"allow-popups-to-escape-sandbox allow-scripts allow-popups allow-forms allow-pointer-lock allow-top-navigation allow-modals allow-same-origin"},null,40,P),l("iframe",{id:"devtools",ref_key:"devtoolsIframe",ref:d,src:O.value,class:"preview-devtools",onLoad:T},null,40,z)])])}}});export{H as default};
+}`,e.javascript="console.log('Hello world')"}),(t,n)=>{const l=R("Editor"),c=R("Resize");return w(),b("div",F,[d("div",H,[(w(!0),b(j,null,V(Object.keys(e),o=>(w(),b(j,{key:o},[d("div",P,I(o),1),T(l,{class:"editor",modelValue:e[o],"onUpdate:modelValue":s=>e[o]=s,language:o},null,8,["modelValue","onUpdate:modelValue","language"])],64))),128))]),d("div",{class:"preview",ref_key:"preview",ref:m},[d("iframe",{ref_key:"previewIframe",ref:r,style:O({flex:g.value}),src:D.value,class:"preview-page",onLoad:x,sandbox:"allow-popups-to-escape-sandbox allow-scripts allow-popups allow-forms allow-pointer-lock allow-top-navigation allow-modals allow-same-origin"},null,44,J),T(c,{onResize:n[0]||(n[0]=({height:o,y:s})=>B(o,s))}),d("iframe",{id:"devtools",ref_key:"devtoolsIframe",ref:u,style:O({flex:1-g.value}),src:k.value,class:"preview-devtools",onLoad:M},null,44,Y)],512)])}}});export{q as default};
