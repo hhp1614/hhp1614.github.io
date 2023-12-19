@@ -7,17 +7,23 @@ const props = defineProps({
 });
 
 const emit = defineEmits<{
-    (e: 'resize', clientX: number, clientY: number): void;
+    (e: 'resize', data: { width: number; height: number; x: number; y: number }): void;
 }>();
 
+const resizer = ref<HTMLElement>();
 const isDragging = ref(false);
 
 const onMouseMove = throttle((e: MouseEvent) => {
     if (!isDragging.value) {
         return;
     }
-    emit('resize', e.clientX, e.clientY);
-});
+    emit('resize', {
+        width: resizer.value.offsetWidth,
+        height: resizer.value.offsetHeight,
+        x: e.clientX,
+        y: e.clientY,
+    });
+}, 10);
 
 function onResizeStart() {
     isDragging.value = true;
@@ -28,15 +34,15 @@ function onResizeEnd() {
 
 watch(isDragging, v => {
     if (v) {
-        window.addEventListener('mousemove', onMouseMove);
-        window.addEventListener('mouseup', onResizeEnd);
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onResizeEnd);
     } else {
-        window.removeEventListener('mousemove', onMouseMove);
-        window.removeEventListener('mouseup', onResizeEnd);
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onResizeEnd);
     }
 });
 </script>
 
 <template>
-    <div class="resizer" @mousedown.passive="onResizeStart"></div>
+    <div ref="resizer" class="resizer" @mousedown.passive="onResizeStart"></div>
 </template>

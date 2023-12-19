@@ -9,6 +9,7 @@ import { html } from '@codemirror/lang-html';
 import { javascript } from '@codemirror/lang-javascript';
 import { json } from '@codemirror/lang-json';
 import { php } from '@codemirror/lang-php';
+import { css } from '@codemirror/lang-css';
 import { useDarkModeStore } from '@/store';
 
 const store = useDarkModeStore();
@@ -18,6 +19,7 @@ const languages = {
     html: html(),
     javascript: javascript(),
     php: php(),
+    css: css(),
 };
 
 const props = defineProps({

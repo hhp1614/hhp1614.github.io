@@ -20,7 +20,7 @@
 
         .preview {
             @extend %flex-column;
-            gap: 0.5em;
+            // gap: 0.5em;
 
             iframe {
                 flex: 1;

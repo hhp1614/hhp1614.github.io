@@ -13,11 +13,13 @@ const output = reactive({
     css: '',
 });
 
+const preview = ref<HTMLElement>();
 const previewIframe = ref<HTMLIFrameElement>();
 const devtoolsIframe = ref<HTMLIFrameElement>();
 const devtoolsLoaded = ref(false);
 const pageUrlBlob = ref('');
 const devtoolsUrlBlob = ref('');
+const iframeHeight = ref(0.625);
 
 const pageUrl = computed(() => {
     const html = generatePage(output);
@@ -52,23 +54,23 @@ function devtoolsOnload() {
     URL.revokeObjectURL(devtoolsUrlBlob.value);
 }
 
-function changeIframeHeight(x: number, y: number) {
-    console.log(y);
+function changeIframeHeight(height: number, y: number) {
+    const rect = preview.value.getBoundingClientRect();
+    const position = y - rect.top - height / 2;
+    const size = preview.value.offsetHeight - height;
+    const percent = position / size;
+    iframeHeight.value = percent;
 }
 
 let timer: number;
-watch(
-    () => code,
-    () => {
-        clearTimeout(timer);
-        timer = window.setTimeout(() => {
-            output.css = code.css;
-            output.html = code.html;
-            output.javascript = code.javascript;
-        }, 240);
-    },
-    { deep: true },
-);
+watch(code, () => {
+    clearTimeout(timer);
+    timer = window.setTimeout(() => {
+        output.css = code.css;
+        output.html = code.html;
+        output.javascript = code.javascript;
+    }, 240);
+});
 
 onMounted(() => {
     code.html = '<div class="app">\n    Hello world\n</div>';
@@ -85,18 +87,20 @@ onMounted(() => {
                 <Editor class="editor" v-model="code[key as keyof typeof code]" :language="key" />
             </template>
         </div>
-        <div class="preview">
+        <div class="preview" ref="preview">
             <iframe
                 ref="previewIframe"
+                :style="{ flex: iframeHeight }"
                 :src="pageUrl"
                 class="preview-page"
                 @load="previewOnload"
                 sandbox="allow-popups-to-escape-sandbox allow-scripts allow-popups allow-forms allow-pointer-lock allow-top-navigation allow-modals allow-same-origin"
             ></iframe>
-            <!-- <Resize @resize="changeIframeHeight" /> -->
+            <Resize @resize="({ height, y }) => changeIframeHeight(height, y)" />
             <iframe
                 id="devtools"
                 ref="devtoolsIframe"
+                :style="{ flex: 1 - iframeHeight }"
                 :src="devtoolsUrl"
                 class="preview-devtools"
                 @load="devtoolsOnload"
