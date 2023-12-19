@@ -2,10 +2,6 @@
 import { throttle } from '@/utils';
 import { ref, watch } from 'vue';
 
-const props = defineProps({
-    isHorizontal: Boolean,
-});
-
 const emit = defineEmits<{
     (e: 'resize', data: { width: number; height: number; x: number; y: number }): void;
 }>();
@@ -33,13 +29,9 @@ function onResizeEnd() {
 }
 
 watch(isDragging, v => {
-    if (v) {
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onResizeEnd);
-    } else {
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onResizeEnd);
-    }
+    const action = v ? 'addEventListener' : 'removeEventListener';
+    document[action]('mousemove', onMouseMove);
+    document[action]('mouseup', onResizeEnd);
 });
 </script>
 

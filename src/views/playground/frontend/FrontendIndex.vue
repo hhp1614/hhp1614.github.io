@@ -24,14 +24,12 @@ const iframeHeight = ref(0.625);
 const pageUrl = computed(() => {
     const html = generatePage(output);
     pageUrlBlob.value = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
-    // setTimeout(() => URL.revokeObjectURL(url), 10);
     return pageUrlBlob.value;
 });
 
 const devtoolsUrl = computed(() => {
     const html = generateDevtool();
     devtoolsUrlBlob.value = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
-    // setTimeout(() => URL.revokeObjectURL(rowUrl), 10);
     return `${devtoolsUrlBlob.value}#?embedded=${encodeURIComponent(location.origin)}`;
 });
 
