@@ -13,25 +13,35 @@ const onMouseMove = throttle((e: MouseEvent) => {
     if (!isDragging.value) {
         return;
     }
-    emit('resize', {
+    const data = {
         width: resizer.value.offsetWidth,
         height: resizer.value.offsetHeight,
         x: e.clientX,
         y: e.clientY,
-    });
+    };
+    emit('resize', data);
 }, 10);
+
+function setIframePointer(flag: boolean) {
+    [...document.querySelectorAll('iframe')].forEach(iframe => {
+        iframe.style.pointerEvents = flag ? 'auto' : 'none';
+    });
+}
 
 function onResizeStart() {
     isDragging.value = true;
+    setIframePointer(false);
 }
+
 function onResizeEnd() {
     isDragging.value = false;
+    setIframePointer(true);
 }
 
 watch(isDragging, v => {
-    const action = v ? 'addEventListener' : 'removeEventListener';
-    document[action]('mousemove', onMouseMove);
-    document[action]('mouseup', onResizeEnd);
+    const action: keyof typeof window = v ? 'addEventListener' : 'removeEventListener';
+    window[action]('mousemove', onMouseMove);
+    window[action]('mouseup', onResizeEnd);
 });
 </script>
 
