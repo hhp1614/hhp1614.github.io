@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
 import { Codemirror } from 'vue-codemirror'
 import { basicSetup, EditorView } from 'codemirror'
 import { keymap } from '@codemirror/view'

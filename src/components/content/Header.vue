@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { onMounted } from 'vue'
 import router from '@/router'
 import { useTabStore } from '@/store'
 

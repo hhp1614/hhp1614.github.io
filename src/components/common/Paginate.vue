@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
-
 const props = defineProps({
   /** 当前页 */
   page: { type: Number, default: 1 },

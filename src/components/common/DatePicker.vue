@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { computed, nextTick, onMounted, ref } from 'vue'
-
 type DayType = { day: number; data: string; current?: boolean }
 
 const props = defineProps({

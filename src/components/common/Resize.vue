@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { throttle } from '@/utils'
-import { ref, watch } from 'vue'
 
 const emit = defineEmits<{
   (e: 'resize', data: { width: number; height: number; x: number; y: number }): void

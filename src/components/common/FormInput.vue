@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-
 defineProps({
   /** 类型 */
   type: { type: String, default: 'text' },

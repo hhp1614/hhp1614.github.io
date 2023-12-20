@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-
 const props = defineProps({
   /** 占位符 */
   placeholder: { type: String, default: '请选择' },
