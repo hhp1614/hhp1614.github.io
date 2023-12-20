@@ -1,1 +1,0 @@
-import{r as t}from"./request-470f9b44.js";function e(r){return t("/history/index",r)}function s(r){return t("/history/remove",{id:r})}function i(r){return t("/history/host",r)}function n(r){return t("/history/hostRemove",{id:r})}export{i as a,n as b,e as g,s as r};

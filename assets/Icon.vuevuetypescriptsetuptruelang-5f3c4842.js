@@ -1,0 +1,1 @@
+import{j as o,A as r,M as s,y as t}from"./@vue-b0826c04.js";const i=o({__name:"Icon",props:{name:{type:String,require:!0}},setup(e){const n=e;return(a,c)=>(t(),r("i",{class:s(["iconfont",`icon-${n.name}`])},null,2))}});export{i as _};
