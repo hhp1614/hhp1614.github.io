@@ -1,9 +1,9 @@
 interface Scheduled<Args extends unknown[]> {
-    (...args: Args): void;
-    clear: VoidFunction;
+  (...args: Args): void
+  clear: VoidFunction
 }
 
-type ScheduleCallback = <Args extends unknown[]>(callback: (...args: Args) => void, wait?: number) => Scheduled<Args>;
+type ScheduleCallback = <Args extends unknown[]>(callback: (...args: Args) => void, wait?: number) => Scheduled<Args>
 
 /**
  * 防抖
@@ -18,14 +18,14 @@ type ScheduleCallback = <Args extends unknown[]>(callback: (...args: Args) => vo
  * ```
  */
 export const debounce: ScheduleCallback = (callback, wait) => {
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-    const clear = () => clearTimeout(timeoutId);
-    const debounced: typeof callback = (...args) => {
-        if (timeoutId !== undefined) clear();
-        timeoutId = setTimeout(() => callback(...args), wait);
-    };
-    return Object.assign(debounced, { clear });
-};
+  let timeoutId: ReturnType<typeof setTimeout> | undefined
+  const clear = () => clearTimeout(timeoutId)
+  const debounced: typeof callback = (...args) => {
+    if (timeoutId !== undefined) clear()
+    timeoutId = setTimeout(() => callback(...args), wait)
+  }
+  return Object.assign(debounced, { clear })
+}
 
 /**
  * 节流
@@ -40,24 +40,24 @@ export const debounce: ScheduleCallback = (callback, wait) => {
  * ```
  */
 export const throttle: ScheduleCallback = (callback, wait) => {
-    let isThrottled = false,
-        timeoutId: ReturnType<typeof setTimeout>,
-        lastArgs: Parameters<typeof callback>;
+  let isThrottled = false,
+    timeoutId: ReturnType<typeof setTimeout>,
+    lastArgs: Parameters<typeof callback>
 
-    const throttled: typeof callback = (...args) => {
-        lastArgs = args;
-        if (isThrottled) return;
-        isThrottled = true;
-        timeoutId = setTimeout(() => {
-            callback(...lastArgs);
-            isThrottled = false;
-        }, wait);
-    };
+  const throttled: typeof callback = (...args) => {
+    lastArgs = args
+    if (isThrottled) return
+    isThrottled = true
+    timeoutId = setTimeout(() => {
+      callback(...lastArgs)
+      isThrottled = false
+    }, wait)
+  }
 
-    const clear = () => {
-        clearTimeout(timeoutId);
-        isThrottled = false;
-    };
+  const clear = () => {
+    clearTimeout(timeoutId)
+    isThrottled = false
+  }
 
-    return Object.assign(throttled, { clear });
-};
+  return Object.assign(throttled, { clear })
+}

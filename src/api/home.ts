@@ -1,4 +1,4 @@
-import request from '@/utils/request';
+import request from '@/utils/request'
 
 /**
  * 搜索
@@ -7,5 +7,5 @@ import request from '@/utils/request';
  * @returns 搜索结果
  */
 export function searchEngine(engine: string, word: string) {
-    return request<string[]>('/search/engine', { engine, word });
+  return request<string[]>('/search/engine', { engine, word })
 }

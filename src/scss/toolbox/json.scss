@@ -1,45 +1,45 @@
 // Json.vue
 .json {
-    // 标签
-    .tabs {
-        display: flex;
-        gap: 0.5em;
+  // 标签
+  .tabs {
+    display: flex;
+    gap: 0.5em;
 
-        .item {
-            @extend %hover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5em;
-            padding: 0 0.5em;
-            line-height: 2rem;
-            user-select: none;
-            color: get-color(0.7);
+    .item {
+      @extend %hover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0 0.5em;
+      line-height: 2rem;
+      user-select: none;
+      color: get-color(0.7);
 
-            &.active {
-                background-color: var(--theme-color);
-                color: #fff;
-            }
-        }
+      &.active {
+        background-color: var(--theme-color);
+        color: #fff;
+      }
     }
+  }
 
-    // 内容
-    .content {
-        // 输入 输出
-        .input,
-        .output {
-            @extend %flex-column;
-            height: calc(100vh - 10rem);
-            overflow: auto;
+  // 内容
+  .content {
+    // 输入 输出
+    .input,
+    .output {
+      @extend %flex-column;
+      height: calc(100vh - 10rem);
+      overflow: auto;
 
-            .code-text {
-                flex: 0 0 auto;
+      .code-text {
+        flex: 0 0 auto;
 
-                .null,
-                .boolean {
-                    color: var(--code-color-keyword);
-                }
-            }
+        .null,
+        .boolean {
+          color: var(--code-color-keyword);
         }
+      }
     }
+  }
 }
