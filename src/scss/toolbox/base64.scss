@@ -1,12 +1,12 @@
 // Base64.vue
 .base64 {
-  // 内容
-  .content {
-    // 输入 输出
-    .input,
-    .output {
-      @extend %flex-column;
-      height: calc(100vh - 8rem);
+    // 内容
+    .content {
+        // 输入 输出
+        .input,
+        .output {
+            @extend %flex-column;
+            height: calc(100vh - 8rem);
+        }
     }
-  }
 }

@@ -1,53 +1,53 @@
 // Layout.vue
 .toolbox {
-  // 操作
-  .actions {
-    $h: 2rem;
-    display: flex;
-    height: $h;
-    line-height: $h;
+    // 操作
+    .actions {
+        $h: 2rem;
+        display: flex;
+        height: $h;
+        line-height: $h;
 
-    .input,
-    .output {
-      flex: 1;
-      display: flex;
-      gap: 0.5em;
+        .input,
+        .output {
+            flex: 1;
+            display: flex;
+            gap: 0.5em;
+        }
+
+        button {
+            @extend %hover;
+
+            &:hover {
+                color: var(--theme-color);
+            }
+        }
+
+        .msg {
+            color: var(--theme-color);
+            font-size: $font-mini;
+        }
+
+        .desc {
+            color: get-color(0.5);
+            font-size: $font-mini;
+        }
     }
 
-    button {
-      @extend %hover;
+    // 内容
+    .content {
+        @extend %flex;
+        gap: 0.5em;
 
-      &:hover {
-        color: var(--theme-color);
-      }
+        .input,
+        .output {
+            background-color: var(--bg-0);
+            border: 1px solid get-color(0.1);
+            border-radius: 0.2em;
+            color: get-color(0.7);
+        }
+
+        .output {
+            word-break: break-all;
+        }
     }
-
-    .msg {
-      color: var(--theme-color);
-      font-size: $font-mini;
-    }
-
-    .desc {
-      color: get-color(0.5);
-      font-size: $font-mini;
-    }
-  }
-
-  // 内容
-  .content {
-    @extend %flex;
-    gap: 0.5em;
-
-    .input,
-    .output {
-      background-color: var(--bg-0);
-      border: 1px solid get-color(0.1);
-      border-radius: 0.2em;
-      color: get-color(0.7);
-    }
-
-    .output {
-      word-break: break-all;
-    }
-  }
 }

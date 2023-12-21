@@ -1,23 +1,23 @@
 const localMap = {
-  chobitsu: `http://localhost/libs/chobitsu.js`,
-  chiiApp: `http://localhost/libs/chii/public/front_end/entrypoints/chii_app/chii_app.js`,
-}
+    chobitsu: `http://localhost/libs/chobitsu.js`,
+    chiiApp: `http://localhost/libs/chii/public/front_end/entrypoints/chii_app/chii_app.js`,
+};
 const unpkgMap = {
-  // esModuleShims: 'https://unpkg.com/es-module-shims@1.7.0/dist/es-module-shims.js',
-  chobitsu: 'https://unpkg.com/chobitsu@1.4.6/dist/chobitsu.js',
-  chiiApp: 'https://unpkg.com/chii@1.8.0/public/front_end/entrypoints/chii_app/chii_app.js',
-}
+    // esModuleShims: 'https://unpkg.com/es-module-shims@1.7.0/dist/es-module-shims.js',
+    chobitsu: 'https://unpkg.com/chobitsu@1.4.6/dist/chobitsu.js',
+    chiiApp: 'https://unpkg.com/chii@1.8.0/public/front_end/entrypoints/chii_app/chii_app.js',
+};
 
-const libsMap = window.isLocal ? localMap : unpkgMap
+const libsMap = window.isLocal ? localMap : unpkgMap;
 
 export function generatePage(code = { css: '', html: '', javascript: '' }) {
-  const css = URL.createObjectURL(new Blob([code.css], { type: 'text/css' }))
-  const js = URL.createObjectURL(new Blob([code.javascript], { type: 'text/javascript' }))
-  setTimeout(() => {
-    URL.revokeObjectURL(css)
-    URL.revokeObjectURL(js)
-  }, 120)
-  return `<!DOCTYPE html>
+    const css = URL.createObjectURL(new Blob([code.css], { type: 'text/css' }));
+    const js = URL.createObjectURL(new Blob([code.javascript], { type: 'text/javascript' }));
+    setTimeout(() => {
+        URL.revokeObjectURL(css);
+        URL.revokeObjectURL(js);
+    }, 120);
+    return `<!DOCTYPE html>
         <html lang="zh">
         <head>
             <meta charset="UTF-8">
@@ -79,11 +79,11 @@ export function generatePage(code = { css: '', html: '', javascript: '' }) {
                 });
             </script>
         </body>
-    </html>`
+    </html>`;
 }
 
 export function generateDevtool() {
-  return `<!DOCTYPE html>
+    return `<!DOCTYPE html>
         <html lang="zh">
         <head>
             <meta charset="UTF-8">
@@ -94,5 +94,5 @@ export function generateDevtool() {
             <script type="module" src="${libsMap.chiiApp}"></script>
         </head>
         <body class="undocked" id="-blink-dev-tools"></body>
-    </html>`
+    </html>`;
 }

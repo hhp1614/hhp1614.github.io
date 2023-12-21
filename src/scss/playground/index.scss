@@ -1,31 +1,31 @@
 .playground {
-  .frontend-index {
-    flex-direction: row;
+    .frontend-index {
+        flex-direction: row;
 
-    > div {
-      flex: 1;
+        > div {
+            flex: 1;
+        }
+
+        .source {
+            @extend %flex-column;
+
+            .editor {
+                flex: 1;
+                background-color: var(--bg-0);
+                color: rgba(var(--color), 0.7);
+                border: 1px solid rgba(var(--color), 0.1);
+                border-radius: 0.2em;
+            }
+        }
+
+        .preview {
+            @extend %flex-column;
+            // gap: 0.5em;
+
+            iframe {
+                flex: 1;
+                border: 1px solid rgba(var(--color), 0.1);
+            }
+        }
     }
-
-    .source {
-      @extend %flex-column;
-
-      .editor {
-        flex: 1;
-        background-color: var(--bg-0);
-        color: rgba(var(--color), 0.7);
-        border: 1px solid rgba(var(--color), 0.1);
-        border-radius: 0.2em;
-      }
-    }
-
-    .preview {
-      @extend %flex-column;
-      // gap: 0.5em;
-
-      iframe {
-        flex: 1;
-        border: 1px solid rgba(var(--color), 0.1);
-      }
-    }
-  }
 }

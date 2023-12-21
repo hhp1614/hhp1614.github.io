@@ -1,20 +1,20 @@
 .snippets {
-  // 内容
-  .content {
-    // 输入 输出
-    .input,
-    .output {
-      @extend %flex-column;
-      height: calc(100vh - 10rem);
+    // 内容
+    .content {
+        // 输入 输出
+        .input,
+        .output {
+            @extend %flex-column;
+            height: calc(100vh - 10rem);
 
-      .code-text {
-        flex: 0 0 auto;
+            .code-text {
+                flex: 0 0 auto;
 
-        .null,
-        .boolean {
-          color: var(--code-color-keyword);
+                .null,
+                .boolean {
+                    color: var(--code-color-keyword);
+                }
+            }
         }
-      }
     }
-  }
 }

@@ -1,75 +1,75 @@
 // icon 图标
 i.iconfont {
-  font-family: iconfont !important;
-  font-style: normal !important;
-  font-size: inherit !important;
+    font-family: iconfont !important;
+    font-style: normal !important;
+    font-size: inherit !important;
 }
 
 // 链接
 .link,
 a {
-  position: relative;
-  text-decoration: none;
-  color: var(--theme-color);
-  cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    color: var(--theme-color);
+    cursor: pointer;
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    transition: $transition;
-    background-color: var(--theme-color);
-  }
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        transition: $transition;
+        background-color: var(--theme-color);
+    }
 
-  &:hover::after {
-    width: 100%;
-    left: 0;
-  }
+    &:hover::after {
+        width: 100%;
+        left: 0;
+    }
 }
 
 // 按钮、输入框、文本域
 button,
 input,
 textarea {
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  background-color: unset;
-  color: get-color(0.7);
-  transition: $transition;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background-color: unset;
+    color: get-color(0.7);
+    transition: $transition;
 }
 
 [contenteditable] {
-  outline: none;
+    outline: none;
 }
 
 // 关闭
 .close {
-  $size: 1.2em;
-  width: $size;
-  height: $size;
-  line-height: $size;
-  text-align: center;
-  border-radius: 50%;
-  user-select: none;
-  @extend %hover;
+    $size: 1.2em;
+    width: $size;
+    height: $size;
+    line-height: $size;
+    text-align: center;
+    border-radius: 50%;
+    user-select: none;
+    @extend %hover;
 }
 
 // 底部
 footer {
-  position: fixed;
-  bottom: 0;
-  width: calc(100vw - 20vmin);
-  line-height: 2rem;
-  text-align: center;
-  color: get-color(0.3);
-  background-color: var(--bg-1);
+    position: fixed;
+    bottom: 0;
+    width: calc(100vw - 20vmin);
+    line-height: 2rem;
+    text-align: center;
+    color: get-color(0.3);
+    background-color: var(--bg-1);
 }
 
 // CodeMirror 编辑器
 .cm-editor.cm-focused {
-  outline: none;
+    outline: none;
 }

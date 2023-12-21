@@ -15,67 +15,67 @@ $shadow: 0 0 0.5rem var(--border-color);
 
 // 颜色
 @function get-color($opacity) {
-  @return rgba(var(--color), $opacity);
+    @return rgba(var(--color), $opacity);
 }
 
 // 背景颜色
 @function get-bg($opacity) {
-  @return rgba(var(--bg), $opacity);
+    @return rgba(var(--bg), $opacity);
 }
 
 // 头部
 @mixin header($justify-content: flex-end) {
-  header {
-    display: flex;
-    justify-content: $justify-content;
-    gap: 1em;
-    padding: 0 0.5em;
-    width: 100%;
-    line-height: 2rem;
+    header {
+        display: flex;
+        justify-content: $justify-content;
+        gap: 1em;
+        padding: 0 0.5em;
+        width: 100%;
+        line-height: 2rem;
 
-    nav {
-      display: flex;
-    }
+        nav {
+            display: flex;
+        }
 
-    .nav {
-      gap: 1em;
+        .nav {
+            gap: 1em;
+        }
     }
-  }
 }
 
 // 撑满父级
 %full {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 // hover 样式
 %hover {
-  border-radius: 0.2em;
-  cursor: pointer;
-  transition: $transition;
+    border-radius: 0.2em;
+    cursor: pointer;
+    transition: $transition;
 
-  &:hover {
-    color: var(--theme-color);
-    background-color: get-color(0.1);
-  }
+    &:hover {
+        color: var(--theme-color);
+        background-color: get-color(0.1);
+    }
 
-  &:active {
-    color: var(--theme-color);
-  }
+    &:active {
+        color: var(--theme-color);
+    }
 
-  &:focus {
-    background-color: get-color(0.1);
-  }
+    &:focus {
+        background-color: get-color(0.1);
+    }
 }
 
 %flex {
-  flex: 1;
-  display: flex;
+    flex: 1;
+    display: flex;
 }
 
 // 纵向 flex 样式
 %flex-column {
-  @extend %flex;
-  flex-flow: column;
+    @extend %flex;
+    flex-flow: column;
 }

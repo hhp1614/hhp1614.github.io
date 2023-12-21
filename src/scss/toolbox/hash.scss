@@ -1,54 +1,54 @@
 // Hash.vue
 .hash {
-  // 内容
-  .content {
-    @extend %flex-column;
+    // 内容
+    .content {
+        @extend %flex-column;
 
-    // 输入
-    .input {
-      height: 10em;
-    }
-
-    // 输出
-    .output {
-      @extend %flex;
-      gap: 0.5em;
-      padding: 0.5em;
-
-      .left,
-      .right {
-        flex: 1;
-
-        .item {
-          margin-bottom: 1em;
-          line-height: 1.5;
-
-          &-title {
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-            margin-bottom: 0.2em;
-            padding: 0 0.5em;
-
-            > span {
-              cursor: pointer;
-            }
-
-            button {
-              @extend %hover;
-
-              color: get-color(0.35);
-            }
-          }
-
-          &-value {
-            padding: 0.5em;
-            border-radius: 0.2em;
-            background-color: var(--bg-1);
-            color: get-color(0.7);
-          }
+        // 输入
+        .input {
+            height: 10em;
         }
-      }
+
+        // 输出
+        .output {
+            @extend %flex;
+            gap: 0.5em;
+            padding: 0.5em;
+
+            .left,
+            .right {
+                flex: 1;
+
+                .item {
+                    margin-bottom: 1em;
+                    line-height: 1.5;
+
+                    &-title {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5em;
+                        margin-bottom: 0.2em;
+                        padding: 0 0.5em;
+
+                        > span {
+                            cursor: pointer;
+                        }
+
+                        button {
+                            @extend %hover;
+
+                            color: get-color(0.35);
+                        }
+                    }
+
+                    &-value {
+                        padding: 0.5em;
+                        border-radius: 0.2em;
+                        background-color: var(--bg-1);
+                        color: get-color(0.7);
+                    }
+                }
+            }
+        }
     }
-  }
 }
