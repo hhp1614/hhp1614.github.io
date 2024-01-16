@@ -3,136 +3,136 @@ $bg: var(--bg-1);
 
 // 表单
 .form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+
+  // 分隔线
+  .separate {
+    &::after {
+      content: '|';
+      line-height: 2em;
+      color: get-color(0.2);
+    }
+  }
+
+  // 表单项
+  .form-item {
+    $h: 2em;
+    $border-width: 2px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
+    align-items: center;
+    gap: 0.2em;
+    position: relative;
+    height: $h;
+    border-bottom: $border-width solid get-color(0.2);
+    user-select: none;
+    transition: $transition;
+    cursor: pointer;
 
-    // 分隔线
-    .separate {
-        &::after {
-            content: '|';
-            line-height: 2em;
-            color: get-color(0.2);
-        }
+    &::before {
+      content: attr(label);
+      cursor: default;
     }
 
-    // 表单项
-    .form-item {
-        $h: 2em;
-        $border-width: 2px;
-        display: flex;
-        align-items: center;
-        gap: 0.2em;
-        position: relative;
-        height: $h;
-        border-bottom: $border-width solid get-color(0.2);
-        user-select: none;
-        transition: $transition;
-        cursor: pointer;
+    // 撑满
+    &.full {
+      flex: 1;
 
-        &::before {
-            content: attr(label);
-            cursor: default;
-        }
-
-        // 撑满
-        &.full {
-            flex: 1;
-
-            input {
-                flex: 1;
-            }
-        }
-
-        // 前缀
-        .prefix {
-            user-select: none;
-            color: get-color(0.5);
-        }
-
-        // 输入框
-        input[type='text'] {
-            flex: 1;
-            color: get-color(0.7);
-            cursor: pointer;
-        }
-
-        &:hover {
-            border-color: get-color(0.5);
-        }
-
-        &:active,
-        &:has(input:focus) {
-            border-color: var(--theme-color);
-
-            .prefix {
-                color: var(--theme-color);
-            }
-        }
-
-        // 折叠图标
-        .collapse {
-            width: 1.2em;
-            height: 1.2em;
-            line-height: 1.2em;
-            transition: $transition;
-
-            &.open {
-                transform: rotate(-180deg);
-            }
-        }
-
-        // 选择框列表
-        .select-list {
-            position: absolute;
-            top: $h + 0.5;
-            z-index: 10;
-            line-height: $h;
-            left: 0;
-            width: 100%;
-            background-color: $bg;
-            color: $color;
-            box-shadow: $shadow;
-            border-radius: 0.2em;
-
-            // 选择框选项
-            .select-option {
-                @extend %hover;
-                padding: 0 0.5em;
-                border-radius: unset;
-
-                &.selected {
-                    color: var(--theme-color);
-                    background-color: get-color(0.1);
-                }
-            }
-        }
-
-        // 单选框、复选框取消下划线
-        &:has(input[type='radio']),
-        &:has(input[type='checkbox']) {
-            border-bottom: unset;
-        }
-
-        // 单选框
-        label.radio,
-        label.checkbox {
-            display: flex;
-            align-items: center;
-            padding: 0 0.2em;
-            cursor: pointer;
-
-            input[type='radio'],
-            input[type='checkbox'] {
-                margin: 0;
-                margin-right: 0.2em;
-            }
-        }
+      input {
+        flex: 1;
+      }
     }
 
-    // 按钮
-    > button {
+    // 前缀
+    .prefix {
+      user-select: none;
+      color: get-color(0.5);
+    }
+
+    // 输入框
+    input[type='text'] {
+      flex: 1;
+      color: get-color(0.7);
+      cursor: pointer;
+    }
+
+    &:hover {
+      border-color: get-color(0.5);
+    }
+
+    &:active,
+    &:has(input:focus) {
+      border-color: var(--theme-color);
+
+      .prefix {
+        color: var(--theme-color);
+      }
+    }
+
+    // 折叠图标
+    .collapse {
+      width: 1.2em;
+      height: 1.2em;
+      line-height: 1.2em;
+      transition: $transition;
+
+      &.open {
+        transform: rotate(-180deg);
+      }
+    }
+
+    // 选择框列表
+    .select-list {
+      position: absolute;
+      top: $h + 0.5;
+      z-index: 10;
+      line-height: $h;
+      left: 0;
+      width: 100%;
+      background-color: $bg;
+      color: $color;
+      box-shadow: $shadow;
+      border-radius: 0.2em;
+
+      // 选择框选项
+      .select-option {
         @extend %hover;
-        cursor: pointer;
+        padding: 0 0.5em;
+        border-radius: unset;
+
+        &.selected {
+          color: var(--theme-color);
+          background-color: get-color(0.1);
+        }
+      }
     }
+
+    // 单选框、复选框取消下划线
+    &:has(input[type='radio']),
+    &:has(input[type='checkbox']) {
+      border-bottom: unset;
+    }
+
+    // 单选框
+    label.radio,
+    label.checkbox {
+      display: flex;
+      align-items: center;
+      padding: 0 0.2em;
+      cursor: pointer;
+
+      input[type='radio'],
+      input[type='checkbox'] {
+        margin: 0;
+        margin-right: 0.2em;
+      }
+    }
+  }
+
+  // 按钮
+  > button {
+    @extend %hover;
+    cursor: pointer;
+  }
 }

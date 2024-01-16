@@ -1,89 +1,89 @@
 // 提示框
 .toast {
-    position: fixed;
-    top: 2rem;
-    left: 50%;
-    z-index: 100;
-    transform: translateX(-50%);
-    padding: 0 1rem;
-    line-height: 2rem;
-    border: 1px solid;
-    border-radius: 0.2rem;
-    cursor: default;
-    font-size: 13px;
-    box-shadow: $shadow;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  z-index: 100;
+  transform: translateX(-50%);
+  padding: 0 1rem;
+  line-height: 2rem;
+  border: 1px solid;
+  border-radius: 0.2rem;
+  cursor: default;
+  font-size: 13px;
+  box-shadow: $shadow;
 
-    &.info {
-        color: #909399;
-        border-color: #e9e9eb;
-        background-color: #f4f4f5;
-    }
+  &.info {
+    color: #909399;
+    border-color: #e9e9eb;
+    background-color: #f4f4f5;
+  }
 
-    &.success {
-        color: #67c23a;
-        border-color: #e6f5de;
-        background-color: #f0f9eb;
-    }
+  &.success {
+    color: #67c23a;
+    border-color: #e6f5de;
+    background-color: #f0f9eb;
+  }
 
-    &.warning {
-        color: #e6a23c;
-        border-color: #fbefdf;
-        background-color: #fdf6ec;
-    }
+  &.warning {
+    color: #e6a23c;
+    border-color: #fbefdf;
+    background-color: #fdf6ec;
+  }
 
-    &.error {
-        color: #f56c6c;
-        border-color: #fde2e2;
-        background-color: #fef0f0;
-    }
+  &.error {
+    color: #f56c6c;
+    border-color: #fde2e2;
+    background-color: #fef0f0;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-    .toast {
-        &.info {
-            color: #909399;
-            border-color: #2d2d2f;
-            background-color: #202121;
-        }
-
-        &.success {
-            color: #67c23a;
-            border-color: #25371c;
-            background-color: #1c2518;
-        }
-
-        &.warning {
-            color: #e6a23c;
-            border-color: #3e301c;
-            background-color: #292218;
-        }
-
-        &.error {
-            color: #f56c6c;
-            border-color: #412626;
-            background-color: #2b1d1d;
-        }
+  .toast {
+    &.info {
+      color: #909399;
+      border-color: #2d2d2f;
+      background-color: #202121;
     }
+
+    &.success {
+      color: #67c23a;
+      border-color: #25371c;
+      background-color: #1c2518;
+    }
+
+    &.warning {
+      color: #e6a23c;
+      border-color: #3e301c;
+      background-color: #292218;
+    }
+
+    &.error {
+      color: #f56c6c;
+      border-color: #412626;
+      background-color: #2b1d1d;
+    }
+  }
 }
 
 @keyframes toast-in {
-    from {
-        transform: translateX(-50%) translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes toast-out {
-    from {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(-50%) translateY(-100%);
-        opacity: 0;
-    }
+  from {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
 }

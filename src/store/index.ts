@@ -1,4 +1,4 @@
-export * from './useDarkMode';
-export * from './useTab';
+export * from './useDarkMode'
+export * from './useTab'
 
-export * from './modules/useJson';
+export * from './modules/useJson'
